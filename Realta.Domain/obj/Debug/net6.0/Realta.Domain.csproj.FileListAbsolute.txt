@@ -1,0 +1,12 @@
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\bin\Debug\net6.0\Realta.Domain.deps.json
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\bin\Debug\net6.0\Realta.Domain.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\bin\Debug\net6.0\Realta.Domain.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.csproj.AssemblyReference.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.AssemblyInfoInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.AssemblyInfo.cs
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.csproj.CoreCompileInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\refint\Realta.Domain.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\Realta.Domain.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Domain\obj\Debug\net6.0\ref\Realta.Domain.dll

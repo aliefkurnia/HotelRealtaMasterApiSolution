@@ -1,0 +1,12 @@
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.deps.json
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.AssemblyReference.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfoInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfo.cs
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CoreCompileInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\refint\Realta.Services.Abstraction.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services.Abstraction\obj\Debug\net6.0\ref\Realta.Services.Abstraction.dll

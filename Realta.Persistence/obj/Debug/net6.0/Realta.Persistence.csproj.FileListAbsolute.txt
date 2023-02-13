@@ -1,0 +1,15 @@
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.AssemblyReference.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfoInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfo.cs
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CoreCompileInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CopyComplete
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll

@@ -1,0 +1,12 @@
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\bin\Debug\net6.0\Realta.Contract.deps.json
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\bin\Debug\net6.0\Realta.Contract.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\bin\Debug\net6.0\Realta.Contract.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.csproj.AssemblyReference.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.AssemblyInfoInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.AssemblyInfo.cs
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.csproj.CoreCompileInputs.cache
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
+C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
