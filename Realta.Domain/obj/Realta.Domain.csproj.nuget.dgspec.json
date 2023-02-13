@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Domain\\Realta.Domain.csproj": {}
+    "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\Realta.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Domain\\Realta.Domain.csproj": {
+    "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\Realta.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Domain\\Realta.Domain.csproj",
+        "projectUniqueName": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\Realta.Domain.csproj",
         "projectName": "Realta.Domain",
-        "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Domain\\Realta.Domain.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Domain\\obj\\",
+        "projectPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\Realta.Domain.csproj",
+        "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
+        "outputPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

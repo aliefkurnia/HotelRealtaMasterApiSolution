@@ -14,6 +14,7 @@ namespace Realta.Persistence.Base
     {
         private AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
+        private IStockRepository _stockRepository;
 
         public RepositoryManager(AdoDbContext adoContext)
         {
@@ -29,6 +30,18 @@ namespace Realta.Persistence.Base
                 }
                 return _vendorRepository;
             } 
+        }
+
+        public IStockRepository StockRepository 
+        {
+            get
+            {
+                if (_stockRepository == null)
+                {
+                    _stockRepository = new StocksRepository(_adoContext);
+                }
+                return _stockRepository;
+            }
         }
     }
 }
