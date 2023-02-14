@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {}
   },
   "projects": {
@@ -16,39 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-<<<<<<< HEAD
-    "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services\\Realta.Services.csproj": {}
-  },
-  "projects": {
-    "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-        "projectName": "Realta.Services.Abstraction",
-        "projectPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-        "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
-        "outputPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {}
-  },
-  "projects": {
-    "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-        "projectName": "Realta.Services.Abstraction",
-        "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-        "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-        "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
->>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,12 +55,10 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-<<<<<<< HEAD
     "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -106,36 +70,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services\\Realta.Services.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services\\Realta.Services.csproj",
-        "projectName": "Realta.Services",
-        "projectPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services\\Realta.Services.csproj",
-        "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
-        "outputPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
-        "projectName": "Realta.Services",
-        "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
-        "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-        "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
->>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -149,18 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
               "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
                 "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
-=======
-<<<<<<< HEAD
-              "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-                "projectPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
-=======
-              "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-                "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
->>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
               }
             }
           }
@@ -196,11 +120,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

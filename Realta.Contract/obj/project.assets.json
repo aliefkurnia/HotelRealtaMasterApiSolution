@@ -8,20 +8,11 @@
     "net6.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\User\\.nuget\\packages\\": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\CODE.ID\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\hafiz\\.nuget\\packages\\": {}
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
->>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
       "projectName": "Realta.Contract",
       "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
@@ -30,27 +21,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Contract\\Realta.Contract.csproj",
-      "projectName": "Realta.Contract",
-      "projectPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Contract\\Realta.Contract.csproj",
-      "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
-      "outputPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Contract\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
-      "projectName": "Realta.Contract",
-      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
-      "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
->>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -91,12 +61,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

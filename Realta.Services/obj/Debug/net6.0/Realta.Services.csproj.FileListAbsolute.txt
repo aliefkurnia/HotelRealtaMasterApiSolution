@@ -30,7 +30,6 @@ D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\refint\R
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll
 =======
-<<<<<<< HEAD
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\bin\Debug\net6.0\Realta.Services.deps.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\bin\Debug\net6.0\Realta.Services.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\bin\Debug\net6.0\Realta.Services.pdb
@@ -46,7 +45,6 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\obj\Debug\net6.0\Realta
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\obj\Debug\net6.0\refint\Realta.Services.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll
-=======
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.deps.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.dll
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.pdb

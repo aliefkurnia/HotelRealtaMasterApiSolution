@@ -30,7 +30,6 @@ D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\refin
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
 =======
-<<<<<<< HEAD
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb
@@ -46,7 +45,6 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Rea
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
-=======
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb

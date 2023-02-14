@@ -24,7 +24,6 @@ D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Domain\obj\Debug\net6.0\refint\Rea
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Domain\obj\Debug\net6.0\Realta.Domain.pdb
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Domain\obj\Debug\net6.0\ref\Realta.Domain.dll
 =======
-<<<<<<< HEAD
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\bin\Debug\net6.0\Realta.Domain.deps.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\bin\Debug\net6.0\Realta.Domain.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\bin\Debug\net6.0\Realta.Domain.pdb
@@ -37,7 +36,6 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\obj\Debug\net6.0\Realta.D
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\obj\Debug\net6.0\refint\Realta.Domain.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\obj\Debug\net6.0\Realta.Domain.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Domain\obj\Debug\net6.0\ref\Realta.Domain.dll
-=======
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Domain\bin\Debug\net6.0\Realta.Domain.deps.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Domain\bin\Debug\net6.0\Realta.Domain.dll
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Domain\bin\Debug\net6.0\Realta.Domain.pdb

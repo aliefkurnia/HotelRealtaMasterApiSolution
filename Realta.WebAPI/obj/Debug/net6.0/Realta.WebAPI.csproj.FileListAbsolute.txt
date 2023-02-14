@@ -101,7 +101,6 @@ D:\Batch20\FinalProject\HotelRealtaAPI\Realta.WebAPI\obj\Debug\net6.0\Realta.Web
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.WebAPI\obj\Debug\net6.0\ref\Realta.WebAPI.dll
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.WebAPI\bin\Debug\net6.0\AutoMapper.dll
 =======
-<<<<<<< HEAD
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\bin\Debug\net6.0\appsettings.Development.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\bin\Debug\net6.0\appsettings.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\bin\Debug\net6.0\Realta.WebAPI.exe
@@ -147,7 +146,6 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\refint\R
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\Realta.WebAPI.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\Realta.WebAPI.genruntimeconfig.cache
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\ref\Realta.WebAPI.dll
-=======
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.WebAPI\bin\Debug\net6.0\appsettings.Development.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.WebAPI\bin\Debug\net6.0\appsettings.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.WebAPI\bin\Debug\net6.0\Realta.WebAPI.exe

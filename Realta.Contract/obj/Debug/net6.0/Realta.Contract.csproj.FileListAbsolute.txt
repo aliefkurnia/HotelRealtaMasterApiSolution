@@ -24,7 +24,6 @@ D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\refint\R
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
 =======
-<<<<<<< HEAD
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\bin\Debug\net6.0\Realta.Contract.deps.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\bin\Debug\net6.0\Realta.Contract.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\bin\Debug\net6.0\Realta.Contract.pdb
@@ -37,7 +36,6 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\Realta
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
-=======
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.deps.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.dll
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.pdb
