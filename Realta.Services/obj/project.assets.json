@@ -364,19 +364,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {}
+    "C:\\Users\\alief\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\Realta.Services.csproj",
+      "projectUniqueName": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
       "projectName": "Realta.Services",
-      "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\Realta.Services.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\obj\\",
+      "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+      "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alief\\Source\\Repos\\HotelRealtaAPI\\Realta.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -390,8 +390,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-              "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
+            "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+              "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
             }
           }
         }
@@ -427,7 +427,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

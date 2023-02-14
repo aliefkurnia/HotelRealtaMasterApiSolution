@@ -8,4 +8,8 @@
     <RootNamespace>Realta.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
+  </ItemGroup>
+
 </Project>

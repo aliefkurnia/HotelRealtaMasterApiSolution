@@ -9,6 +9,11 @@ namespace Realta.Domain.Base
 {
     public interface IRepositoryManager
     {
-        IVendorRepository VendorRepository { get; }
+        IRegionsRepository RegionRepository { get; }
+        ICountryRepository CountryRepository { get; }
+        IProvincesRepository ProvincesRepository { get; }
+        IAddressRepository AddressRepository { get; }
+        IMembersRepository MembersRepository { get; }
+        IService_TaskRepository service_TaskRepository { get; }
     }
 }

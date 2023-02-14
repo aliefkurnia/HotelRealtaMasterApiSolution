@@ -51,6 +51,7 @@ namespace Realta.Persistence.Base
             return listOfData;
         }
 
+
         public void Update(SqlCommandModel model)
         {
             _adoContext.ExecuteNonQuery(model);
