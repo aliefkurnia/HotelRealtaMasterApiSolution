@@ -11,7 +11,7 @@ namespace Realta.Contract.Model
     {
         public int vepro_id { get; set; }
         public int vepro_qty_stocked { get; set; }
-        public int vepro_qty_remain { get; set; }
+        public int vepro_qty_remaining { get; set; }
         public decimal vepro_price { get; set; }
         public int venpro_stock_id { get; set; }
         public int vepro_vendor_id { get; set; }

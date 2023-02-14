@@ -106,7 +106,7 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new SqlCommandModel()
             {
                 CommandText = "INSERT INTO purchasing.vendor (vendor_entity_id, vendor_name, vendor_active, vendor_priority, vendor_weburl) " +
-                "VALUES (@vendor_entity_id, @vendor_name, @vendor_active, @vendor_priority, @vendor_weburl);;",
+                "VALUES (@vendor_entity_id, @vendor_name, @vendor_active, @vendor_priority, @vendor_weburl);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
