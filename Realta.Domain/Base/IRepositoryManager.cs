@@ -11,5 +11,6 @@ namespace Realta.Domain.Base
     {
         IVendorRepository VendorRepository { get; }
         IPurchaseOrderHeaderRepository PurchaseOrderHeaderRepository { get; }
+        IPurchaseOrderDetailRepository PurchaseOrderDetailRepository { get; }
     }
 }

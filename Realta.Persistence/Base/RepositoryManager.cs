@@ -12,9 +12,10 @@ namespace Realta.Persistence.Base
 {
     public class RepositoryManager : IRepositoryManager
     {
-        private AdoDbContext _adoContext;
+        private readonly AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
         private IPurchaseOrderHeaderRepository _purchaseOrderHeaderRepository;
+        private IPurchaseOrderDetailRepository _purchaseOrderDetailRepository;
 
         public RepositoryManager(AdoDbContext adoContext)
         {
@@ -42,6 +43,17 @@ namespace Realta.Persistence.Base
                     _purchaseOrderHeaderRepository = new PurchaseOrderHeaderRepository(_adoContext);
                 }
                 return _purchaseOrderHeaderRepository;
+            }
+        }
+        public IPurchaseOrderDetailRepository PurchaseOrderDetailRepository
+        {
+            get
+            {
+                if (_purchaseOrderDetailRepository == null)
+                {
+                    _purchaseOrderDetailRepository = new PurchaseOrderDetailRepository(_adoContext);
+                }
+                return _purchaseOrderDetailRepository;
             }
         }
     }

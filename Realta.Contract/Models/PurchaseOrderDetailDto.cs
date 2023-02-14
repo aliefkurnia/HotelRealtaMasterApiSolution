@@ -7,11 +7,17 @@
         public short PodeOrderQty { get; set; }
         public decimal PodePrice { get; set; }
         public decimal PodeLineTotal { get; set; }
-        public decimal PodeReceivedQty { get; set; }
-        public decimal PodeRejectedQty { get; set; }
-        public decimal PodeStockedQty { get; set; }
+        public decimal PodeReceivedQty { get; set; } = 0;
+        public decimal PodeRejectedQty { get; set; } = 0;
+        public decimal PodeStockedQty { get; set; } = 0;
         public DateTime PodeModifiedDate { get; set; }
         public int PodeStockId { get; set; }
     }
 
+    public class QtyUpdateDto
+    {
+        public short PodeOrderQty { get; set; }
+        public decimal PodeReceivedQty { get; set; } = 0;
+        public decimal PodeRejectedQty { get; set; } = 0;
+    }
 }

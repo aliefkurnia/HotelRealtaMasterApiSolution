@@ -39,12 +39,10 @@ namespace Realta.Persistence.Repositories
         public IEnumerable<PurchaseOrderHeader> FindAll()
         {
             IEnumerator<PurchaseOrderHeader> dataSet = FindAll<PurchaseOrderHeader>("SELECT * FROM purchasing.purchase_order_header;");
-
             while (dataSet.MoveNext())
             {
                 var data = dataSet.Current;
                 yield return data;
-
             }
         }
 
@@ -57,18 +55,12 @@ namespace Realta.Persistence.Repositories
                 CommandParameters = new SqlCommandParameterModel[] { }
 
             };
-
             IAsyncEnumerator<PurchaseOrderHeader> dataSet = FindAllAsync<PurchaseOrderHeader>(model);
-
             var item = new List<PurchaseOrderHeader>();
-
-
             while (await dataSet.MoveNextAsync())
             {
                 item.Add(dataSet.Current);
             }
-
-
             return item;
         }
 
@@ -107,26 +99,6 @@ namespace Realta.Persistence.Repositories
                 CommandText = "INSERT INTO purchasing.purchase_order_header (pohe_number, pohe_tax, pohe_pay_type, pohe_refund, pohe_arrival_date, pohe_emp_id, pohe_vendor_id) values (@poheNumber, @poheTax, @pohePayType, @poheRefund, @poheArrivalDate, @poheEmpId, @poheVendorId); SELECT CAST(scope_identity() as int);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
-                    //new SqlCommandParameterModel() {
-                    //    ParameterName = "@poheStatus",
-                    //    DataType = DbType.String,
-                    //    Value = purchaseOrderHeader.pohe_status
-                    //},
-                    //new SqlCommandParameterModel() {
-                    //    ParameterName = "@poheSubtotal",
-                    //    DataType = DbType.Decimal,
-                    //    Value = purchaseOrderHeader.pohe_subtotal
-                    //},
-                    //new SqlCommandParameterModel() {
-                    //    ParameterName = "@poheTotalAmount",
-                    //    DataType = DbType.Decimal,
-                    //    Value = purchaseOrderHeader.pohe_total_amount
-                    //},
-                    //new SqlCommandParameterModel() {
-                    //    ParameterName = "@poheOrderDate",
-                    //    DataType = DbType.DateTime,
-                    //    Value = purchaseOrderHeader.pohe_order_date
-                    //},
                     new SqlCommandParameterModel() {
                         ParameterName = "@poheNumber",
                         DataType = DbType.String,

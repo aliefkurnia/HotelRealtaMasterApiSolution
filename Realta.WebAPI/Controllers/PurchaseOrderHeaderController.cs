@@ -47,7 +47,7 @@ namespace Realta.WebAPI.Controllers
         }
 
         // GET api/<PurchaseOrderHeaderController>/5
-        [HttpGet("{id}", Name = "GetById")]
+        [HttpGet("{id}", Name = "GetPohById")]
         public IActionResult GetById(int id)
         {
             var result = _repositoryManager.PurchaseOrderHeaderRepository.FindById(id);
@@ -73,97 +73,47 @@ namespace Realta.WebAPI.Controllers
                 PoheVendorId = result.pohe_vendor_id
             };
 
-
-
             return Ok(resultDto);
         }
 
         // POST api/<PurchaseOrderHeaderController>
-        //[HttpPost]
-        //public IActionResult Post([FromBody] PurchaseOrderHeaderDto[] headerDto, PurchaseOrderDetailDto[] detailDto)
-        //{
-        //    //1. prevent POHDTO from null
-        //    if (headerDto == null || detailDto == null)
-        //    {
-        //        _logger.LogError("PurchaseOrder object sent from client is null");
-        //        return BadRequest("PurchaseOrder object is null");
-        //    }
-
-
-        //    var value = new PurchaseOrderHeader()
-        //    {
-        //        //pohe_id = dto.PoheId,
-        //        //pohe_order_date = dto.PoheOrderDate,
-        //        //pohe_subtotal = dto.PoheSubtotal,
-        //        //pohe_total_amount = dto.PoheTotalAmount,
-        //        //pohe_status = dto.PoheStatus,
-
-        //        pohe_number = dto.PoheNumber,
-        //        pohe_tax = dto.PoheTax,
-        //        pohe_refund = dto.PoheRefund,
-        //        pohe_arrival_date = dto.PoheArrivalDate,
-        //        pohe_pay_type = dto.PohePayType,
-        //        pohe_emp_id = dto.PoheEmpId,
-        //        pohe_vendor_id = dto.PoheVendorId
-        //    };
-
-        //    //post to db
-        //    _repositoryManager.PurchaseOrderHeaderRepository.Insert(value);
-
-
-        //    var result = _repositoryManager.PurchaseOrderHeaderRepository.FindById(value.pohe_id);
-
-        //    //forward 
-        //    return CreatedAtRoute("GetById", new { id = value.pohe_id }, result);
-        //}
-
         [HttpPost]
-        public IActionResult Post([FromBody] PurchaseOrderHeaderDto[] headerDto, PurchaseOrderDetailDto[] detailDto)
+        public IActionResult Post([FromBody] PurchaseOrderHeaderDto dto)
         {
-            // 1. Prevent POHDTO from null
-            if (headerDto == null || detailDto == null)
+            //1. prevent POHDTO from null
+            if (dto == null)
             {
-                _logger.LogError("PurchaseOrder object sent from client is null");
-                return BadRequest("PurchaseOrder object is null");
+                _logger.LogError("PurchaseOrderHeader object sent from client is null");
+                return BadRequest("PurchaseOrderHeader object is null");
             }
 
-            // Loop through each header DTO and insert to database
-            foreach (var header in headerDto)
+
+            var value = new PurchaseOrderHeader()
             {
-                var headerEntity = new PurchaseOrderHeader()
-                {
-                    pohe_number = header.PoheNumber,
-                    pohe_tax = header.PoheTax,
-                    pohe_refund = header.PoheRefund,
-                    pohe_arrival_date = header.PoheArrivalDate,
-                    pohe_pay_type = header.PohePayType,
-                    pohe_emp_id = header.PoheEmpId,
-                    pohe_vendor_id = header.PoheVendorId
-                };
+                //pohe_id = dto.PoheId,
+                //pohe_order_date = dto.PoheOrderDate,
+                //pohe_subtotal = dto.PoheSubtotal,
+                //pohe_total_amount = dto.PoheTotalAmount,
+                //pohe_status = dto.PoheStatus,
 
-                _repositoryManager.PurchaseOrderHeaderRepository.Insert(headerEntity);
+                pohe_number = dto.PoheNumber,
+                pohe_tax = dto.PoheTax,
+                pohe_refund = dto.PoheRefund,
+                pohe_arrival_date = dto.PoheArrivalDate,
+                pohe_pay_type = dto.PohePayType,
+                pohe_emp_id = dto.PoheEmpId,
+                pohe_vendor_id = dto.PoheVendorId
+            };
 
-                // Loop through each detail DTO and insert to database
-                foreach (var detail in detailDto)
-                {
-                    var detailEntity = new PurchaseOrderDetail()
-                    {
-                        pode_pohe_id = headerEntity.pohe_id,
-                        pode_order_qty = detail.PodeOrderQty,
-                        pode_price = detail.PodePrice,
-                        pode_stock_id = detail.PodeStockId
-                    };
+            //post to db
+            _repositoryManager.PurchaseOrderHeaderRepository.Insert(value);
 
-                    //_repositoryManager.PurchaseOrderDetailRepository.Insert(detailEntity);
-                }
-            }
 
-            // Save changes to database
-            _repositoryManager.Save();
+            var result = _repositoryManager.PurchaseOrderHeaderRepository.FindById(value.pohe_id);
 
-            return Ok();
+            //forward 
+            return CreatedAtRoute("GetPohById", new { id = value.pohe_id }, result);
         }
-
 
         // PUT api/<PurchaseOrderHeaderController>/5
         [HttpPut("{id}")]
@@ -192,7 +142,7 @@ namespace Realta.WebAPI.Controllers
             var result = _repositoryManager.PurchaseOrderHeaderRepository.FindById(id);
 
             //forward 
-            return CreatedAtRoute("GetById", new { id }, result);
+            return CreatedAtRoute("GetPohById", new { id }, result);
         }
 
         // DELETE api/<PurchaseOrderHeaderController>/5
