@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ynXcqCEje4o1vEPOgFlC0yVFmGwqcwhusgiqHaIcqohE+65wP3XuncjgUYW0J9RKu01Kts+119xG6tHWYYO3dg==",
   "success": true,
   "projectFilePath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services\\Realta.Services.csproj",
@@ -13,6 +14,21 @@
     "C:\\Users\\CODE.ID\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\CODE.ID\\.nuget\\packages\\nlog\\5.0.4\\nlog.5.0.4.nupkg.sha512",
     "C:\\Users\\CODE.ID\\.nuget\\packages\\nlog.extensions.logging\\5.0.4\\nlog.extensions.logging.5.0.4.nupkg.sha512"
+=======
+  "dgSpecHash": "TCXo72s2c8r1L85Z76JFAU8abIjEDnfipyYCwub80pSae0KqTTg+cT87zYWvs0uXFZLcflS3ZzF6sbT8nSAFwA==",
+  "success": true,
+  "projectFilePath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\nlog\\5.0.4\\nlog.5.0.4.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\nlog.extensions.logging\\5.0.4\\nlog.extensions.logging.5.0.4.nupkg.sha512"
+>>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
   ],
   "logs": []
 }

@@ -10,6 +10,7 @@ C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
+<<<<<<< HEAD
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\bin\Debug\net6.0\Realta.Contract.deps.json
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\bin\Debug\net6.0\Realta.Contract.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\bin\Debug\net6.0\Realta.Contract.pdb
@@ -22,3 +23,17 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\Realta
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
+=======
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.deps.json
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.csproj.AssemblyReference.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.AssemblyInfoInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.AssemblyInfo.cs
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.csproj.CoreCompileInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
+>>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
