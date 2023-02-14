@@ -20,7 +20,38 @@ namespace Realta.Persistence.Repositories
 
         public void Edit(VendorProduct venPro)
         {
-            throw new NotImplementedException();
+
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "UPDATE purchasing.vendor_product SET vepro_qty_stocked = @vepro_qty_stocked, vepro_qty_remaining = @vepro_qty_remaining, " +
+                    "vepro_price = @vepro_price " +
+                    "WHERE vepro_id = @id;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@id",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_id
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_qty_stocked",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_qty_stocked
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_qty_remaining",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_qty_remaining
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_price",
+                        DataType = DbType.Decimal,
+                        Value = venPro.vepro_price
+                    },
+                }
+            };
+            _adoContext.ExecuteNonQuery(model);
+            _adoContext.Dispose();
         }
 
         public IEnumerable<VendorProduct> FindAllVendorProduct()
