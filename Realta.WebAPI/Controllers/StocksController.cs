@@ -27,7 +27,6 @@ namespace Realta.WebAPI.Controllers
         {
             var stocks = _repositoryManager.StockRepository.FindAllStocks().ToList();
 
-
             var stocksDto = stocks.Select(r => new StocksDto
             {
                 StockId = r.stock_id,
@@ -42,7 +41,6 @@ namespace Realta.WebAPI.Controllers
                 StockModifiedDate = r.stock_modified_date
             });
 
-
             return Ok(stocksDto);
         }
 
@@ -53,7 +51,7 @@ namespace Realta.WebAPI.Controllers
             var stock = _repositoryManager.StockRepository.FindStocksById(id);
             if (stock == null)
             {
-                _logger.LogError("Region object sent from client is null");
+                _logger.LogError("Stocl object sent from client is null");
                 return BadRequest("Stock object is null");
             }
 
@@ -81,8 +79,8 @@ namespace Realta.WebAPI.Controllers
             //1. prevent regionDto from is null
             if (stocksDto == null)
             {
-                _logger.LogError("RegionDto object sent from client is null");
-                return BadRequest("RegionDto object is null");
+                _logger.LogError("StockDto object sent from client is null");
+                return BadRequest("StockDto object is null");
             }
 
             var stock = new Stocks 
@@ -98,11 +96,12 @@ namespace Realta.WebAPI.Controllers
                 stock_modified_date = stocksDto.StockModifiedDate
             };
 
-            // post region
+            // post 
             _repositoryManager.StockRepository.Insert(stock);
+            stocksDto.StockId = stock.stock_id;
 
             //forward
-            return CreatedAtRoute("GetRegion", new { id = stocksDto.StockId }, stocksDto);
+            return CreatedAtRoute("GetStock", new { id = stock.stock_id }, stocksDto);
         }
 
         // PUT api/<StocksController>/5
@@ -111,8 +110,8 @@ namespace Realta.WebAPI.Controllers
         {
             if (stocksDto == null)
             {
-                _logger.LogError("RegionDto object sent from client is null");
-                return BadRequest("RegionDto object is null");
+                _logger.LogError("StockDto object sent from client is null");
+                return BadRequest("StockDto object is null");
             }
 
             var stock = new Stocks {
@@ -156,14 +155,14 @@ namespace Realta.WebAPI.Controllers
             }
 
             // find region by id
-            var region = _repositoryManager.StockRepository.FindStocksById(id.Value);
-            if (region == null)
+            var stock = _repositoryManager.StockRepository.FindStocksById(id.Value);
+            if (stock == null)
             {
                 _logger.LogError($"Stocks with id {id} not found");
                 return NotFound();
             }
 
-            _repositoryManager.StockRepository.Remove(region);
+            _repositoryManager.StockRepository.Remove(stock);
             return Ok("Data has been remove");
         }
 

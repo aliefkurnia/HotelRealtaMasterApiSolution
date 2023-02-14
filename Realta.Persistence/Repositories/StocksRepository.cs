@@ -119,7 +119,6 @@ namespace Realta.Persistence.Repositories
                 item.Add(dataSet.Current);
               }
 
-
             return item;
         }
 
@@ -157,7 +156,8 @@ namespace Realta.Persistence.Repositories
             {
                 CommandText = "INSERT INTO region (stock_name, stock_description, stock_quantity, stock_reorder_point, stock_used, " +
                 "stock_scrap, stock_size, stock_color, stock_modified_date) values (@stockName,@stockDesc, @stockQty, @stockRP, " +
-                "@stockUsed, @stockScrap ,@stockSize, @stockColor, @stockModifiedDate);",
+                "@stockUsed, @stockScrap ,@stockSize, @stockColor, @stockModifiedDate);" +
+                "SELECT CAST (scope_identity() as int);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -208,7 +208,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            _adoContext.ExecuteNonQuery(model);
+            stocks.stock_id = _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
 
