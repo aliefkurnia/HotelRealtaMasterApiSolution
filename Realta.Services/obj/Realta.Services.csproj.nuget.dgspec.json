@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\Realta.Services.csproj": {}
+    "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {}
   },
   "projects": {
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+    "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
         "projectName": "Realta.Services.Abstraction",
-        "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\obj\\",
+        "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,17 +59,17 @@
         }
       }
     },
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\Realta.Services.csproj": {
+    "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\Realta.Services.csproj",
+        "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
         "projectName": "Realta.Services",
-        "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\Realta.Services.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services\\obj\\",
+        "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-                "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
+              "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+                "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
               }
             }
           }

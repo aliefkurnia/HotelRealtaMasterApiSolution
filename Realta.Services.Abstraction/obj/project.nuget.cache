@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2jAoTjp+jLI94KPUaJEPTwIQs6cxdlO59PR3+2/c3BlD37noSOTwZVnXmQVJaQaknhZhi4cKO2uk2lb2frEslw==",
+  "dgSpecHash": "e29JrPs5dRqwPOy9s3fWnK4PzL1JjXX43zdtjJrWledoZ9qMN5y84twYvWYmGcryuGFDR6XX2oZgIblbIrPfqA==",
   "success": true,
-  "projectFilePath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+  "projectFilePath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

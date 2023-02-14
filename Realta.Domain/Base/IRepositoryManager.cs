@@ -10,5 +10,6 @@ namespace Realta.Domain.Base
     public interface IRepositoryManager
     {
         IVendorRepository VendorRepository { get; }
+        IPurchaseOrderHeaderRepository PurchaseOrderHeaderRepository { get; }
     }
 }

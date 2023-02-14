@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Contract\\Realta.Contract.csproj": {}
+    "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {}
   },
   "projects": {
-    "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Contract\\Realta.Contract.csproj": {
+    "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Contract\\Realta.Contract.csproj",
+        "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
         "projectName": "Realta.Contract",
-        "projectPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Contract\\Realta.Contract.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Bootcamp\\Batch18\\RealtaSolution\\HotelRealtaSolution\\Realta.Contract\\obj\\",
+        "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
