@@ -12,8 +12,10 @@ namespace Realta.Persistence.Base
 {
     public class RepositoryManager : IRepositoryManager
     {
-        private AdoDbContext _adoContext;
+        private readonly AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
+        private IPurchaseOrderHeaderRepository _purchaseOrderHeaderRepository;
+        private IPurchaseOrderDetailRepository _purchaseOrderDetailRepository;
         private IStockRepository _stockRepository;
         private IStockDetailRepository _stockDetailRepository;
         private IStockPhotoRepository _stockPhotoRepository;
@@ -24,18 +26,41 @@ namespace Realta.Persistence.Base
             _adoContext = adoContext;
         }
 
-        public IVendorRepository VendorRepository 
-        { get 
-            { 
+        public IVendorRepository VendorRepository
+        {
+            get
+            {
                 if (_vendorRepository == null)
                 {
                     _vendorRepository = new VendorRepository(_adoContext);
                 }
                 return _vendorRepository;
-            } 
+            }
         }
 
-        public IStockRepository StockRepository 
+        public IPurchaseOrderHeaderRepository PurchaseOrderHeaderRepository
+        {
+            get
+            {
+                if (_purchaseOrderHeaderRepository == null)
+                {
+                    _purchaseOrderHeaderRepository = new PurchaseOrderHeaderRepository(_adoContext);
+                }
+                return _purchaseOrderHeaderRepository;
+            }
+        }
+        public IPurchaseOrderDetailRepository PurchaseOrderDetailRepository
+        {
+            get
+            {
+                if (_purchaseOrderDetailRepository == null)
+                {
+                    _purchaseOrderDetailRepository = new PurchaseOrderDetailRepository(_adoContext);
+                }
+                return _purchaseOrderDetailRepository;
+            }
+        }
+        public IStockRepository StockRepository
         {
             get
             {
@@ -79,7 +104,6 @@ namespace Realta.Persistence.Base
                     _vendorProductRepository = new VendorProductRepository(_adoContext);
                 }
                 return _vendorProductRepository;
-
             }
         }
     }

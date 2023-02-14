@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hRZybsrGBnYorT6Y6Qjhxmy/jvohMrvVddbhpIwg9mzUXIZ/e995tTnntflcQFd/zzzw26HNj+uzEeXplbHNnA==",
+  "dgSpecHash": "urecvn6J3Oc58qWq+FQCf8j4Vk0yPo2HWiOVfOdJPxpkOKbTCF0FECW4ku8aQVTgYi9gF5vqmpdKSVDtaeI7Pg==",
   "success": true,
   "projectFilePath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.WebAPI\\Realta.WebAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hafiz\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\hafiz\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
