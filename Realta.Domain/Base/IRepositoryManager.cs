@@ -12,5 +12,10 @@ namespace Realta.Domain.Base
         IVendorRepository VendorRepository { get; }
         IPurchaseOrderHeaderRepository PurchaseOrderHeaderRepository { get; }
         IPurchaseOrderDetailRepository PurchaseOrderDetailRepository { get; }
+        IStockRepository StockRepository { get; }
+        IStockDetailRepository StockDetailRepository { get; }
+        IStockPhotoRepository StockPhotoRepository { get; }
+        IVendorProductRepository VendorProductRepository { get; }
+
     }
 }

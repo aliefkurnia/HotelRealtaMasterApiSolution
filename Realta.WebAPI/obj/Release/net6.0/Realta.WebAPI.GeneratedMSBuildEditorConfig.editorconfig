@@ -9,9 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Realta.WebAPI
 build_property.RootNamespace = Realta.WebAPI
+<<<<<<< HEAD
 build_property.ProjectDir = D:\Batch20\FinalProject\HotelRealtaAPI\Realta.WebAPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = D:\Batch20\FinalProject\HotelRealtaAPI\Realta.WebAPI
+=======
+build_property.ProjectDir = D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.WebAPI\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.WebAPI
+>>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
 build_property._RazorSourceGeneratorDebug = 

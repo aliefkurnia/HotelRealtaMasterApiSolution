@@ -1,8 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "e29JrPs5dRqwPOy9s3fWnK4PzL1JjXX43zdtjJrWledoZ9qMN5y84twYvWYmGcryuGFDR6XX2oZgIblbIrPfqA==",
   "success": true,
   "projectFilePath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "nZeJEsDOuG14k6S3ivsYVUP+7mWPNwp5eOQdx1c6s45pPdUKnoAxl9Bois0Q2wVp/cedoqT+oRCOO8gHxOOYAA==",
+  "success": true,
+  "projectFilePath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+=======
+  "dgSpecHash": "nvJbJzMt4Iw6c4mZplzYYp5H++RQkg0z7joEdXWYZHjXirDufPp8TaSo92ieVUJA4i49vVko0OZI6muMm/KVow==",
+  "success": true,
+  "projectFilePath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+>>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
+>>>>>>> d17aaa4d97dd9bd704e6539a1d5e5e5d8205bdf4
   "expectedPackageFiles": [],
   "logs": []
 }
