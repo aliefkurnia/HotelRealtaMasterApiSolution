@@ -14,6 +14,9 @@ namespace Realta.Persistence.Base
     {
         private AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
+        private IStockRepository _stockRepository;
+        private IStockDetailRepository _stockDetailRepository;
+        private IStockPhotoRepository _stockPhotoRepository;
         private IVendorProductRepository _vendorProductRepository;
 
         public RepositoryManager(AdoDbContext adoContext)
@@ -32,6 +35,41 @@ namespace Realta.Persistence.Base
             } 
         }
 
+        public IStockRepository StockRepository 
+        {
+            get
+            {
+                if (_stockRepository == null)
+                {
+                    _stockRepository = new StocksRepository(_adoContext);
+                }
+                return _stockRepository;
+            }
+        }
+
+        public IStockDetailRepository StockDetailRepository
+        {
+            get
+            {
+                if (_stockDetailRepository == null)
+                {
+                    _stockDetailRepository = new StockDetailRepository(_adoContext);
+                }
+                return _stockDetailRepository;
+            }
+        }
+        public IStockPhotoRepository StockPhotoRepository
+        {
+            get
+            {
+                if (_stockPhotoRepository == null)
+                {
+                    _stockPhotoRepository = new StockPhotoRepository(_adoContext);
+                }
+                return _stockPhotoRepository;
+            }
+
+        }
         public IVendorProductRepository VendorProductRepository
         {
             get
@@ -41,6 +79,7 @@ namespace Realta.Persistence.Base
                     _vendorProductRepository = new VendorProductRepository(_adoContext);
                 }
                 return _vendorProductRepository;
+
             }
         }
     }

@@ -13,6 +13,23 @@ C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\De
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
+<<<<<<< HEAD
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.pdb
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.AssemblyReference.cache
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfoInputs.cache
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfo.cs
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CoreCompileInputs.cache
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CopyComplete
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
+=======
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb
@@ -28,3 +45,4 @@ D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
 D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
+>>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
