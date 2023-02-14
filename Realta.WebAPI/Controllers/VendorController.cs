@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Realta.Contract.Model;
-//using Realta.Contract.Model;
+using Realta.Contract.Model;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
 using Realta.Services.Abstraction;
@@ -134,14 +134,14 @@ namespace Realta.WebAPI.Controllers
             if (id == null)
             {
                 _logger.LogError("Id sent from client is null");
-                return BadRequest("bject is null");
+                return BadRequest($"Object is null");
             }
 
             var vendor = _repositoryManager.VendorRepository.FindVendorById(id.Value);
             if (vendor == null)
             {
-                _logger.LogError($"Region with id \"{id}\" is not found");
-                return NotFound();
+                _logger.LogError($"Object with id \"{id}\" is not found");
+                return BadRequest($"Object is null");
             }
 
             _repositoryManager.VendorRepository.Remove(vendor);
