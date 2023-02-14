@@ -13,3 +13,18 @@ C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\De
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.AssemblyReference.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfoInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfo.cs
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CoreCompileInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CopyComplete
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll

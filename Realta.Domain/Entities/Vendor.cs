@@ -12,7 +12,7 @@ namespace Realta.Domain.Entities
     public class Vendor
     {
         [Key]
-        public int vendor_id { get; set; }
+        public int vendor_entity_id { get; set; }
         public string vendor_name { get; set; }
         public bool vendor_active { get; set; }
         public bool vendor_priority { get; set; }

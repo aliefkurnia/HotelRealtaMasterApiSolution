@@ -14,6 +14,7 @@ namespace Realta.Persistence.Base
     {
         private AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
+        private IVendorProductRepository _vendorProductRepository;
 
         public RepositoryManager(AdoDbContext adoContext)
         {
@@ -29,6 +30,18 @@ namespace Realta.Persistence.Base
                 }
                 return _vendorRepository;
             } 
+        }
+
+        public IVendorProductRepository VendorProductRepository
+        {
+            get
+            {
+                if (_vendorProductRepository == null)
+                {
+                    _vendorProductRepository = new VendorProductRepository(_adoContext);
+                }
+                return _vendorProductRepository;
+            }
         }
     }
 }

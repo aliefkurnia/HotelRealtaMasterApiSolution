@@ -13,3 +13,18 @@ C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services\obj\Debug
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services\obj\Debug\net6.0\refint\Realta.Services.dll
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
 C:\Bootcamp\Batch18\RealtaSolution\HotelRealtaSolution\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.deps.json
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.AssemblyReference.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.AssemblyInfoInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.AssemblyInfo.cs
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.CoreCompileInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.CopyComplete
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\refint\Realta.Services.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll
