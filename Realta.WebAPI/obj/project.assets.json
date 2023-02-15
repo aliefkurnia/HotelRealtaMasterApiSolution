@@ -1216,19 +1216,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\hafiz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.WebAPI\\Realta.WebAPI.csproj",
+      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.WebAPI\\Realta.WebAPI.csproj",
       "projectName": "Realta.WebAPI",
-      "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.WebAPI\\Realta.WebAPI.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.WebAPI\\obj\\",
+      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.WebAPI\\Realta.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
+      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1242,20 +1242,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
-              "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj"
+            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj"
             },
-            "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
-              "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
+            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
             },
-            "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj": {
-              "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj"
+            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj"
             },
-            "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-              "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
+            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
             },
-            "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {
-              "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj"
+            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj"
             }
           }
         }
@@ -1298,8 +1298,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.WebAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

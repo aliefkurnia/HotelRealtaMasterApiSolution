@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "e29JrPs5dRqwPOy9s3fWnK4PzL1JjXX43zdtjJrWledoZ9qMN5y84twYvWYmGcryuGFDR6XX2oZgIblbIrPfqA==",
+  "dgSpecHash": "nvJbJzMt4Iw6c4mZplzYYp5H++RQkg0z7joEdXWYZHjXirDufPp8TaSo92ieVUJA4i49vVko0OZI6muMm/KVow==",
   "success": true,
-  "projectFilePath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+  "projectFilePath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

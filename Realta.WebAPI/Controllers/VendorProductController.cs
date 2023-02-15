@@ -99,8 +99,32 @@ namespace Realta.WebAPI.Controllers
 
         // PUT api/<VendorProductController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult UpdateVendorProduct(int id, [FromBody] VendorProductDto VenpoDto)
         {
+
+            // lakukan validasi pada regiondto not null
+
+
+            if (VenpoDto == null)
+            {
+                _logger.LogError("Object sent from client is null");
+                return BadRequest("Object is null");
+            }
+
+            var venPo = new VendorProduct()
+            {
+                vepro_id = id,
+                vepro_qty_stocked = VenpoDto.vepro_qty_stocked,
+                vepro_qty_remaining = VenpoDto.vepro_qty_remaining,
+                vepro_price = VenpoDto.vepro_price
+            };
+
+            //post to database
+            _repositoryManager.VendorProductRepository.Edit(venPo);
+            var result = _repositoryManager.VendorProductRepository.FindVendorProductById(id);
+
+            //Redirect
+            return CreatedAtRoute("GetVenpro", new { id }, result);
         }
 
         // DELETE api/<VendorProductController>/5

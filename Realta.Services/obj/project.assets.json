@@ -364,19 +364,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\hafiz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
       "projectName": "Realta.Services",
-      "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services\\obj\\",
+      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+      "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
+      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -390,8 +390,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-              "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
+            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
             }
           }
         }
@@ -427,8 +427,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
