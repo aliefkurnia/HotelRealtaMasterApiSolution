@@ -33,8 +33,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            _adoContext.ExecuteNonQuery(model);
-            _adoContext.Dispose();
+            Update(model);
         }
 
         public IEnumerable<PurchaseOrderHeader> FindAll()
@@ -123,7 +122,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new()
             {
-                CommandText = "INSERT INTO purchasing.purchase_order_header (pohe_number, pohe_tax, pohe_pay_type, pohe_refund, pohe_emp_id, pohe_vendor_id) values (@poheNumber, @poheTax, @pohePayType, @poheRefund, @poheEmpId, @poheVendorId); SELECT CAST(scope_identity() as int);",
+                CommandText = "INSERT INTO purchasing.purchase_order_header (pohe_number, pohe_tax, pohe_pay_type, pohe_refund, pohe_emp_id, pohe_vendor_id) values (@poheNumber, @poheTax, @pohePayType, @poheRefund, @poheEmpId, @poheVendorId);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -159,9 +158,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            //_adoContext.ExecuteNonQuery(model);
-            purchaseOrderHeader.pohe_id = _adoContext.ExecuteScalar<int>(model);
-            _adoContext.Dispose();
+            Create(model);
         }
 
         public void Remove(PurchaseOrderHeader purchaseOrderHeader)
@@ -179,8 +176,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            _adoContext.ExecuteNonQuery(model);
-            _adoContext.Dispose();
+            Delete(model);
         }
 
         public PurchaseOrderHeader GetLastPoByDate(DateTime date)

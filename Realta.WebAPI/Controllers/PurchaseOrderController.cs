@@ -51,6 +51,12 @@ namespace Realta.WebAPI.Controllers
         public async Task<IActionResult> Get(string poNumber)
         {
             var result = _repositoryManager.PurchaseOrderHeaderRepository.FindByPo(poNumber);
+            if (result == null)
+            {
+                _logger.LogError($"POD with id {poNumber} not found");
+                return NotFound();
+            }
+
             var details = await _repositoryManager.PurchaseOrderDetailRepository.FindAllAsync(poNumber);
 
             var resultDto = new PurchaseOrderHeaderDto

@@ -42,8 +42,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            _adoContext.ExecuteNonQuery(model);
-            _adoContext.Dispose();
+            Update(model);
         }
 
         public IEnumerable<PurchaseOrderDetail> FindAll()
@@ -103,7 +102,6 @@ namespace Realta.Persistence.Repositories
             {
                 item = dataSet.Current;
             }
-
             return item;
         }
 
@@ -148,9 +146,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            //_adoContext.ExecuteNonQuery(model);
-            purchaseOrderDetail.pode_id = _adoContext.ExecuteScalar<int>(model);
-            _adoContext.Dispose();
+            Create(model);
         }
 
         public void Remove(PurchaseOrderDetail purchaseOrderDetail)
@@ -168,8 +164,7 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            _adoContext.ExecuteNonQuery(model);
-            _adoContext.Dispose();
+            Delete(model);
         }
     }
 }
