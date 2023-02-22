@@ -14,6 +14,7 @@ namespace Realta.Domain.Repositories
         StockDetail FindStockDetailById(int id);
         void Insert(StockDetail stockDetail);
         void Edit(StockDetail stockDetail);
+        void SwitchStatus(StockDetail stockDetail);
         void Remove(StockDetail stockDetail);
     }
 }
