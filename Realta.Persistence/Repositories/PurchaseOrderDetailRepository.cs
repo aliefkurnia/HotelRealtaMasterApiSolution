@@ -56,13 +56,19 @@ namespace Realta.Persistence.Repositories
             }
         }
 
-        public async Task<IEnumerable<PurchaseOrderDetail>> FindAllAsync()
+        public async Task<IEnumerable<PurchaseOrderDetail>> FindAllAsync(string poNumber)
         {
             SqlCommandModel model = new()
             {
-                CommandText = "SELECT * FROM purchasing.purchase_order_detail;",
+                CommandText = "SELECT pod.* FROM purchasing.purchase_order_detail AS pod JOIN purchasing.purchase_order_header poh ON poh.pohe_id = pod.pode_pohe_id where poh.pohe_number = @poheNumber;",
                 CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] { }
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@poheNumber",
+                        DataType = DbType.String,
+                        Value = poNumber
+                    }
+                }
 
             };
             IAsyncEnumerator<PurchaseOrderDetail> dataSet = FindAllAsync<PurchaseOrderDetail>(model);
@@ -98,7 +104,6 @@ namespace Realta.Persistence.Repositories
                 item = dataSet.Current;
             }
 
-
             return item;
         }
 
@@ -106,7 +111,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new()
             {
-                CommandText = "INSERT INTO purchasing.purchase_order_detail (pode_pohe_id, pode_order_qty, pode_price, pode_stock_id) VALUES (@PodePoheId, @PodeOrderQty, @PodePrice, @PodeStockId); SELECT CAST(scope_identity() as int);",
+                CommandText = "INSERT INTO purchasing.purchase_order_detail (pode_pohe_id, pode_order_qty, pode_price, pode_stock_id, pode_received_qty, pode_rejected_qty) VALUES (@PodePoheId, @PodeOrderQty, @PodePrice, @PodeStockId, @PodeReceivedQty, @PodeRejectedQty); SELECT CAST(scope_identity() as int);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -128,6 +133,16 @@ namespace Realta.Persistence.Repositories
                         ParameterName = "@PodeStockId",
                         DataType = DbType.Int32,
                         Value = purchaseOrderDetail.pode_stock_id
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@PodeReceivedQty",
+                        DataType = DbType.Decimal,
+                        Value = purchaseOrderDetail.pode_received_qty
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@PodeRejectedQty",
+                        DataType = DbType.Decimal,
+                        Value = purchaseOrderDetail.pode_rejected_qty
                     }
 
                 }

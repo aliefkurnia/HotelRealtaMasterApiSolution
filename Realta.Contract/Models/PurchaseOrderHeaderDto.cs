@@ -17,10 +17,11 @@ namespace Realta.Contract.Models
         public decimal PoheTax { get; set; }
         public decimal? PoheTotalAmount { get; set; }
         public decimal PoheRefund { get; set; }
-        public DateTime PoheArrivalDate { get; set; }
+        public DateTime? PoheArrivalDate { get; set; }
         public string PohePayType { get; set; }
         public int PoheEmpId { get; set; }
         public int PoheVendorId { get; set; }
+        public IEnumerable<PurchaseOrderDetailDto>? Details { get; set; }
     }
 
     public class StatusUpdateDto
