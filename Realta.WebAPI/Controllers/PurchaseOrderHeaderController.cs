@@ -51,6 +51,7 @@ namespace Realta.WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _repositoryManager.PurchaseOrderHeaderRepository.FindById(id);
+
             if (result == null)
             {
                 _logger.LogError($"PO with id {id} not found");
@@ -93,7 +94,7 @@ namespace Realta.WebAPI.Controllers
                 //pohe_id = dto.PoheId,
                 //pohe_order_date = dto.PoheOrderDate,
                 //pohe_subtotal = dto.PoheSubtotal,
-                //pohe_total_amount = dto.PoheTotalAmount,
+                //pohe_total_amount = dto.PoheTotalAmount,  
                 //pohe_status = dto.PoheStatus,
 
                 pohe_number = dto.PoheNumber,
@@ -147,20 +148,20 @@ namespace Realta.WebAPI.Controllers
 
         // DELETE api/<PurchaseOrderHeaderController>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(string po)
         {
             //1. prevent POHDTO from null
-            if (id == null)
+            if (po == null)
             {
                 _logger.LogError("PurchaseOrderHeader object sent from client is null");
                 return BadRequest("PurchaseOrderHeader object is null");
             }
 
-            //2. find id first
-            var result = _repositoryManager.PurchaseOrderHeaderRepository.FindById(id.Value);
+            //2. find po first
+            var result = _repositoryManager.PurchaseOrderHeaderRepository.FindByPo(po);
             if (result == null)
             {
-                _logger.LogError($"PO with id {id} not found");
+                _logger.LogError($"PO with po {po} not found");
                 return NotFound();
             }
 

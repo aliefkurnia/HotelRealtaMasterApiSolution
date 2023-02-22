@@ -7,8 +7,10 @@ namespace Realta.Domain.Repositories
         IEnumerable<PurchaseOrderHeader> FindAll();
         Task<IEnumerable<PurchaseOrderHeader>> FindAllAsync();
         PurchaseOrderHeader FindById(int id);
+        PurchaseOrderHeader FindByPo(string po);
         void Insert(PurchaseOrderHeader purchaseOrderHeader);
         void UpdateStatus(PurchaseOrderHeader purchaseOrderHeader);
         void Remove(PurchaseOrderHeader purchaseOrderHeader);
+        PurchaseOrderHeader GetLastPoByDate(DateTime date);
     }
 }

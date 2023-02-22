@@ -21,11 +21,11 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager = repositoryManager;
         }
 
-        // GET: api/<PurchaseOrderDetailController>
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        // GET: api/<PurchaseOrderDetailController>/PO-20230222-001
+        [HttpGet("{po}")]
+        public async Task<IActionResult> Get(string po)
         {
-            var result = await _repositoryManager.PurchaseOrderDetailRepository.FindAllAsync();
+            var result = await _repositoryManager.PurchaseOrderDetailRepository.FindAllAsync(po);
             var resultDto = result.Select(r => new PurchaseOrderDetailDto
             {
                 PodeId = r.pode_id,
