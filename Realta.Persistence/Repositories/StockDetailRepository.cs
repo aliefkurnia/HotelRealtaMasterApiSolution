@@ -30,11 +30,6 @@ namespace Realta.Persistence.Repositories
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                    new SqlCommandParameterModel() {
-                        ParameterName = "@stodId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_id
-                    },
-                   new SqlCommandParameterModel() {
                         ParameterName = "@stodStockId",
                         DataType = DbType.Int32,
                         Value = stockDetail.stod_stock_id
@@ -63,6 +58,11 @@ namespace Realta.Persistence.Repositories
                         ParameterName = "@stodPoheId",
                         DataType = DbType.Int32,
                         Value = stockDetail.stod_pohe_id
+                    },
+                   new SqlCommandParameterModel() {
+                        ParameterName = "@stodId",
+                        DataType = DbType.Int32,
+                        Value = stockDetail.stod_id
                     }
                 }
             };

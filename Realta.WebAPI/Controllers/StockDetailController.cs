@@ -101,12 +101,13 @@ namespace Realta.WebAPI.Controllers
         {
             if (stockDetailDto == null)
             {
-                _logger.LogError("StockPhotoDto object sent from client is null");
-                return BadRequest("StockPotoDto object is null");
+                _logger.LogError("StockDetailDto object sent from client is null");
+                return BadRequest("StockDetailDto object is null");
             }
 
             var stockDetail = new StockDetail
             {
+                stod_id = id,
                 stod_stock_id = stockDetailDto.stod_stock_id,
                 stod_barcode_number= stockDetailDto.stod_barcode_number,
                 stod_status= stockDetailDto.stod_status,
@@ -115,10 +116,12 @@ namespace Realta.WebAPI.Controllers
                 stod_pohe_id= stockDetailDto.stod_pohe_id
             };
 
+            // post 
             _repositoryManager.StockDetailRepository.Edit(stockDetail);
-            stockDetailDto.stod_id = id;
+            stockDetailDto.stod_id = stockDetail.stod_id;
 
-            return CreatedAtRoute("GetStockPhoto", new { id = id }, stockDetailDto);
+            //forward
+            return CreatedAtRoute("GetStockDetail", new { id = stockDetailDto.stod_id }, stockDetailDto);
         }
 
         // DELETE api/<StockDetailController>/5
@@ -148,6 +151,29 @@ namespace Realta.WebAPI.Controllers
         {
             var stockPhotos = await _repositoryManager.StockDetailRepository.FindAllStockDetailAsync();
             return Ok(stockPhotos.ToList());
+        }
+
+        [HttpPut, Route("switchStatus")]
+        public IActionResult EditStatus(int id, [FromBody] StockDetailDto stockDetailDto)
+        {
+            if (stockDetailDto == null)
+            {
+                _logger.LogError("StockPhotoDto object sent from client is null");
+                return BadRequest("StockPotoDto object is null");
+            }
+
+            var stockDetail = new StockDetail
+            {
+                stod_id = id,
+                stod_stock_id = stockDetailDto.stod_stock_id,
+                stod_status = stockDetailDto.stod_status,
+                stod_faci_id = stockDetailDto.stod_faci_id
+            };
+
+            _repositoryManager.StockDetailRepository.Edit(stockDetail);
+            stockDetailDto.stod_id = id;
+
+            return CreatedAtRoute("GetStockDetail", new { id = id }, stockDetailDto);
         }
     }
 }

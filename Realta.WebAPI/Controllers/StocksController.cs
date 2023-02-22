@@ -93,7 +93,7 @@ namespace Realta.WebAPI.Controllers
                 stock_scrap = stocksDto.StockScrap,
                 stock_size = stocksDto.StockSize,
                 stock_color = stocksDto.StockColor,
-                stock_modified_date = stocksDto.StockModifiedDate
+                stock_modified_date = DateTime.Now
             };
 
             // post 

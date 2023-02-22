@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Entities
 {
-    [Table("Stocks")]
+    [Table("Purchasing.stocks")]
     public class Stocks
     {
         [Key]
