@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "u+MebZfAcnuUcFb7OJWtZ4SIaE+fKp+ZLPQ7qFqZ/0GL2qRqKl619jQfXLDt6rwWvhtHZhZY3oCEtVGoIdP0Zg==",
   "success": true,
   "projectFilePath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\Realta.Domain.csproj",
-=======
-  "dgSpecHash": "JWdHElPBhz6SdrsXAVl+jVFH8Bfx9CHetmgyJAEkEib+AGiwH9Vfpy5CrIb1hm3CvRUx1pUVxxr0GjpDtu6pog==",
-  "success": true,
-  "projectFilePath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj",
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

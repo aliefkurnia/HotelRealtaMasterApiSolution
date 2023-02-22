@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Entities
 {
-    [Table("purchasing.stock_detail")]
+    [Table("Purchasing.stock_detail")]
     public class StockDetail
     {
         [Key]
@@ -16,7 +16,7 @@ namespace Realta.Domain.Entities
         public int? stod_id { get; set; }
         [Key]
         [Column(Order = 2)]
-        [ForeignKey("purchasing.stocks")]
+        [ForeignKey("Purchasing.stocks")]
         public int? stod_stock_id { get; set; }
         public string? stod_barcode_number { get; set; }
         public string? stod_status { get; set; }
@@ -25,7 +25,7 @@ namespace Realta.Domain.Entities
         [ForeignKey("Hotel.facilities")]
         public int? stod_faci_id { get; set; }
 
-        [ForeignKey("purchasing.purchase_order_header")]
+        [ForeignKey("Purchasing.purchase_order_header")]
         public int? stod_pohe_id { get; set; }
 
     }

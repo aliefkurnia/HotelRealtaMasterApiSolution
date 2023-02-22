@@ -8,16 +8,11 @@
     "net6.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\CODE.ID\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\hafiz\\.nuget\\packages\\": {}
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Contract\\Realta.Contract.csproj",
       "projectName": "Realta.Contract",
       "projectPath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Contract\\Realta.Contract.csproj",
@@ -26,16 +21,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
-      "projectName": "Realta.Contract",
-      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
-      "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -76,11 +61,7 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
->>>>>>> 68fc10746cc017c1c54897aa9a2e1b2b235e7a0b
       }
     }
   }

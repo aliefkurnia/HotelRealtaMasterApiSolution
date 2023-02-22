@@ -154,7 +154,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO region (stock_name, stock_description, stock_quantity, stock_reorder_point, stock_used, " +
+                CommandText = "INSERT INTO purchasing.stocks (stock_name, stock_description, stock_quantity, stock_reorder_point, stock_used, " +
                 "stock_scrap, stock_size, stock_color, stock_modified_date) values (@stockName,@stockDesc, @stockQty, @stockRP, " +
                 "@stockUsed, @stockScrap ,@stockSize, @stockColor, @stockModifiedDate);" +
                 "SELECT CAST (scope_identity() as int);",
@@ -178,7 +178,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockRP",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_name
+                        Value = stocks.stock_reorder_point
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockUsed",
