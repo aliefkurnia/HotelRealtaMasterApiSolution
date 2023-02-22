@@ -15,5 +15,8 @@ namespace Realta.Domain.Base
         IAddressRepository AddressRepository { get; }
         IMembersRepository MembersRepository { get; }
         IService_TaskRepository service_TaskRepository { get; }
+        IPrice_ItemsRepository price_itemsRepository { get; }
+        IPolicyRepository policyRepository { get; }
+        ICategory_GroupRepository category_groupRepository { get; }
     }
 }

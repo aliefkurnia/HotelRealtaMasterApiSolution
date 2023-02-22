@@ -20,6 +20,9 @@ namespace Realta.Persistence.Base
         private IAddressRepository _addressRepository;
         private IMembersRepository _membersRepository;
         private IService_TaskRepository _service_TaskRepository;
+        private IPrice_ItemsRepository _price_itemsRepository;
+        private IPolicyRepository _policyRepository;
+        private ICategory_GroupRepository _category_GroupRepository;
         public RepositoryManager(AdoDbContext adoContext)
         {
             _adoContext = adoContext;
@@ -96,6 +99,45 @@ namespace Realta.Persistence.Base
                     _service_TaskRepository = new Service_TaskRepository(_adoContext);
                 }
                 return _service_TaskRepository;
+            }
+        }
+
+
+        public IPrice_ItemsRepository price_itemsRepository
+        {
+            get
+            {
+                if (_price_itemsRepository == null)
+                {
+                    _price_itemsRepository = new Price_ItemsRepository(_adoContext);
+                }
+                return _price_itemsRepository;
+            }
+        }
+
+
+        public IPolicyRepository policyRepository
+        {
+            get
+            {
+                if (_policyRepository == null)
+                {
+                    _policyRepository = new PolicyRepository(_adoContext);
+                }
+                return _policyRepository;
+            }
+        }
+
+
+        public ICategory_GroupRepository category_groupRepository
+        {
+            get
+            {
+                if (_category_GroupRepository == null)
+                {
+                    _category_GroupRepository = new Category_GroupRepository(_adoContext);
+                }
+                return _category_GroupRepository;
             }
         }
     }

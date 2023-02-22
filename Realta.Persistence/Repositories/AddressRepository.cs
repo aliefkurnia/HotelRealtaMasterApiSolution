@@ -5,6 +5,7 @@ using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,11 +113,6 @@ namespace Realta.Persistence.Repositories
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
-                        ParameterName = "@addr_id",
-                        DataType = DbType.Int32,
-                        Value = address.addr_id
-                    },
-                    new SqlCommandParameterModel() {
                         ParameterName = "@addr_line1",
                         DataType = DbType.String,
                         Value = address.addr_line1
@@ -150,7 +146,20 @@ namespace Realta.Persistence.Repositories
 
         public void Remove(Address address)
         {
-            throw new NotImplementedException();
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "DELETE FROM master.address WHERE addr_id=@addr_id;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@addr_id",
+                        DataType = DbType.Int32,
+                        Value = address.addr_id
+                    }
+                }
+            };
+            _adoContext.ExecuteNonQuery(model);
+            _adoContext.Dispose();
         }
     }
 }

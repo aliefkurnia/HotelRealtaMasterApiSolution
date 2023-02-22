@@ -66,7 +66,7 @@
         "projectName": "Realta.Services",
         "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
         "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alief\\Source\\Repos\\HotelRealtaAPI\\Realta.Services\\obj\\",
+        "outputPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
