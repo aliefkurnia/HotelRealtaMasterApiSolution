@@ -9,17 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{A0A8EE75-CDA4-4464-A573-1AEFE219F479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realta.WebAPI", "Realta.WebAPI\Realta.WebAPI.csproj", "{3C22C470-1155-463C-B4FA-D681A1EE948F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realta.WebAPI", "Realta.WebAPI\Realta.WebAPI.csproj", "{3C22C470-1155-463C-B4FA-D681A1EE948F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realta.Persistence", "Realta.Persistence\Realta.Persistence.csproj", "{4ACE92ED-C5A6-454B-B424-748CEE05984D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realta.Persistence", "Realta.Persistence\Realta.Persistence.csproj", "{4ACE92ED-C5A6-454B-B424-748CEE05984D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realta.Domain", "Realta.Domain\Realta.Domain.csproj", "{91C1827A-AD94-4ABA-99B1-5F1AA1F14BD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realta.Domain", "Realta.Domain\Realta.Domain.csproj", "{91C1827A-AD94-4ABA-99B1-5F1AA1F14BD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realta.Services", "Realta.Services\Realta.Services.csproj", "{90B5E3DF-7C47-48A8-A8ED-5CA30BD5C5A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realta.Services", "Realta.Services\Realta.Services.csproj", "{90B5E3DF-7C47-48A8-A8ED-5CA30BD5C5A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realta.Services.Abstraction", "Realta.Services.Abstraction\Realta.Services.Abstraction.csproj", "{01C8D7D3-FBE1-4F54-9AF8-3107560A3782}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realta.Services.Abstraction", "Realta.Services.Abstraction\Realta.Services.Abstraction.csproj", "{01C8D7D3-FBE1-4F54-9AF8-3107560A3782}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realta.Contract", "Realta.Contract\Realta.Contract.csproj", "{E2722FEB-DBE6-49FD-A61B-D4BDA899465C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realta.Contract", "Realta.Contract\Realta.Contract.csproj", "{E2722FEB-DBE6-49FD-A61B-D4BDA899465C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,9 @@ using Realta.Persistence.Base;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +20,38 @@ namespace Realta.Persistence.Repositories
 
         public void Edit(VendorProduct venPro)
         {
-            throw new NotImplementedException();
+
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "UPDATE purchasing.vendor_product SET vepro_qty_stocked = @vepro_qty_stocked, vepro_qty_remaining = @vepro_qty_remaining, " +
+                    "vepro_price = @vepro_price " +
+                    "WHERE vepro_id = @id;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@id",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_id
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_qty_stocked",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_qty_stocked
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_qty_remaining",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_qty_remaining
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_price",
+                        DataType = DbType.Decimal,
+                        Value = venPro.vepro_price
+                    },
+                }
+            };
+            _adoContext.ExecuteNonQuery(model);
+            _adoContext.Dispose();
         }
 
         public IEnumerable<VendorProduct> FindAllVendorProduct()
@@ -32,24 +65,112 @@ namespace Realta.Persistence.Repositories
             }
         }
 
-        public Task<IEnumerable<VendorProduct>> FindAllVendorProductAsync()
+        public  async Task<IEnumerable<VendorProduct>> FindAllVendorProductAsync()
         {
-            throw new NotImplementedException();
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT * FROM purchasing.vendor_product;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+
+            IAsyncEnumerator<VendorProduct > dataSet = FindAllAsync<VendorProduct>(model);
+
+            var result = new List<VendorProduct>();
+            while (await dataSet.MoveNextAsync())
+            {
+                result.Add(dataSet.Current);
+            }
+
+
+            return result;
         }
 
         public VendorProduct FindVendorProductById(int id)
         {
-            throw new NotImplementedException();
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT * FROM purchasing.vendor_product where vepro_id=@veproId;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@veproId",
+                        DataType = DbType.Int32,
+                        Value = id
+                    }
+                }
+            };
+
+            var dataSet = FindByCondition<VendorProduct>(model);
+            VendorProduct? item = dataSet.Current;
+
+            while (dataSet.MoveNext())
+            {
+                item = dataSet.Current;
+            }
+            return item;
         }
 
         public void Insert(VendorProduct venPro)
         {
-            throw new NotImplementedException();
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "INSERT INTO purchasing.vendor_product (vepro_qty_stocked, vepro_qty_remaining, vepro_price, " +
+                    "venpro_stock_id, vepro_vendor_id) " +
+                    "VALUES (@vepro_qty_stocked, @vepro_qty_remaining, @vepro_price, @venpro_stock_id, @vepro_vendor_id); " +
+                    "SELECT CAST(scope_identity() as int);",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_qty_stocked",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_qty_stocked
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_qty_remaining",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_qty_remaining
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_price",
+                        DataType = DbType.Decimal,
+                        Value = venPro.vepro_price
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@venpro_stock_id",
+                        DataType = DbType.Int32,
+                        Value = venPro.venpro_stock_id
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@vepro_vendor_id",
+                        DataType = DbType.Int32,
+                        Value = venPro.vepro_vendor_id
+                    },
+                }
+            };
+            //_adoContext.ExecuteNonQuery(model);
+            venPro.vepro_id = _adoContext.ExecuteScalar<int>(model);
+            _adoContext.Dispose();
         }
 
         public void Remove(VendorProduct venPro)
         {
-            throw new NotImplementedException();
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "Delete from purchasing.vendor_product WHERE vepro_id = @id",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                   new SqlCommandParameterModel()
+                   {
+                       ParameterName = "@id",
+                       DataType = DbType.Int32,
+                       Value = venPro.vepro_id
+                   }
+                }
+            };
+            _adoContext.ExecuteNonQuery(model);
+            _adoContext.Dispose();
         }
     }
 }

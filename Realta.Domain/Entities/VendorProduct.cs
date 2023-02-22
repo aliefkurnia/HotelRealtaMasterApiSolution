@@ -14,7 +14,7 @@ namespace Realta.Domain.Entities
         [Key]
         public int vepro_id { get; set; }
         public int vepro_qty_stocked { get; set; }
-        public int vepro_qty_remain { get; set; }
+        public int vepro_qty_remaining { get; set; }
         public decimal vepro_price { get; set; }
 
         [ForeignKey("stock_id")]
