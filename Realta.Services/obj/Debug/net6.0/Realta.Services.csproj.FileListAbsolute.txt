@@ -1,0 +1,15 @@
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.deps.json
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.dll
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.pdb
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.AssemblyReference.cache
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.AssemblyInfoInputs.cache
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.AssemblyInfo.cs
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.CoreCompileInputs.cache
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.CopyComplete
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.dll
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\refint\Realta.Services.dll
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
+D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll
