@@ -170,10 +170,10 @@ namespace Realta.WebAPI.Controllers
                 stod_faci_id = stockDetailDto.stod_faci_id
             };
 
-            _repositoryManager.StockDetailRepository.Edit(stockDetail);
-            stockDetailDto.stod_id = id;
+            _repositoryManager.StockDetailRepository.SwitchStatus(stockDetail);
+            var stockDetailStatus = _repositoryManager.StockDetailRepository.FindStockDetailById(id);
 
-            return CreatedAtRoute("GetStockDetail", new { id = id }, stockDetailDto);
+            return Ok(stockDetailStatus);
         }
     }
 }

@@ -201,5 +201,42 @@ namespace Realta.Persistence.Repositories
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
+
+        public void SwitchStatus(StockDetail stockDetail)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "UPDATE purchasing.stock_detail SET " +
+                "stod_stock_id=@stodStockId, stod_status=@stodStatus, " +
+                "stod_faci_id=@stodFaciId " +
+                "WHERE stod_id=@stodId;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                   new SqlCommandParameterModel() {
+                        ParameterName = "@stodStockId",
+                        DataType = DbType.Int32,
+                        Value = stockDetail.stod_stock_id
+                    },
+                   new SqlCommandParameterModel() {
+                        ParameterName = "@stodStatus",
+                        DataType = DbType.String,
+                        Value = stockDetail.stod_status
+                    },
+                   new SqlCommandParameterModel() {
+                        ParameterName = "@stodFaciId",
+                        DataType = DbType.Int32,
+                        Value = stockDetail.stod_faci_id
+                    },
+                   new SqlCommandParameterModel() {
+                        ParameterName = "@stodId",
+                        DataType = DbType.Int32,
+                        Value = stockDetail.stod_id
+                    }
+                }
+            };
+
+            _adoContext.ExecuteNonQuery(model);
+            _adoContext.Dispose();
+        }
     }
 }
