@@ -1,2 +1,14 @@
 .vs
 .vscode
+Realta.Contract/bin
+Realta.Contract/obj
+Realta.Domain/bin
+Realta.Domain/obj
+Realta.Persistence/bin
+Realta.Persistence/obj
+Realta.Services/bin
+Realta.Services/obj
+Realta.Services.Abstaction/bin
+Realta.Services.Abstaction/obj
+Realta.WebAPI/bin
+Realta.WebAPI/obj
