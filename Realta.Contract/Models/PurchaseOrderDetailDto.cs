@@ -3,6 +3,7 @@
     public class PurchaseOrderDetailDto
     {
         public int PodeId { get; set; }
+        public string? StockName { get; set; }
         public int PodePoheId { get; set; }
         public short PodeOrderQty { get; set; }
         public decimal PodePrice { get; set; }

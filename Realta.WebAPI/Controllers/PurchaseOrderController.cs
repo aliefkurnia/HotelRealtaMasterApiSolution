@@ -76,6 +76,7 @@ namespace Realta.WebAPI.Controllers
                 Details = details.Select(d => new PurchaseOrderDetailDto
                 {
                     PodeId = d.PodeId,
+                    StockName = d.StockName,
                     PodePoheId = d.PodePoheId,
                     PodeOrderQty = d.PodeOrderQty,
                     PodePrice = d.PodePrice,

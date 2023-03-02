@@ -117,6 +117,7 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new()
             {
                 CommandText = "SELECT pod.pode_id AS PodeId, " +
+                                "sto.stock_name AS StockName, " +
                                 "pod.pode_pohe_id AS PodePoheId, " +
                                 "pod.pode_order_qty AS PodeOrderQty, " +
                                 "pod.pode_price AS PodePrice, " +
@@ -127,7 +128,8 @@ namespace Realta.Persistence.Repositories
                                 "pod.pode_modified_date AS PodeModifiedDate, " +
                                 "pod.pode_stock_id AS PodeStockId " +
                                 "FROM purchasing.purchase_order_detail AS pod " +
-                                "JOIN purchasing.purchase_order_header poh ON poh.pohe_id = pod.pode_pohe_id " +
+                                "JOIN purchasing.purchase_order_header AS poh ON poh.pohe_id = pod.pode_pohe_id " +
+                                "JOIN purchasing.stocks AS sto ON sto.stock_id = pod.pode_stock_id " +
                                 "WHERE poh.pohe_number = @poheNumber;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
@@ -144,9 +146,7 @@ namespace Realta.Persistence.Repositories
             while (await dataSet.MoveNextAsync())
             {
                 item.Add(dataSet.Current);
-                Console.WriteLine(dataSet.Current);
             }
-            Console.WriteLine("OK");
             return item;
         }
 
@@ -234,6 +234,7 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new()
             {
                 CommandText = "SELECT pode_id AS PodeId, " +
+                                "sto.stock_name AS StockName, " +
                                 "pode_pohe_id AS PodePoheId, " +
                                 "pode_order_qty AS PodeOrderQty, " +
                                 "pode_price AS PodePrice, " +
@@ -243,7 +244,9 @@ namespace Realta.Persistence.Repositories
                                 "pode_stocked_qty AS PodeStockedQty, " +
                                 "pode_modified_date AS PodeModifiedDate, " +
                                 "pode_stock_id AS PodeStockId " +
-                                "FROM purchasing.purchase_order_detail where pode_id=@podeId;",
+                                "FROM purchasing.purchase_order_detail AS pod " +
+                                "JOIN purchasing.stocks AS sto ON sto.stock_id = pod.pode_stock_id " +
+                                "WHERE pode_id=@podeId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
