@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "2SZK1TLigURiwPkTILE2Op4iGmtWTTdJJfQ+BGnkMXWsEXBDVUGQWRyFRX5Sks6Zl1h1ANe28RQ8TgHOHC/eCw==",
+  "success": true,
+  "projectFilePath": "D:\\Code_id\\Project\\RealtaHotelPurchasing\\Realta.Contract\\Realta.Contract.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

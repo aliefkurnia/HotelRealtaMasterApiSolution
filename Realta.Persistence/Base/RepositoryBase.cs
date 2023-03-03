@@ -1,4 +1,5 @@
-﻿using Realta.Persistence.Interface;
+﻿using Realta.Domain.Entities;
+using Realta.Persistence.Interface;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,22 @@ namespace Realta.Persistence.Base
             var listOfData = _adoContext.ExecuteReader<T>(sql);
             _adoContext.Dispose();
             return listOfData;
+        }
+
+        public IEnumerable<T> GetAll<T>(string sql)
+        {
+            var listOfData = _adoContext.ExecuteReader<T>(sql);
+
+            var dataSet = new List<T>();
+
+            while (listOfData.MoveNext())
+            {
+                dataSet.Add(listOfData.Current);
+            }
+
+            _adoContext.Dispose();
+
+            return dataSet;
         }
 
         public IAsyncEnumerator<T> FindAllAsync<T>(SqlCommandModel model)

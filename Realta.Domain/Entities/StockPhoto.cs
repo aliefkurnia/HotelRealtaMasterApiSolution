@@ -12,13 +12,13 @@ namespace Realta.Domain.Entities
     public class StockPhoto
     {
         [Key]
-        public int? spho_id { get; set; }
-        public string? spho_thumbnail_filename { get; set; }
-        public string? spho_photo_filename { get; set; }
-        public bool? spho_primary { get; set; }
-        public string? spho_url { get; set; }
+        public int? SphoId { get; set; }
+        public string? SphoThumbnailFilename { get; set; }
+        public string? SphoPhotoFileName { get; set; }
+        public Int16? SphoPrimary { get; set; }
+        public string? SphoUrl { get; set; }
         [ForeignKey("stocks")]
-        public int? spho_stock_id { get; set; }
+        public int? SphoStockId { get; set; }
 
     }
 }
