@@ -14,8 +14,7 @@ namespace Realta.Persistence.Base
     {
         private readonly AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
-        private IPurchaseOrderHeaderRepository _purchaseOrderHeaderRepository;
-        private IPurchaseOrderDetailRepository _purchaseOrderDetailRepository;
+        private IPurchaseOrderRepository _purchaseOrderRepository;
         private IStockRepository _stockRepository;
         private IStockDetailRepository _stockDetailRepository;
         private IStockPhotoRepository _stockPhotoRepository;
@@ -38,28 +37,18 @@ namespace Realta.Persistence.Base
             }
         }
 
-        public IPurchaseOrderHeaderRepository PurchaseOrderHeaderRepository
+        public IPurchaseOrderRepository PurchaseOrderRepository
         {
             get
             {
-                if (_purchaseOrderHeaderRepository == null)
+                if (_purchaseOrderRepository == null)
                 {
-                    _purchaseOrderHeaderRepository = new PurchaseOrderHeaderRepository(_adoContext);
+                    _purchaseOrderRepository = new PurchaseOrderRepository(_adoContext);
                 }
-                return _purchaseOrderHeaderRepository;
+                return _purchaseOrderRepository;
             }
         }
-        public IPurchaseOrderDetailRepository PurchaseOrderDetailRepository
-        {
-            get
-            {
-                if (_purchaseOrderDetailRepository == null)
-                {
-                    _purchaseOrderDetailRepository = new PurchaseOrderDetailRepository(_adoContext);
-                }
-                return _purchaseOrderDetailRepository;
-            }
-        }
+
         public IStockRepository StockRepository
         {
             get

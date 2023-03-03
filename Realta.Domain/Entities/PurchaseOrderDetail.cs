@@ -7,15 +7,16 @@ namespace Realta.Domain.Entities
     public class PurchaseOrderDetail
     {
         [Key]
-        public int pode_id { get; set; }
-        public int pode_pohe_id { get; set; }
-        public short pode_order_qty { get; set; }
-        public decimal pode_price { get; set; }
-        public decimal pode_line_total { get; set; }
-        public decimal pode_received_qty { get; set; } = 0;
-        public decimal pode_rejected_qty { get; set; } = 0;
-        public decimal pode_stocked_qty { get; set; } = 0;
-        public DateTime pode_modified_date { get; set; }
-        public int pode_stock_id { get; set; }
+        public int PodeId { get; set; }
+        public string? StockName { get; set; }
+        public int PodePoheId { get; set; }
+        public short PodeOrderQty { get; set; }
+        public decimal PodePrice { get; set; }
+        public decimal PodeLineTotal { get; set; }
+        public decimal PodeReceivedQty { get; set; } = 0;
+        public decimal PodeRejectedQty { get; set; } = 0;
+        public decimal PodeStockedQty { get; set; } = 0;
+        public DateTime PodeModifiedDate { get; set; }
+        public int PodeStockId { get; set; }
     }
 }
