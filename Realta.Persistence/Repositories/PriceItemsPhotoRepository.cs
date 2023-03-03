@@ -108,7 +108,7 @@ namespace Realta.Persistence.Repositories
         {
                 SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = @"INSERT INTO Price_ItemsPhotos 
+                CommandText = @"INSERT INTO master.Price_ItemsPhotos 
                 (PhotoFilename,PhotoFileSize,PhotoFileType,PhotoPrice_ItemsId,PhotoPrimary,PhotoOriginalFilename) 
                 values (@PhotoFilename,@PhotoFileSize,@PhotoFileType,@PhotoPrice_ItemsId,@PhotoPrimary,@PhotoOriginalFilename);",
                 CommandType = CommandType.Text,

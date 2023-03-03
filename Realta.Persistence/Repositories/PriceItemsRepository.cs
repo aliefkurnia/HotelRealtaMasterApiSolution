@@ -134,8 +134,8 @@ namespace Realta.Persistence.Repositories
                 "                     prit_price as PritPrice," +
                 "                     prit_description as PritDescription," +
                 "                     prit_type as PritType," +
-                "                     prit_modified_date," +
-                "                     prit_icon_url as PritIconUrl as PritModifiedDate FROM master.price_items where prit_id=@prit_id;",
+                "                     prit_modified_date as PritModifiedDate," +
+                "                     prit_icon_url as PritIconUrl  FROM master.price_items where prit_id=@prit_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
     {
