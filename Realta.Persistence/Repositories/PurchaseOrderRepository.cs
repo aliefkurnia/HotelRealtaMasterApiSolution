@@ -40,7 +40,11 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new()
             {
-                CommandText = "UPDATE purchasing.purchase_order_detail SET pode_order_qty = @PodeOrderQty, pode_received_qty = @PodeReceivedQty, pode_rejected_qty = @PodeRejectedQty WHERE pode_id= @PodeId;",
+                CommandText = "UPDATE purchasing.purchase_order_detail " +
+                                "SET pode_order_qty = @PodeOrderQty, " +
+                                "pode_received_qty = @PodeReceivedQty, " +
+                                "pode_rejected_qty = @PodeRejectedQty " +
+                                "WHERE pode_id= @PodeId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -69,37 +73,25 @@ namespace Realta.Persistence.Repositories
             Update(model);
         }
 
-        public IEnumerable<PurchaseOrderHeader> FindAll()
-        {
-            IEnumerator<PurchaseOrderHeader> dataSet = FindAll<PurchaseOrderHeader>("SELECT pohe_id AS PoheId, pohe_number AS PoheNumber, pohe_status AS PoheStatus, pohe_order_date AS PoheOrderDate, pohe_subtotal AS PoheSubtotal, pohe_tax AS PoheTax, pohe_total_amount AS PoheTotalAmount, pohe_refund AS PoheRefund, pohe_arrival_date AS PoheArrivalDate, pohe_pay_type AS PohePayType, pohe_emp_id AS PoheEmpId, pohe_vendor_id AS PoheVendorId FROM purchasing.purchase_order_header;");
-
-
-            while (dataSet.MoveNext())
-            {
-                var data = dataSet.Current;
-                yield return data;
-            }
-        }
-
-
         public async Task<IEnumerable<PurchaseOrderHeader>> FindAllAsync()
         {
             SqlCommandModel model = new()
             {
-                CommandText = "SELECT pohe_id AS PoheId, " +
-                                "pohe_number AS PoheNumber, " +
-                                "pohe_status AS PoheStatus, " +
-                                "pohe_order_date AS PoheOrderDate, " +
-                                "pohe_subtotal AS PoheSubtotal, " +
-                                "pohe_tax AS PoheTax, " +
-                                "pohe_total_amount AS PoheTotalAmount, " +
-                                "pohe_refund AS PoheRefund, " +
-                                "pohe_arrival_date AS PoheArrivalDate, " +
-                                "pohe_pay_type AS PohePayType, " +
-                                "pohe_emp_id AS PoheEmpId, " +
-                                "pohe_vendor_id AS PoheVendorId " +
-                                "FROM purchasing.purchase_order_header;",
-                //CommandText = "SELECT pohe_id AS PoheId, pohe_number AS PoheNumber, pohe_status AS PoheStatus, pohe_order_date AS PoheOrderDate, pohe_subtotal AS PoheSubtotal, pohe_tax AS PoheTax, pohe_total_amount AS PoheTotalAmount, pohe_refund AS PoheRefund, pohe_arrival_date AS PoheArrivalDate, pohe_pay_type AS PohePayType, pohe_emp_id AS PoheEmpId, pohe_vendor_id AS PoheVendorId FROM purchasing.purchase_order_header AS pohe JOIN purchasing.purchase_order_detail AS pode ON pohe.pohe_id = pode.pode_pohe_id;",
+                CommandText = "SELECT poh.pohe_id AS PoheId, " +
+                                "poh.pohe_number AS PoheNumber, " +
+                                "poh.pohe_status AS PoheStatus, " +
+                                "poh.pohe_order_date AS PoheOrderDate, " +
+                                "poh.pohe_subtotal AS PoheSubtotal, " +
+                                "poh.pohe_tax AS PoheTax, " +
+                                "poh.pohe_total_amount AS PoheTotalAmount, " +
+                                "poh.pohe_refund AS PoheRefund, " +
+                                "poh.pohe_arrival_date AS PoheArrivalDate, " +
+                                "poh.pohe_pay_type AS PohePayType, " +
+                                "ven.vendor_name AS VendorName, " +
+                                "poh.pohe_emp_id AS PoheEmpId, " +
+                                "poh.pohe_vendor_id AS PoheVendorId " +
+                                "FROM purchasing.purchase_order_header AS poh " +
+                                "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] { }
             };
@@ -165,8 +157,10 @@ namespace Realta.Persistence.Repositories
                                 "pohe_arrival_date AS PoheArrivalDate, " +
                                 "pohe_pay_type AS PohePayType, " +
                                 "pohe_emp_id AS PoheEmpId, " +
+                                "ven.vendor_name AS VendorName, " +
                                 "pohe_vendor_id AS PoheVendorId " +
-                                "FROM purchasing.purchase_order_header " +
+                                "FROM purchasing.purchase_order_header AS poh " +
+                                "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id " +
                                 "WHERE pohe_number = @poheNumber;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
@@ -204,8 +198,10 @@ namespace Realta.Persistence.Repositories
                                 "pohe_arrival_date AS PoheArrivalDate, " +
                                 "pohe_pay_type AS PohePayType, " +
                                 "pohe_emp_id AS PoheEmpId, " +
+                                "ven.vendor_name AS VendorName, " +
                                 "pohe_vendor_id AS PoheVendorId " +
-                                "FROM purchasing.purchase_order_header " +
+                                "FROM purchasing.purchase_order_header AS poh " +
+                                "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = pod.pode_vendor_id " +
                                 "WHERE pohe_id = @poheId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {

@@ -4,7 +4,6 @@ namespace Realta.Domain.Repositories
 {
     public interface IPurchaseOrderRepository
     {
-        IEnumerable<PurchaseOrderHeader> FindAll();
         Task<IEnumerable<PurchaseOrderHeader>> FindAllAsync();
         Task<IEnumerable<PurchaseOrderDetail>> FindAllDetAsync(string po);
         PurchaseOrderHeader FindById(int id);

@@ -17,6 +17,7 @@ namespace Realta.Domain.Entities
         public decimal PoheRefund { get; set; }
         public DateTime? PoheArrivalDate { get; set; }
         public string PohePayType { get; set; }
+        public string VendorName { get; set; }
         public int PoheEmpId { get; set; }
         public int PoheVendorId { get; set; }
     }
