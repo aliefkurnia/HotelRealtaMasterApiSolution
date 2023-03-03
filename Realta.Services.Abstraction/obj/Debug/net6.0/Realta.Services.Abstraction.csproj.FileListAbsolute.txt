@@ -10,3 +10,15 @@ D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\refint\Realta.Services.Abstraction.dll
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.pdb
 D:\Batch20\FinalProject\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\ref\Realta.Services.Abstraction.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.deps.json
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.AssemblyReference.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfoInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfo.cs
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CoreCompileInputs.cache
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\refint\Realta.Services.Abstraction.dll
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.pdb
+D:\Bootcamp 18\HotelRealtaApi\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\ref\Realta.Services.Abstraction.dll

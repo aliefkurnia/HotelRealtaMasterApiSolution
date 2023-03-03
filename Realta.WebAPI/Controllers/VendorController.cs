@@ -47,8 +47,8 @@ namespace Realta.WebAPI.Controllers
 
             if (vendor == null)
             {
-                _logger.LogError("Region object sent from client is null");
-                return BadRequest($"Region with id {id} is not found");
+                _logger.LogError("Object  sent from client is null");
+                return BadRequest($"Object with id {id} is not found");
             }
             var vendorDto = new Vendor
             {

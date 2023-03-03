@@ -101,10 +101,6 @@ namespace Realta.WebAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateVendorProduct(int id, [FromBody] VendorProductDto VenpoDto)
         {
-
-            // lakukan validasi pada regiondto not null
-
-
             if (VenpoDto == null)
             {
                 _logger.LogError("Object sent from client is null");

@@ -22,10 +22,8 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "UPDATE purchasing.vendor SET vendor_name=@vendorName, vendor_active=@vendorActive, vendor_priority=@vendorPriority, " +
-                "vendor_weburl=@vendorWebURL WHERE vendor_entity_id = @vendorId;",
-                CommandType = CommandType.Text,
-
+                CommandText = "[Purchasing].[spUpdateVendor]",
+                CommandType = CommandType.StoredProcedure,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorId",
@@ -60,7 +58,15 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Vendor> FindAllVendor()
         {
-            IEnumerator<Vendor> dataSet = FindAll<Vendor>("Select * From purchasing.vendor");
+            IEnumerator<Vendor> dataSet = FindAll<Vendor>("Select " +
+                    "vendor_entity_id AS VendorEntityId, " +
+                    "vendor_name AS VendorName, " +
+                    "vendor_active AS VendorActive, " +
+                    "vendor_priority AS VendorPriority, " +
+                    "vendor_register_date AS VendorRegisterDate, " +
+                    "vendor_weburl AS VendorWeburl, " +
+                    "vendor_modified_date AS VendorModifiedDate " +
+                    "From purchasing.vendor");
 
             while (dataSet.MoveNext())
             {
@@ -78,11 +84,20 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM purchasing.vendor where vendor_entity_id=@vendorId;",
+                CommandText = "Select " +
+                    "vendor_entity_id AS VendorEntityId, " +
+                    "vendor_name AS VendorName, " +
+                    "vendor_active AS VendorActive, " +
+                    "vendor_priority AS VendorPriority, " +
+                    "vendor_register_date AS VendorRegisterDate, " +
+                    "vendor_weburl AS VendorWeburl, " +
+                    "vendor_modified_date AS VendorModifiedDate " +
+                    "From purchasing.vendor " +
+                    "WHERE vendor_entity_id = @Id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorId",
+                        ParameterName = "@Id",
                         DataType = DbType.Int32,
                         Value = id
                     }
@@ -145,11 +160,11 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "DELETE FROM purchasing.vendor WHERE vendor_entity_id=@vendorId;",
-                CommandType = CommandType.Text,
+                CommandText = "[Purchasing].[spDeleteVendor]",
+                CommandType = CommandType.StoredProcedure,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorId",
+                        ParameterName = "@id",
                         DataType = DbType.Int32,
                         Value = vendor.VendorEntityId
                     }
