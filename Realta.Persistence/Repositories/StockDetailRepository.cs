@@ -19,61 +19,11 @@ namespace Realta.Persistence.Repositories
         {
         }
 
-        public void Edit(StockDetail stockDetail)
-        {
-            SqlCommandModel model = new SqlCommandModel()
-            {
-                CommandText = "UPDATE purchasing.stock_detail SET " +
-                "stod_stock_id=@stodStockId, stod_barcode_number=@stodBarcodeNumber, stod_status=@stodStatus, " +
-                "stod_notes=@stodNotes, stod_faci_id=@stodFaciId, stod_pohe_id=@stodPoheId" +
-                " WHERE stod_id=@stodId;",
-                CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodStockId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_stock_id
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodBarcodeNumber",
-                        DataType = DbType.String,
-                        Value = stockDetail.stod_barcode_number
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodStatus",
-                        DataType = DbType.String,
-                        Value = stockDetail.stod_status
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodNotes",
-                        DataType = DbType.String,
-                        Value = stockDetail.stod_notes
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodFaciId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_faci_id
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodPoheId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_pohe_id
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_id
-                    }
-                }
-            };
-
-            _adoContext.ExecuteNonQuery(model);
-            _adoContext.Dispose();
-        }
-
         public IEnumerable<StockDetail> FindAllStockDetail()
         {
-            IEnumerator<StockDetail> dataSet = FindAll<StockDetail>("SELECT * FROM Purchasing.stock_detail");
+            IEnumerator<StockDetail> dataSet = FindAll<StockDetail>("SELECT stod_id as StodId, stod_stock_Id as StodStockId, " +
+                "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
+                "stod_faci_id as StodFaciId, stod_pohe_id as StodPoheId FROM Purchasing.stock_detail");
 
             while (dataSet.MoveNext())
             {
@@ -87,7 +37,9 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM Purchasing.stock_detail;",
+                CommandText = "SELECT stod_id as StodId, stod_stock_Id as StodStockId, " +
+                "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
+                "stod_faci_id as StodFaciId, stod_pohe_id as StodPoheId FROM Purchasing.stock_detail",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] { }
 
@@ -110,7 +62,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM purchasing.stock_detail where stod_id=@stodId;",
+                CommandText = "SELECT stod_id as StodId, stod_stock_Id as StodStockId, " +
+                "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
+                "stod_faci_id as StodFaciId, stod_pohe_id as StodPoheId FROM Purchasing.stock_detail " +
+                "where stod_id=@stodId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -134,55 +89,6 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
-        public void Insert(StockDetail stockDetail)
-        {
-
-            SqlCommandModel model = new SqlCommandModel()
-            {
-                
-                CommandText = "INSERT INTO purchasing.stock_detail (stod_stock_id, stod_barcode_number, stod_status, stod_notes, stod_faci_id, " +
-                "stod_pohe_id) values (@stodStockId,@stodBarcodeNumber, @stodStatus, @stodNotes, " +
-                "@stodFaciId, @stodPoheId);" +
-                "SELECT CAST (scope_identity() as int);",
-                CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodStockId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_stock_id
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodBarcodeNumber",
-                        DataType = DbType.String,
-                        Value = stockDetail.stod_barcode_number
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodStatus",
-                        DataType = DbType.String,
-                        Value = stockDetail.stod_status
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodNotes",
-                        DataType = DbType.String,
-                        Value = stockDetail.stod_notes
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodFaciId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_faci_id
-                    },
-                   new SqlCommandParameterModel() {
-                        ParameterName = "@stodPoheId",
-                        DataType = DbType.Int32,
-                        Value = stockDetail.stod_pohe_id
-                    }
-                }
-            };
-
-            stockDetail.stod_id = _adoContext.ExecuteScalar<int>(model);
-            _adoContext.Dispose();
-        }
-
         public void Remove(StockDetail stockDetail)
         {
             SqlCommandModel model = new SqlCommandModel()
@@ -193,7 +99,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@stodId",
                         DataType = DbType.Int32,
-                        Value = stockDetail.stod_id
+                        Value = stockDetail.StodId
                     }
                 }
             };
@@ -206,31 +112,33 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "UPDATE purchasing.stock_detail SET " +
-                "stod_stock_id=@stodStockId, stod_status=@stodStatus, " +
-                "stod_faci_id=@stodFaciId " +
-                "WHERE stod_id=@stodId;",
+                CommandText = "Purchasing.spUpdateStockDetail @stodStockId, @stodStatus, @stodNotes, @stodFaciId, @stodId",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                    new SqlCommandParameterModel() {
                         ParameterName = "@stodStockId",
                         DataType = DbType.Int32,
-                        Value = stockDetail.stod_stock_id
+                        Value = stockDetail.StodStockId
                     },
                    new SqlCommandParameterModel() {
                         ParameterName = "@stodStatus",
                         DataType = DbType.String,
-                        Value = stockDetail.stod_status
+                        Value = stockDetail.StodStatus
+                    },
+                   new SqlCommandParameterModel() {
+                        ParameterName = "@stodNotes",
+                        DataType = DbType.String,
+                        Value = stockDetail.StodNotes
                     },
                    new SqlCommandParameterModel() {
                         ParameterName = "@stodFaciId",
                         DataType = DbType.Int32,
-                        Value = stockDetail.stod_faci_id
+                        Value = stockDetail.StodFaciId
                     },
                    new SqlCommandParameterModel() {
                         ParameterName = "@stodId",
                         DataType = DbType.Int32,
-                        Value = stockDetail.stod_id
+                        Value = stockDetail.StodId
                     }
                 }
             };

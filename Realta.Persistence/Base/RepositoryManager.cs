@@ -93,8 +93,8 @@ namespace Realta.Persistence.Base
                 }
                 return _stockPhotoRepository;
             }
-
         }
+
         public IVendorProductRepository VendorProductRepository
         {
             get
