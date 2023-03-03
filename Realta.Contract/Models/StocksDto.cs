@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Realta.Contract
+namespace Realta.Contract.Models
 {
     public class StocksDto
     {
@@ -16,12 +16,12 @@ namespace Realta.Contract
         public string? StockDescription { get; set; }
 
         [Required]
-        public Int16 StockQuantity { get; set; }
+        public short StockQuantity { get; set; }
 
         [Required]
-        public Int16 StockReorderPoint { get; set; }
-        public Int16? StockUsed { get; set; }
-        public Int16? StockScrap { get; set; }
+        public short StockReorderPoint { get; set; }
+        public short? StockUsed { get; set; }
+        public short? StockScrap { get; set; }
 
         [MaxLength(25, ErrorMessage = "StockSize cannot be longer than 25")]
         public string? StockSize { get; set; }

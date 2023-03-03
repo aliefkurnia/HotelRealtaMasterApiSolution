@@ -1,5 +1,5 @@
-﻿ using Microsoft.AspNetCore.Mvc;
-using Realta.Contract;
+﻿using Microsoft.AspNetCore.Mvc;
+using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
 using Realta.Services.Abstraction;
@@ -35,7 +35,7 @@ namespace Realta.WebAPI.Controllers
                 StodStatus = r.StodStatus,
                 StodNotes = r.StodNotes,
                 StodFaciId = r.StodFaciId,
-                StodPoNumber = _repositoryManager.PurchaseOrderHeaderRepository.FindById(r.StodPoheId.Value).pohe_number
+                StodPoNumber = _repositoryManager.PurchaseOrderRepository.FindById(r.StodPoheId.Value).PoheNumber
             });
 
             return Ok(stocksDetailDto);
@@ -60,7 +60,7 @@ namespace Realta.WebAPI.Controllers
                 StodStatus=stockDetail.StodStatus,
                 StodNotes=stockDetail.StodNotes,
                 StodFaciId=stockDetail.StodFaciId,
-                StodPoNumber=_repositoryManager.PurchaseOrderHeaderRepository.FindById(stockDetail.StodPoheId.Value).pohe_number
+                StodPoNumber=_repositoryManager.PurchaseOrderRepository.FindById(stockDetail.StodPoheId.Value).PoheNumber
             };
 
             return Ok(stockDetailDto);

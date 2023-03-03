@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Mvc;
-using Realta.Contract.Model;
-using Realta.Contract.Model;
+using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
 using Realta.Services.Abstraction;

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "e29JrPs5dRqwPOy9s3fWnK4PzL1JjXX43zdtjJrWledoZ9qMN5y84twYvWYmGcryuGFDR6XX2oZgIblbIrPfqA==",
+  "dgSpecHash": "kfDVjQjK2kj4Xql9blfcRuQKdbThQ3YpL0HmTQAY/qIFsDwtlBXWw/BKFxc10c2/DehRqOw1Rg2Cj97vLpYOgA==",
   "success": true,
   "projectFilePath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
