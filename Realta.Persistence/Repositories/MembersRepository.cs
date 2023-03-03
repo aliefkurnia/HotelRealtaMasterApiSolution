@@ -27,12 +27,12 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@memb_name",
                         DataType = DbType.String,
-                        Value = members.memb_name
+                        Value = members.MembName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@memb_description",
                         DataType = DbType.String,
-                        Value = members.memb_description
+                        Value = members.MembDescription
                     }
                 }
             };
@@ -42,7 +42,9 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Members> FindAllMembers()
         {
-            IEnumerator<Members> dataset = FindAll<Members>("SELECT * FROM master.Members ORDER BY memb_name;");
+            IEnumerator<Members> dataset = FindAll<Members>("SELECT memb_name as MembName," +
+                "                                                   memb_description as MembDescription" +
+                "                                            FROM master.Members ORDER BY memb_name;");
 
             while (dataset.MoveNext())
             {
@@ -60,7 +62,9 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.members where memb_name=@memb_name;",
+                CommandText = "SELECT memb_name as MembName," +
+                "                     memb_description as MembDescription " +
+                "              FROM master.members where memb_name=@memb_name;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
@@ -93,12 +97,12 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@memb_name",
                         DataType = DbType.String,
-                        Value = members.memb_name
+                        Value = members.MembName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@memb_description",
                         DataType = DbType.String,
-                        Value = members.memb_description
+                        Value = members.MembDescription
                     }
                 }
             };
@@ -115,7 +119,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@memb_name",
                         DataType = DbType.String,
-                        Value = members.memb_name
+                        Value = members.MembName
                     }
                 }
             };

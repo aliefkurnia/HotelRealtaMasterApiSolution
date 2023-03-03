@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Entities
 {
-    public class Service_Task
+    public class ServiceTask
     {
         [Key]
-        public int seta_id { get; set; }
+        public int SetaId { get; set; }
         [Required]
-        public string seta_name { get;set; }
-        public short seta_seq { get; set; }
+        public string SetaName { get;set; }
+        public short setaSeq { get; set; }
 
     }
 }

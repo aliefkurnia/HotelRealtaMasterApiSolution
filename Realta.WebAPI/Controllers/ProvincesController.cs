@@ -50,9 +50,9 @@ namespace Realta.WebAPI.Controllers
             }
             var provincessDto = new ProvincesDto
             {
-                prov_id = provinces.prov_id,
-                prov_name = provinces.prov_name,
-                prov_country_id = provinces.prov_country_id,
+                ProvId = provinces.ProvId,
+                ProvName = provinces.ProvName,
+                ProvCountryId = provinces.ProvCountryId,
             };
             return Ok(provincessDto);
         }
@@ -64,20 +64,20 @@ namespace Realta.WebAPI.Controllers
             if (provincesDto == null)
             {
                 _logger.LogError("provincesDto object sent from client is null");
-                return BadRequest("Region object is null");
+                return BadRequest("Provinces object is null");
             }
 
             var provinces = new Provinces()
             {
-                prov_id = provincesDto.prov_id,
-                prov_name = provincesDto.prov_name,
-                prov_country_id = provincesDto.prov_country_id
+                ProvId = provincesDto.ProvId,
+                ProvName = provincesDto.ProvName,
+                ProvCountryId = provincesDto.ProvCountryId
             };
 
             //execute method Insert
             _repositoryManager.ProvincesRepository.Insert(provinces);
-            provincesDto.prov_id = provinces.prov_id; 
-            return CreatedAtRoute("GetRegion", new { id = provincesDto.prov_id }, provincesDto);
+            provincesDto.ProvId = provinces.ProvId; 
+            return CreatedAtRoute("GetProvinces", new { id = provincesDto.ProvId }, provincesDto);
 
             //return CreatedAtRoute("GetRegion", new { id = provincesDto.region_code }, new provincesDto { region_code = provincesDto.region_code, region_name = provinces.region_name });
 
@@ -97,13 +97,13 @@ namespace Realta.WebAPI.Controllers
 
             var provinces = new Provinces
             {
-                prov_id = id,
-                prov_name = provincesDto.prov_name,
-                prov_country_id = provincesDto.prov_country_id
+                ProvId = id,
+                ProvName = provincesDto.ProvName,
+                ProvCountryId = provincesDto.ProvCountryId
             };
 
             _repositoryManager.ProvincesRepository.Edit(provinces);
-            return CreatedAtRoute("GetProvinces", new { id = provincesDto.prov_id }, new ProvincesDto { prov_id= id, prov_name= provinces.prov_name, prov_country_id= provincesDto.prov_country_id});
+            return CreatedAtRoute("GetProvinces", new { id = provincesDto.ProvId }, new ProvincesDto { ProvId= id, ProvName= provinces.ProvName, ProvCountryId= provincesDto.ProvCountryId});
         }
 
         // DELETE api/<ProvincesController>/5

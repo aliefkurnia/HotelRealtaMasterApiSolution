@@ -11,18 +11,18 @@ namespace Realta.Contract.Models
     public class AddressDto
     {
         [Required(ErrorMessage ="addr_id is required")]
-        public int addr_id { get; set; }
+        public int AddrId { get; set; }
         
         [Required]
         [MinLength(10, ErrorMessage ="address line 1 must larger than 10")]
-        public string addr_line1 { get; set; }
+        public string AddrLine1 { get; set; }
 
-        public string addr_line2 { get; set; }
+        public string AddrLine2 { get; set; }
 
         [MaxLength(5,ErrorMessage ="postal code cannot be longer than 5")]
-        public string addr_postal_code { get; set; }
-        public string addr_spatial_location { get; set; }
-        public int addr_prov_id { get; set; }
+        public string AddrPostalCode { get; set; }
+        public string AddrSpatialLocation { get; set; }
+        public int AddrProvId { get; set; }
     
     }
 }

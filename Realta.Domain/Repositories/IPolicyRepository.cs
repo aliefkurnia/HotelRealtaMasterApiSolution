@@ -12,6 +12,7 @@ namespace Realta.Domain.Repositories
         IEnumerable<Policy> FindAllPolicy();
         Task<IEnumerable<Policy>> FindAllPolicyAsync();
         Policy FindPolicyById(int id);
+        IEnumerable<Policy> FindPolicyByName(string name);
         void Insert(Policy policy);
         void Edit(Policy policy);
         void Remove(Policy policy);

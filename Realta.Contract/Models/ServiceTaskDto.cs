@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Realta.Contract.Models
 {
-    public class Service_TaskDto
+    public class ServiceTaskDto
     {
         [Key]
         [Required(ErrorMessage = "seta_id is required")]
-        public int seta_id { get; set; }
+        public int SetaId { get; set; }
         [Required]
-        public string seta_name { get; set; }
-        public short seta_seq { get; set; }
+        public string SetaName { get; set; }
+        public short SetaSeq { get; set; }
 
     }
 }

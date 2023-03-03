@@ -50,12 +50,12 @@ namespace Realta.WebAPI.Controllers
             }
             var addressDto = new AddressDto
             {
-                addr_id = address.addr_id,
-                addr_line1 = address.addr_line1,
-                addr_line2 = address.addr_line2,
-                addr_postal_code = address.addr_postal_code,
-                addr_spatial_location= address.addr_spatial_location,
-                addr_prov_id=address.addr_prov_id,
+                AddrId = address.AddrId,
+                AddrLine1 = address.AddrLine1,
+                AddrLine2 = address.AddrLine2,
+                AddrPostalCode = address.AddrPostalCode,
+                AddrSpatialLocation= address.AddrSpatialLocation,
+                AddrProvId=address.AddrProvId,
             };
             return Ok(addressDto);
         }
@@ -72,19 +72,19 @@ namespace Realta.WebAPI.Controllers
 
             var address = new Address()
             {
-                addr_id = addressDto.addr_id,
-                addr_line1 = addressDto.addr_line1,
-                addr_line2 = addressDto.addr_line2,
-                addr_postal_code = addressDto.addr_postal_code,
-                addr_spatial_location = addressDto.addr_spatial_location,
-                addr_prov_id = addressDto.addr_prov_id,
+                AddrId = addressDto.AddrId,
+                AddrLine1 = addressDto.AddrLine1,
+                AddrLine2 = addressDto.AddrLine2,
+                AddrPostalCode = addressDto.AddrPostalCode,
+                AddrSpatialLocation = addressDto.AddrSpatialLocation,
+                AddrProvId = addressDto.AddrProvId,
             };
 
             //execute method Insert
             _repositoryManager.AddressRepository.Insert(address);
 
-            addressDto.addr_id = address.addr_id;
-            return CreatedAtRoute("GetRegion", new { id = address.addr_id }, addressDto);
+            addressDto.AddrId = address.AddrId;
+            return CreatedAtRoute("GetAddress", new { id = address.AddrId }, addressDto);
         }
 
         // PUT api/<AddressController>/5
@@ -99,16 +99,16 @@ namespace Realta.WebAPI.Controllers
 
             var address = new Address
             {
-                addr_id = id,
-                addr_line1 = addressDto.addr_line1,
-                addr_line2 = addressDto.addr_line2,
-                addr_postal_code = addressDto.addr_postal_code,
-                addr_spatial_location = addressDto.addr_spatial_location,
-                addr_prov_id = addressDto.addr_prov_id,
+                AddrId = id,
+                AddrLine1 = addressDto.AddrLine1,
+                AddrLine2 = addressDto.AddrLine2,
+                AddrPostalCode = addressDto.AddrPostalCode,
+                AddrSpatialLocation = addressDto.AddrSpatialLocation,
+                AddrProvId = addressDto.AddrProvId,
             };
 
             _repositoryManager.AddressRepository.Edit(address);
-            return CreatedAtRoute("GetAddress", new { id = addressDto.addr_id}, new AddressDto { addr_id = id, addr_line1 = address.addr_line1,addr_line2=address.addr_line2,addr_postal_code=address.addr_postal_code,addr_spatial_location=address.addr_spatial_location,addr_prov_id=address.addr_prov_id});
+            return CreatedAtRoute("GetAddress", new { id = addressDto.AddrId}, new AddressDto { AddrId = id, AddrLine1 = address.AddrLine1,AddrLine2=address.AddrLine2,AddrPostalCode=address.AddrPostalCode,AddrSpatialLocation=address.AddrSpatialLocation,AddrProvId=address.AddrProvId});
         }
 
         // DELETE api/<AddressController>/5

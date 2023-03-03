@@ -51,9 +51,9 @@ namespace Realta.WebAPI.Controllers
             }
             var CountryDto = new CountryDto
             {
-                country_id = country.country_id,
-                country_name = country.country_name,
-                country_region_id = country.country_region_id
+                CountryId = country.CountryId,
+                CountryName = country.CountryName,
+                CountryRegionId = country.CountryRegionId
             };
             return Ok(CountryDto);
         }
@@ -69,14 +69,14 @@ namespace Realta.WebAPI.Controllers
             }
             var country = new Country()
             {
-                country_id = countryDto.country_id,
-                country_name = countryDto.country_name,
-                country_region_id = countryDto.country_region_id
+                CountryId = countryDto.CountryId,
+                CountryName = countryDto.CountryName,
+                CountryRegionId = countryDto.CountryRegionId
             };
 
             _repositoryManager.CountryRepository.Insert(country);
-            countryDto.country_id = country.country_id;
-            return CreatedAtRoute("GetCountry", new { id = countryDto.country_id }, countryDto);
+            countryDto.CountryId = country.CountryId;
+            return CreatedAtRoute("GetCountry", new { id = countryDto.CountryId }, countryDto);
         }
 
         // PUT api/<CountryController>/5
@@ -91,12 +91,12 @@ namespace Realta.WebAPI.Controllers
 
             var country = new Country()
             {
-                country_id = id,
-                country_name = countryDto.country_name,
-                country_region_id = countryDto.country_region_id
+                CountryId = id,
+                CountryName = countryDto.CountryName,
+                CountryRegionId = countryDto.CountryRegionId
             };
             _repositoryManager.CountryRepository.Edit(country);
-            return CreatedAtRoute("GetCountry",new { id = countryDto.country_id },new CountryDto { country_id = id, country_name = country.country_name, country_region_id = country.country_region_id});
+            return CreatedAtRoute("GetCountry",new { id = countryDto.CountryId },new CountryDto { CountryId = id, CountryName = country.CountryName, CountryRegionId = country.CountryRegionId});
         }
 
         // DELETE api/<CountryController>/5

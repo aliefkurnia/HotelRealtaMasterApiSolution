@@ -19,7 +19,7 @@ namespace Realta.Persistence.Base
         private IProvincesRepository _provincesRepository;
         private IAddressRepository _addressRepository;
         private IMembersRepository _membersRepository;
-        private IService_TaskRepository _service_TaskRepository;
+        private IServiceTaskRepository _service_TaskRepository;
         private IPrice_ItemsRepository _price_itemsRepository;
         private IPolicyRepository _policyRepository;
         private ICategory_GroupRepository _category_GroupRepository;
@@ -90,33 +90,33 @@ namespace Realta.Persistence.Base
             }
         }
 
-        public IService_TaskRepository service_TaskRepository
+        public IServiceTaskRepository ServiceTaskRepository
         {
             get
             {
                 if (_service_TaskRepository == null)
                 {
-                    _service_TaskRepository = new Service_TaskRepository(_adoContext);
+                    _service_TaskRepository = new ServiceTaskRepository(_adoContext);
                 }
                 return _service_TaskRepository;
             }
         }
 
 
-        public IPrice_ItemsRepository price_itemsRepository
+        public IPrice_ItemsRepository PriceItemsRepository
         {
             get
             {
                 if (_price_itemsRepository == null)
                 {
-                    _price_itemsRepository = new Price_ItemsRepository(_adoContext);
+                    _price_itemsRepository = new PriceItemsRepository(_adoContext);
                 }
                 return _price_itemsRepository;
             }
         }
 
 
-        public IPolicyRepository policyRepository
+        public IPolicyRepository PolicyRepository
         {
             get
             {
@@ -129,13 +129,13 @@ namespace Realta.Persistence.Base
         }
 
 
-        public ICategory_GroupRepository category_groupRepository
+        public ICategory_GroupRepository CategoryGroupRepository
         {
             get
             {
                 if (_category_GroupRepository == null)
                 {
-                    _category_GroupRepository = new Category_GroupRepository(_adoContext);
+                    _category_GroupRepository = new CategoryGroupRepository(_adoContext);
                 }
                 return _category_GroupRepository;
             }

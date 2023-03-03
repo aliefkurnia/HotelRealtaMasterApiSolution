@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace Realta.Persistence.Repositories
 {
-    internal class Service_TaskRepository : RepositoryBase<Service_Task>, IService_TaskRepository
+    internal class ServiceTaskRepository : RepositoryBase<ServiceTask>, IServiceTaskRepository
     {
-        public Service_TaskRepository(AdoDbContext adoContext) : base(adoContext)
+        public ServiceTaskRepository(AdoDbContext adoContext) : base(adoContext)
         {
         }
 
-        public void Edit(Service_Task service_Task)
+        public void Edit(ServiceTask serviceTask)
         {
             SqlCommandModel model = new SqlCommandModel()
             { 
@@ -27,17 +27,17 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_id",
                         DataType = DbType.Int32,
-                        Value = service_Task.seta_id
+                        Value = serviceTask.SetaId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_name",
                         DataType = DbType.String,
-                        Value = service_Task.seta_name
+                        Value = serviceTask.SetaName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_seq",
                         DataType = DbType.Int16,
-                        Value = service_Task.seta_id
+                        Value = serviceTask.setaSeq
                     }
                 }
             };
@@ -45,9 +45,12 @@ namespace Realta.Persistence.Repositories
             _adoContext.Dispose();
         }
 
-        public IEnumerable<Service_Task> FindAllService_Task()
+        public IEnumerable<ServiceTask> FindAllServiceTask()
         {
-            IEnumerator<Service_Task> dataset = FindAll<Service_Task>("SELECT * FROM master.service_task ORDER BY seta_id;");
+            IEnumerator<ServiceTask> dataset = FindAll<ServiceTask>("SELECT seta_id as SetaId," +
+                "                                                           seta_name as SetaName," +
+                "                                                           seta_seq as SetaSeq " +
+                "                                                    FROM master.service_task ORDER BY seta_id;");
 
             while (dataset.MoveNext())
             {
@@ -56,16 +59,19 @@ namespace Realta.Persistence.Repositories
             }
         }
 
-        public Task<IEnumerable<Service_Task>> FindAllService_TaskAsync()
+        public Task<IEnumerable<ServiceTask>> FindAllServiceTaskAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Service_Task FindService_TaskById(int id)
+        public ServiceTask FindServiceTaskById(int id)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.service_task where seta_id=@seta_id;",
+                CommandText = "SELECT seta_id as SetaId," +
+                "                     seta_name as SetaName," +
+                "                     seta_seq as SetaSeq " +
+                "              FROM master.service_task where seta_id=@seta_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
     {
@@ -77,9 +83,9 @@ namespace Realta.Persistence.Repositories
     }
             };
 
-            var dataSet = FindByCondition<Service_Task>(model);
+            var dataSet = FindByCondition<ServiceTask>(model);
 
-            Service_Task? item = dataSet.Current;
+            ServiceTask? item = dataSet.Current;
 
             while (dataSet.MoveNext())
             {
@@ -88,7 +94,7 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
-        public void Insert(Service_Task service_Task)
+        public void Insert(ServiceTask serviceTask)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
@@ -98,20 +104,20 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_name",
                         DataType = DbType.String,
-                        Value = service_Task.seta_name
+                        Value = serviceTask.SetaName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_seq",
                         DataType = DbType.Int32,
-                        Value = service_Task.seta_seq
+                        Value = serviceTask.setaSeq
                     }
                 }
             };
-            service_Task.seta_id= _adoContext.ExecuteScalar<int>(model);
+            serviceTask.SetaId= _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
 
-        public void Remove(Service_Task service_Task)
+        public void Remove(ServiceTask serviceTask)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
@@ -121,7 +127,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_id",
                         DataType = DbType.Int32,
-                        Value = service_Task.seta_id
+                        Value = serviceTask.SetaId
                     }
                 }
             };

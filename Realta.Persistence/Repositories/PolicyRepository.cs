@@ -28,17 +28,17 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@poli_id",
                         DataType = DbType.Int32,
-                        Value = policy.poli_id
+                        Value = policy.PoliId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@poli_name",
                         DataType = DbType.String,
-                        Value = policy.poli_name
+                        Value = policy.PoliName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@poli_description",
                         DataType = DbType.String,
-                        Value = policy.poli_description
+                        Value = policy.PoliDescription
                     }
                 }
             };
@@ -48,7 +48,9 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Policy> FindAllPolicy()
         {
-            IEnumerator<Policy> dataset = FindAll<Policy>("SELECT * FROM master.policy ORDER BY poli_id;");
+            IEnumerator<Policy> dataset = FindAll<Policy>("SELECT poli_id as PoliId," +
+                "                                                 poli_name as PoliName," +
+                "                                                 poli_description as PoliDescription  FROM master.policy ORDER BY poli_id;");
 
             while (dataset.MoveNext())
             {
@@ -66,7 +68,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.policy where poli_id=@poli_id;",
+                CommandText = "SELECT poli_id as PoliId," +
+                "                     poli_name as PoliName," +
+                "                     poli_description as PoliDescription " +
+                "              FROM master.policy where poli_id=@poli_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
     {
@@ -89,6 +94,30 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
+        public IEnumerable<Policy> FindPolicyByName(string name)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT * FROM master.policy WHERE poli_name LIKE '%' + @poli_name + '%';",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[]
+{
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@poli_name",
+                        DataType = DbType.String,
+                        Value = name
+                    }
+}
+            };
+            var dataSet = FindByCondition<Policy>(model);
+
+            while (dataSet.MoveNext())
+            {
+                var item = dataSet.Current;
+                yield return item;
+            }
+        }
+
         public void Insert(Policy policy)
         {
             SqlCommandModel model = new SqlCommandModel()
@@ -99,16 +128,16 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@poli_name",
                         DataType = DbType.String,
-                        Value = policy.poli_name
+                        Value = policy.PoliName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@poli_description",
                         DataType = DbType.String,
-                        Value = policy.poli_description
+                        Value = policy.PoliDescription
                     }
                 }
             };
-            policy.poli_id= _adoContext.ExecuteScalar<int>(model);
+            policy.PoliId= _adoContext.ExecuteScalar<int>(model);
             //_adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
@@ -123,7 +152,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@poli_id",
                         DataType = DbType.Int32,
-                        Value = policy.poli_id
+                        Value = policy.PoliId
                     }
                 }
             };

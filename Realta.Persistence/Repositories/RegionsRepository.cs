@@ -29,12 +29,12 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@region_code",
                         DataType = DbType.Int32,
-                        Value = regions.region_code
+                        Value = regions.RegionCode
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@region_name",
                         DataType = DbType.String,
-                        Value = regions.region_name
+                        Value = regions.RegionName
                     }
                 }
             };
@@ -45,7 +45,9 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Regions> FindAllRegions()
         {
-            IEnumerator<Regions> dataset = FindAll<Regions>("SELECT * FROM master.regions ORDER BY region_code;");
+            IEnumerator<Regions> dataset = FindAll<Regions>("SELECT region_code as RegionCode," +
+                "                                                   region_name as RegionName " +
+                "                                            FROM master.regions ORDER BY region_code;");
 
             while (dataset.MoveNext())
             {
@@ -64,7 +66,9 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.regions where region_code=@region_code;",
+                CommandText = "SELECT region_code as RegionCode," +
+                "                     region_name as RegionName " +
+                "              FROM master.regions where region_code=@region_code;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
@@ -98,16 +102,16 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@region_code",
                         DataType = DbType.Int32,
-                        Value = regions.region_code
+                        Value = regions.RegionCode
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@Region_name",
                         DataType = DbType.String,
-                        Value = regions.region_name
+                        Value = regions.RegionName
                     }
                 }
             };
-            regions.region_code = _adoContext.ExecuteScalar<int>(model);
+            regions.RegionCode = _adoContext.ExecuteScalar<int>(model);
             //_adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
@@ -122,7 +126,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@region_code",
                         DataType = DbType.Int32,
-                        Value = regions.region_code
+                        Value = regions.RegionCode
                     }
                 }
             };

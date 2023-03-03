@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace Realta.Persistence.Repositories
 {
-    internal class Category_GroupRepository : RepositoryBase<Category_Group>, ICategory_GroupRepository
+    internal class CategoryGroupRepository : RepositoryBase<CategoryGroup>, ICategory_GroupRepository
     {
-        public Category_GroupRepository(AdoDbContext adoContext) : base(adoContext)
+        public CategoryGroupRepository(AdoDbContext adoContext) : base(adoContext)
         {
         }
 
-        public void Edit(Category_Group category_Group)
+        public void Edit(CategoryGroup category_Group)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
@@ -29,32 +29,32 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_id",
                         DataType = DbType.Int32,
-                        Value = category_Group.cagro_id
+                        Value = category_Group.CagroId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_name",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_name
+                        Value = category_Group.CagroName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_description",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_description
+                        Value = category_Group.CagroDescription
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_type",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_type
+                        Value = category_Group.CagroType
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_icon",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_icon
+                        Value = category_Group.CagroIcon
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_icon_url",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_icon_url
+                        Value = category_Group.CagroIconUrl
                     }
                 }
             };
@@ -63,9 +63,16 @@ namespace Realta.Persistence.Repositories
         }
     
 
-        public IEnumerable<Category_Group> FindAllCategory_Group()
+        public IEnumerable<CategoryGroup> FindAllCategoryGroup()
         {
-            IEnumerator<Category_Group> dataset = FindAll<Category_Group>("SELECT * from master.category_group ORDER BY cagro_id;");
+            IEnumerator<CategoryGroup> dataset = FindAll<CategoryGroup>("" +
+                "              SELECT cagro_id as CagroId," +
+                "                     cagro_name as CagroName," +
+                "                     cagro_description as CagroDescription," +
+                "                     cagro_type as CagroType," +
+                "                     cagro_icon as CagroIcon, " +
+                "                     cagro_icon_url as CagroIconUrl " +
+                "              FROM master.category_group ORDER BY cagro_id;");
             while (dataset.MoveNext())
             {
                 var data = dataset.Current;
@@ -74,16 +81,22 @@ namespace Realta.Persistence.Repositories
         }
     
 
-        public Task<IEnumerable<Category_Group>> FindAllCategory_GroupAsync()
+        public Task<IEnumerable<CategoryGroup>> FindAllCategoryGroupAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Category_Group FindCategory_GroupById(int id)
+        public CategoryGroup FindCategoryGroupById(int id)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.category_group where cagro_id=@cagro_id;",
+                CommandText = "SELECT cagro_id as CagroId," +
+                "                     cagro_name as CagroName," +
+                "                     cagro_description as CagroDescription," +
+                "                     cagro_type as CagroType," +
+                "                     cagro_icon as CagroIcon, " +
+                "                     cagro_icon_url as CagroIconUrl" +
+                "              FROM master.category_group where cagro_id=@cagro_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
@@ -95,9 +108,9 @@ namespace Realta.Persistence.Repositories
                 }
             };
 
-            var dataSet = FindByCondition<Category_Group>(model);
+            var dataSet = FindByCondition<CategoryGroup>(model);
 
-            Category_Group? item = dataSet.Current;
+            CategoryGroup? item = dataSet.Current;
 
             while (dataSet.MoveNext())
             {
@@ -106,7 +119,7 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
-        public void Insert(Category_Group category_Group)
+        public void Insert(CategoryGroup category_Group)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
@@ -118,36 +131,36 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_name",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_name
+                        Value = category_Group.CagroName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_description",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_description
+                        Value = category_Group.CagroDescription
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_type",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_type
+                        Value = category_Group.CagroType
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_icon",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_icon
+                        Value = category_Group.CagroIcon
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_icon_url",
                         DataType = DbType.String,
-                        Value = category_Group.cagro_icon_url
+                        Value = category_Group.CagroIconUrl
                     }
                 }
             };
             //_adoContext.ExecuteNonQuery(model);
-            category_Group.cagro_id = _adoContext.ExecuteScalar<int>(model);
+            category_Group.CagroId = _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
 
-        public void Remove(Category_Group category_Group)
+        public void Remove(CategoryGroup category_Group)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
@@ -157,7 +170,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@cagro_id",
                         DataType = DbType.Int32,
-                        Value = category_Group.cagro_id
+                        Value = category_Group.CagroId
                     }
                 }
             };

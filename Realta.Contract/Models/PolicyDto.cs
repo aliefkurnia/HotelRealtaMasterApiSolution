@@ -9,9 +9,9 @@ namespace Realta.Contract.Models
 {
     public class PolicyDto
     {
-        [Key] public int poli_id { get; set; }
-        [Required] public string poli_name { get; set; }
-        public string poli_description { get; set; }
+        [Key] public int PoliId { get; set; }
+        [Required] public string PoliName { get; set; }
+        public string PoliDescription { get; set; }
 
     }
 }

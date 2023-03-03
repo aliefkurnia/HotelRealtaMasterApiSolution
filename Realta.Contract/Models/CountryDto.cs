@@ -10,11 +10,11 @@ namespace Realta.Contract.Models
     public class CountryDto
     {
         [Required(ErrorMessage = "country_id is required")]
-        public int country_id { get; set; }
+        public int CountryId { get; set; }
         [Required]
         [MinLength(5, ErrorMessage = "country_name must larger than 5")]
         [MaxLength(55, ErrorMessage = "country_name cannot be longer than 55")]
-        public string? country_name { get; set; }
-        public int country_region_id { get; set; }
+        public string? CountryName { get; set; }
+        public int CountryRegionId { get; set; }
     }
 }

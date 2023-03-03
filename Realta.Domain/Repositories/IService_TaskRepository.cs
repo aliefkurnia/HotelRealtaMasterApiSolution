@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Repositories
 {
-    public interface IService_TaskRepository
+    public interface IServiceTaskRepository
     {
-        IEnumerable<Service_Task> FindAllService_Task();
-        Task<IEnumerable<Service_Task>> FindAllService_TaskAsync();
-        Service_Task FindService_TaskById(int id);
-        void Insert(Service_Task service_Task);
-        void Edit(Service_Task service_Task);
-        void Remove(Service_Task service_Task);
+        IEnumerable<ServiceTask> FindAllServiceTask();
+        Task<IEnumerable<ServiceTask>> FindAllServiceTaskAsync();
+        ServiceTask FindServiceTaskById(int id);
+        void Insert(ServiceTask serviceTask);
+        void Edit(ServiceTask serviceTask);
+        void Remove(ServiceTask serviceTask);
     }
 }

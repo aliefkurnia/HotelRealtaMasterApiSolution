@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Realta.Persistence.Repositories
 {
-    internal class Policy_Category_Group
+    internal class PolicyCategoryGroup
     {
     }
 }

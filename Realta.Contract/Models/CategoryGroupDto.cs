@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Realta.Contract.Models
 {
-    public class Category_GroupDto
+    public class CategoryGroupDto
     {
-        [Key] public int cagro_id { get; set; }
-        [Required] public string cagro_name { get; set; }
-        public string cagro_description { get; set; }
-        private string _cagro_type;
+        [Key] public int CagroId { get; set; }
+        [Required] public string CagroName { get; set; }
+        public string CagroDescription { get; set; }
+        private string _CagroType;
         [Required]
-        public string cagro_type
+        public string CagroType
         {
-            get { return _cagro_type; }
+            get { return _CagroType; }
             set
             {
                 if (value == "category" || value == "service" || value == "facility")
                 {
-                    _cagro_type = value;
+                    _CagroType = value;
                 }
                 else
                 {
@@ -29,7 +29,7 @@ namespace Realta.Contract.Models
                 }
             }
         }
-        public string cagro_icon { get; set; }
-        public string cagro_icon_url { get; set; }
+        public string CagroIcon { get; set; }
+        public string CagroIconUrl { get; set; }
     }
 }

@@ -28,17 +28,17 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@prov_id",
                         DataType = DbType.Int32,
-                        Value = provinces.prov_id
+                        Value = provinces.ProvId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@prov_name",
                         DataType = DbType.String,
-                        Value = provinces.prov_name
+                        Value = provinces.ProvName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@prov_country_id",
                         DataType = DbType.Int32,
-                        Value = provinces.prov_country_id
+                        Value = provinces.ProvCountryId
                     }
                 }
             };
@@ -48,7 +48,10 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Provinces> FindAllProvinces()
         {
-            IEnumerator<Provinces> dataset = FindAll<Provinces>("SELECT * FROM master.Provinces ORDER BY prov_id;");
+            IEnumerator<Provinces> dataset = FindAll<Provinces>("SELECT prov_id as ProvId," +
+                "                                                       prov_name as ProvName," +
+                "                                                       prov_country_id as ProvCountryId " +
+                "                                                FROM master.Provinces ORDER BY prov_id;");
 
             while (dataset.MoveNext())
             {
@@ -67,7 +70,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.provinces where prov_id=@prov_id;",
+                CommandText = "SELECT prov_id as ProvId," +
+                "                     prov_name as ProvName," +
+                "                     prov_country_id as ProvCountryId " +
+                "              FROM master.provinces where prov_id=@prov_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
@@ -100,17 +106,17 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@prov_name",
                         DataType = DbType.String,
-                        Value = provinces.prov_name
+                        Value = provinces.ProvName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@prov_country_id",
                         DataType = DbType.Int32,
-                        Value = provinces.prov_country_id
+                        Value = provinces.ProvCountryId
                     }
                 }
             };
             //_adoContext.ExecuteNonQuery(model);
-            provinces.prov_id = _adoContext.ExecuteScalar<int>(model);
+            provinces.ProvId = _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
 
@@ -124,7 +130,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@prov_id",
                         DataType = DbType.Int32,
-                        Value = provinces.prov_id
+                        Value = provinces.ProvId
                     }
                 }
             };

@@ -51,8 +51,8 @@ namespace Realta.WebAPI.Controllers
             }
             var membersDto = new MembersDto
             {
-                memb_name = members.memb_name,
-                memb_description = members.memb_description
+                MembName = members.MembName,
+                MembDescription = members.MembDescription
             };
             return Ok(membersDto);
         }
@@ -63,18 +63,18 @@ namespace Realta.WebAPI.Controllers
         {
             if (membersDto == null)
             {
-                _logger.LogError("CountryDto object sent from client is null");
-                return BadRequest("Region object is null");
+                _logger.LogError("MembersDto object sent from client is null");
+                return BadRequest("Members object is null");
             }
             var members = new Members()
             {
-                memb_name = membersDto.memb_name,
-                memb_description = membersDto.memb_description
+                MembName = membersDto.MembName,
+                MembDescription = membersDto.MembDescription
             };
 
             _repositoryManager.MembersRepository.Insert(members);
             //var result = _repositoryManager.MembersRepository.FindMembersById(members.memb_name) ;
-            return CreatedAtRoute("GetMembers", new { id = members.memb_name }, members);
+            return CreatedAtRoute("GetMembers", new { id = members.MembName }, members);
         }
 
         // PUT api/<MembersController>/5
@@ -83,17 +83,17 @@ namespace Realta.WebAPI.Controllers
         {
             if (membersDto == null)
             {
-                _logger.LogError("CountryDto object sent from client is null");
-                return BadRequest("Country object is null");
+                _logger.LogError("MembersDto object sent from client is null");
+                return BadRequest("Members object is null");
             }
 
             var members = new Members()
             {
-                memb_name = membersDto.memb_name,
-                memb_description = membersDto.memb_description
+                MembName = membersDto.MembName,
+                MembDescription = membersDto.MembDescription
             };
             _repositoryManager.MembersRepository.Edit(members);
-            return CreatedAtRoute("GetMembers", new { id = membersDto.memb_name}, new MembersDto { memb_name= id, memb_description= members.memb_description});
+            return CreatedAtRoute("GetMembers", new { id = membersDto.MembName}, new MembersDto { MembName= id, MembDescription= members.MembDescription});
         }
 
         // DELETE api/<MembersController>/5

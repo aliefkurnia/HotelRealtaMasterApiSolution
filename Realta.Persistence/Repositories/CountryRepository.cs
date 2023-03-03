@@ -27,17 +27,17 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@country_id",
                         DataType = DbType.Int32,
-                        Value = country.country_id
+                        Value = country.CountryId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@country_name",
                         DataType = DbType.String,
-                        Value = country.country_name
+                        Value = country.CountryName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@country_region_id",
                         DataType = DbType.Int32,
-                        Value = country.country_region_id
+                        Value = country.CountryRegionId
                     }
                 }
             };
@@ -48,7 +48,10 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Country> FindAllCountry()
         {
-            IEnumerator<Country> dataset = FindAll<Country>("SELECT * FROM master.country ORDER BY country_id;");
+            IEnumerator<Country> dataset = FindAll<Country>("SELECT country_id as CountryId," +
+                "                                                   country_name as CountryName," +
+                "                                                   country_region_id as CountryRegionId" +
+                "                                            FROM master.country ORDER BY country_id;");
 
             while (dataset.MoveNext())
             {
@@ -66,7 +69,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.country where country_id=@country_id;",
+                CommandText = "SELECT country_id as CountryId," +
+                "                     country_name as CountryName," +
+                "                     country_region_id as CountryRegionId " +
+                "              FROM master.country where country_id=@country_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
@@ -100,16 +106,16 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@country_name",
                         DataType = DbType.String,
-                        Value = country.country_name
+                        Value = country.CountryName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@country_region_id",
                         DataType = DbType.String,
-                        Value = country.country_region_id
+                        Value = country.CountryRegionId
                     }
                 }
             };
-            country.country_id = _adoContext.ExecuteScalar<int>(model);
+            country.CountryId = _adoContext.ExecuteScalar<int>(model);
             //_adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
@@ -124,7 +130,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@country_id",
                         DataType = DbType.Int32,
-                        Value = country.country_id
+                        Value = country.CountryId
                     }
                 }
             };

@@ -12,10 +12,10 @@ namespace Realta.Domain.Entities
     public class Country
     {
         [Key]
-        public int country_id { get; set; }
+        public int CountryId { get; set; }
         [Required]
-        public string country_name { get; set; }
+        public string CountryName { get; set; }
         [ForeignKey("country_region_id")]
-        public int country_region_id { get; set; }
+        public int CountryRegionId { get; set; }
     }
 }

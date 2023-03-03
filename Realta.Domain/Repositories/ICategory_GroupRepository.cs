@@ -9,11 +9,11 @@ namespace Realta.Domain.Repositories
 {
     public interface ICategory_GroupRepository
     {
-        IEnumerable<Category_Group> FindAllCategory_Group();
-        Task<IEnumerable<Category_Group>> FindAllCategory_GroupAsync();
-        Category_Group FindCategory_GroupById(int id);
-        void Insert(Category_Group category_Group);
-        void Edit(Category_Group category_Group);
-        void Remove(Category_Group category_Group);
+        IEnumerable<CategoryGroup> FindAllCategoryGroup();
+        Task<IEnumerable<CategoryGroup>> FindAllCategoryGroupAsync();
+        CategoryGroup FindCategoryGroupById(int id);
+        void Insert(CategoryGroup categoryGroup);
+        void Edit(CategoryGroup categoryGroup);
+        void Remove(CategoryGroup categoryGroup);
     }
 }

@@ -51,8 +51,8 @@ namespace Realta.WebAPI.Controllers
             }
             var regionsDto = new RegionsDto
             {
-                region_code = region.region_code,
-                region_name = region.region_name
+                regionCode = region.RegionCode,
+                RegionName = region.RegionName
             };
             return Ok(regionsDto);
         }
@@ -69,15 +69,15 @@ namespace Realta.WebAPI.Controllers
 
             var regions = new Regions()
             {   
-                region_code = regionsDto.region_code,
-                region_name = regionsDto.region_name
+                RegionCode = regionsDto.regionCode,
+                RegionName = regionsDto.RegionName
             };
 
             //execute method Insert
             _repositoryManager.RegionRepository.Insert(regions);
 
-            regionsDto.region_code = regions.region_code;
-            return CreatedAtRoute("GetRegion", new { id = regionsDto.region_code}, regionsDto);
+            regionsDto.regionCode = regions.RegionCode;
+            return CreatedAtRoute("GetRegion", new { id = regionsDto.regionCode}, regionsDto);
 
         }
 
@@ -93,12 +93,12 @@ namespace Realta.WebAPI.Controllers
 
             var regions = new Regions
             {
-                region_code = id,
-                region_name = regionsDto.region_name
+                RegionCode = id,
+                RegionName = regionsDto.RegionName
             };
 
             _repositoryManager.RegionRepository.Edit(regions);
-            return CreatedAtRoute("GetRegion", new { id = regionsDto.region_code }, new RegionsDto { region_code = id, region_name = regions.region_name });
+            return CreatedAtRoute("GetRegion", new { id = regionsDto.regionCode }, new RegionsDto { regionCode = id, RegionName = regions.RegionName });
         }
 
         // DELETE api/<RegionsController>/5

@@ -12,9 +12,9 @@ namespace Realta.Domain.Entities
     public class Provinces
     {
         [Key]
-        public int prov_id { get; set; }
+        public int ProvId { get; set; }
         [Required]
-        public string prov_name { get; set; }
-        public int prov_country_id { get; set; }
+        public string ProvName { get; set; }
+        public int ProvCountryId { get; set; }
     }
 }

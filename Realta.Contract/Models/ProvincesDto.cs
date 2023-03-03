@@ -10,11 +10,11 @@ namespace Realta.Contract.Models
     public class ProvincesDto
     {
         [Required(ErrorMessage = "prov_id is required")]
-        public int prov_id { get; set; }
+        public int ProvId { get; set; }
         [Required]
         [MinLength(5, ErrorMessage = "prov_name must larger than 5")]
         [MaxLength(85, ErrorMessage = "prov_name cannot be longer than 85")]
-        public string? prov_name { get; set; }
-        public int prov_country_id { get; set; }
+        public string? ProvName { get; set; }
+        public int ProvCountryId { get; set; }
     }
 }

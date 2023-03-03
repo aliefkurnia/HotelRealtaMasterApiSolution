@@ -28,7 +28,7 @@ namespace Realta.WebAPI.Controllers
         {
             try
             {
-                var Policy = _repositoryManager.policyRepository.FindAllPolicy().ToList();
+                var Policy = _repositoryManager.PolicyRepository.FindAllPolicy().ToList();
                 return Ok(Policy);
             }
             catch (Exception)
@@ -40,10 +40,10 @@ namespace Realta.WebAPI.Controllers
         }
 
         // GET api/<PolicyController>/5
-        [HttpGet("{id}",Name ="GetPolicy")]
+        [HttpGet("{id}", Name = "GetPolicy")]
         public IActionResult FindPolicyById(int id)
         {
-            var policy = _repositoryManager.policyRepository.FindPolicyById(id);
+            var policy = _repositoryManager.PolicyRepository.FindPolicyById(id);
             if (policy == null)
             {
                 _logger.LogError("Policy object sent from client is null");
@@ -51,75 +51,96 @@ namespace Realta.WebAPI.Controllers
             }
             var policyDto = new PolicyDto
             {
-                poli_id = policy.poli_id,   
-                poli_name = policy.poli_name,
-                poli_description = policy.poli_description,
+                PoliId = policy.PoliId,
+                PoliName = policy.PoliName,
+                PoliDescription = policy.PoliDescription,
             };
             return Ok(policyDto);
         }
 
-        // POST api/<PolicyController>
-        [HttpPost]
-        public IActionResult CreatePolicy([FromBody] PolicyDto policyDto)
+        // GET api/<PolicyController>/
+        [HttpGet("name/{name}", Name = "FindPolicyByName")]
+        public IActionResult FindPolicyByName(string name)
         {
-            if (policyDto == null)
+            var policy = _repositoryManager.PolicyRepository.FindPolicyByName(name);
+            if (policy.ToList().Count() == 0)
             {
                 _logger.LogError("PolicyDto object sent from client is null");
                 return BadRequest("Policy object is null");
             }
 
-            var policy = new Policy()
+            var policyDto = policy.Select(x => new PolicyDto
             {
-                poli_id = policyDto.poli_id,
-                poli_name = policyDto.poli_name,
-                poli_description = policyDto.poli_description
-            };
-
-            //execute method Insert
-            _repositoryManager.policyRepository.Insert(policy);
-
-            policyDto.poli_id = policy.poli_id;
-            return CreatedAtRoute("GetPolicy", new { id = policy.poli_id }, policyDto);
-        }
-
-        // PUT api/<PolicyController>/5
-        [HttpPut("{id}")]
-        public IActionResult UpdatePolicy(int id, PolicyDto policyDto)
-        {
-            if (policyDto == null)
-            {
-                _logger.LogError("PolicyDto object sent from client is null");
-                return BadRequest("Policy object is null");
+                PoliId = x.PoliId,
+                PoliName = x.PoliName,
+                PoliDescription = x.PoliDescription,
+            });
+            return Ok(policy);
             }
 
-            var policy = new Policy()
-            {
-                poli_id = id,
-                poli_name = policyDto.poli_name,
-                poli_description = policyDto.poli_description
-            };
-            _repositoryManager.policyRepository.Edit(policy);
-            return CreatedAtRoute("GetPolicy", new { id = policyDto.poli_id }, new PolicyDto { poli_id = id, poli_name = policy.poli_name, poli_description = policy.poli_description });
-        }
 
-        // DELETE api/<PolicyController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            if (id == null)
+            // POST api/<PolicyController>
+            [HttpPost]
+            public IActionResult CreatePolicy([FromBody] PolicyDto policyDto)
             {
-                _logger.LogError("policyDto object sent from client is null");
-                return BadRequest("policy object is null");
+                if (policyDto == null)
+                {
+                    _logger.LogError("PolicyDto object sent from client is null");
+                    return BadRequest("Policy object is null");
+                }
+
+                var policy = new Policy()
+                {
+                    PoliId = policyDto.PoliId,
+                    PoliName = policyDto.PoliName,
+                    PoliDescription = policyDto.PoliDescription
+                };
+
+                //execute method Insert
+                _repositoryManager.PolicyRepository.Insert(policy);
+
+                policyDto.PoliId = policy.PoliId;
+                return CreatedAtRoute("GetPolicy", new { id = policy.PoliId }, policyDto);
             }
 
-            var policy = _repositoryManager.policyRepository.FindPolicyById(id);
-            if (policy == null)
+            // PUT api/<PolicyController>/5
+            [HttpPut("{id}")]
+            public IActionResult UpdatePolicy(int id, PolicyDto policyDto)
             {
-                _logger.LogError($"policy with {id} not found");
-                return NotFound();
+                if (policyDto == null)
+                {
+                    _logger.LogError("PolicyDto object sent from client is null");
+                    return BadRequest("Policy object is null");
+                }
+
+                var policy = new Policy()
+                {
+                    PoliId = id,
+                    PoliName = policyDto.PoliName,
+                    PoliDescription = policyDto.PoliDescription
+                };
+                _repositoryManager.PolicyRepository.Edit(policy);
+                return CreatedAtRoute("GetPolicy", new { id = policyDto.PoliId }, new PolicyDto { PoliId = id, PoliName = policy.PoliName, PoliDescription = policy.PoliDescription });
             }
-            _repositoryManager.policyRepository.Remove(policy);
-            return Ok("Data has been removed");
+
+            // DELETE api/<PolicyController>/5
+            [HttpDelete("{id}")]
+            public IActionResult Delete(int id)
+            {
+                if (id == null)
+                {
+                    _logger.LogError("policyDto object sent from client is null");
+                    return BadRequest("policy object is null");
+                }
+
+                var policy = _repositoryManager.PolicyRepository.FindPolicyById(id);
+                if (policy == null)
+                {
+                    _logger.LogError($"policy with {id} not found");
+                    return NotFound();
+                }
+                _repositoryManager.PolicyRepository.Remove(policy);
+                return Ok("Data has been removed");
+            }
         }
-    }
-}
+    } 

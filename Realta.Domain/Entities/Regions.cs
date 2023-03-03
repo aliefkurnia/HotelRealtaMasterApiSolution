@@ -12,8 +12,8 @@ namespace Realta.Domain.Entities
     public class Regions
     {
         [Key]
-        public int region_code { get; set; }
+        public int RegionCode { get; set; }
         [Required]
-        public string? region_name { get; set; }
+        public string? RegionName { get; set; }
     }
 }

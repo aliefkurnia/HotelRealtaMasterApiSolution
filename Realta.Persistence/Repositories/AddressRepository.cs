@@ -28,32 +28,32 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_id",
                         DataType = DbType.Int32,
-                        Value = address.addr_id
+                        Value = address.AddrId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_line1",
                         DataType = DbType.String,
-                        Value = address.addr_line1
+                        Value = address.AddrLine1
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_line2",
                         DataType = DbType.String,
-                        Value = address.addr_line2
+                        Value = address.AddrLine2
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_postal_code",
                         DataType = DbType.String,
-                        Value = address.addr_postal_code
+                        Value = address.AddrPostalCode
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_spatial_location",
                         DataType = DbType.String,
-                        Value = address.addr_spatial_location
+                        Value = address.AddrSpatialLocation
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_prov_id",
                         DataType = DbType.Int32,
-                        Value = address.addr_prov_id
+                        Value = address.AddrProvId
                     }
                 }
             };
@@ -65,7 +65,13 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.address where addr_id=@addr_id;",
+                CommandText = "SELECT addr_id as AddrId," +
+                "                     addr_line1 as AddrLine1," +
+                "                     addr_line2 as AddrLine2," +
+                "                     addr_postal_code as Addr_Postal_Code," +
+                "                     addr_spatial_location as AddrSpatialLocation," +
+                "                     addr_prov_id as AddrProvId " +
+                "                     FROM master.address where addr_id=@addr_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
@@ -88,9 +94,17 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
+
         public IEnumerable<Address> FindAllAddress()
         {
-            IEnumerator<Address> dataset = FindAll<Address>("SELECT * from master.address ORDER BY addr_id;");
+            IEnumerator<Address> dataset = FindAll<Address>("" +
+                "SELECT " +
+                "addr_id as AddrId," +
+                "addr_line1 as AddrLine1," +
+                "addr_line2 as AddrLine2," +
+                "addr_postal_code as AddrPostalCode," +
+                "addr_spatial_location as AddrSpatialLocation," +
+                "addr_prov_id as AddrProvId from master.address ORDER BY addr_id;");
             while (dataset.MoveNext())
             {
                 var data = dataset.Current;
@@ -115,32 +129,32 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_line1",
                         DataType = DbType.String,
-                        Value = address.addr_line1
+                        Value = address.AddrLine1
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_line2",
                         DataType = DbType.String,
-                        Value = address.addr_line2
+                        Value = address.AddrLine2
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_postal_code",
                         DataType = DbType.String,
-                        Value = address.addr_postal_code
+                        Value = address.AddrPostalCode
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_spatial_location",
                         DataType = DbType.String,
-                        Value = address.addr_spatial_location
+                        Value = address.AddrSpatialLocation
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_prov_id",
                         DataType = DbType.Int32,
-                        Value = address.addr_prov_id
+                        Value = address.AddrProvId
                     }
                 }
             };
             //_adoContext.ExecuteNonQuery(model);
-            address.addr_id = _adoContext.ExecuteScalar<int>(model);
+            address.AddrId = _adoContext.ExecuteScalar<int>(model);
                 _adoContext.Dispose();
         }
 
@@ -154,7 +168,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@addr_id",
                         DataType = DbType.Int32,
-                        Value = address.addr_id
+                        Value = address.AddrId
                     }
                 }
             };

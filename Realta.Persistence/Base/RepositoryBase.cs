@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Realta.Persistence.Base
 {
-    public abstract class RepositoryBase <T> : IRepositoryBase <T> where T : class
+    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
 
         protected AdoDbContext _adoContext;
@@ -37,6 +37,18 @@ namespace Realta.Persistence.Base
             return listOfData;
         }
 
+        public IEnumerable<T> GetAll<T>(string sql)
+        {
+            var newList = new List<T>();
+            var listOfData = _adoContext.ExecuteReader<T>(sql);
+            _adoContext.Dispose();
+            while (listOfData.MoveNext())
+            {
+                newList.Add(listOfData.Current);
+            }
+            return newList;
+        }
+
         public IAsyncEnumerator<T> FindAllAsync<T>(SqlCommandModel model)
         {
             var dataT = _adoContext.ExecuteReaderAsync<T>(model);
@@ -57,5 +69,7 @@ namespace Realta.Persistence.Base
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
+
+
     }
 }

@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 
 namespace Realta.Contract.Models
 {
-    public class Price_ItemsDto
+    public class PriceItemsDto
     {
         [Key]
-        public int prit_id { get; set; }
+        public int PritId { get; set; }
         [Required]
-        public string prit_name { get; set; }
+        public string PritName { get; set; }
         [Required]
-        public decimal prit_price { get; set; }
+        public decimal PritPrice { get; set; }
 
-        public string prit_description { get; set; }
-        private string _prit_type;
+        public string PritDescription { get; set; }
+        private string _PritType;
         [Required]
-        public string prit_type
+        public string PritType
         {
-            get { return _prit_type; }
+            get { return _PritType; }
             set
             {
                 if (value == "SNACK" || value == "FACILITY" || value == "SOFTDRINK" || value == "FOOD" || value == "SERVICE")
                 {
-                    _prit_type = value;
+                    _PritType = value;
                 }
                 else
                 {
@@ -36,7 +36,7 @@ namespace Realta.Contract.Models
                 }
             }
         }
-
-        public DateTime prit_modified_date { get; set; }
+        public string PritIconUrl { get; set; }
+        public DateTime PritModifiedDate { get; set; }
     }
 }

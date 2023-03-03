@@ -12,13 +12,13 @@ namespace Realta.Domain.Entities
     public class Address
     {
         [Key]
-        public int addr_id { get; set; }
+        public int AddrId { get; set; }
         [Required]
-        public string addr_line1 { get; set; }
-        public string? addr_line2 { get; set;}
-        public string? addr_postal_code { get; set; }
-        public string? addr_spatial_location { get; set; }
+        public string AddrLine1 { get; set; }
+        public string? AddrLine2 { get; set;}
+        public string? AddrPostalCode { get; set; }
+        public string? AddrSpatialLocation { get; set; }
         [ForeignKey("addr_prov_id")]
-        public int addr_prov_id { get; set; }
+        public int AddrProvId { get; set; }
     }
 }

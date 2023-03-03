@@ -13,8 +13,8 @@ namespace Realta.Domain.Entities
     {
         [Key]
         [MaxLength(15, ErrorMessage = "memb_name must between 1 and 15")]
-        public string memb_name { get; set; }
+        public string MembName { get; set; }
 
-        public string memb_description { get; set; }
+        public string MembDescription { get; set; }
     }
 }
