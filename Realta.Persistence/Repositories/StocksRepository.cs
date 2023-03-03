@@ -24,61 +24,63 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new SqlCommandModel()
             {
                 CommandText = "UPDATE purchasing.stocks SET " +
-                "stock_name=@stockName, stock_description=@stockDesc, stock_quantity=@stockQty, " +
-                "stock_reorder_point=@stockRP, stock_used=@stockUsed, stock_scrap=@stockScrap, stock_size=@stockSize, " +
-                "stock_color=@stockColor, stock_modified_date=@stockModifiedDate" +
-                " WHERE stock_id=@stockId;",
+                "stock_name=@stockName, stock_description=@stockDesc, " +
+                "stock_quantity=@stockQty, stock_reorder_point=@stockRP, " +
+                "stock_used=@stockUsed, stock_scrap=@stockScrap, " +
+                "stock_size=@stockSize, stock_color=@stockColor, " +
+                "stock_modified_date=@stockModifiedDate " +
+                "WHERE stock_id=@stockId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockId",
                         DataType = DbType.Int32,
-                        Value = stocks.stock_id
+                        Value = stocks.StockId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockName",
                         DataType = DbType.String,
-                        Value = stocks.stock_name
+                        Value = stocks.StockName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockDesc",
                         DataType = DbType.String,
-                        Value = stocks.stock_description
+                        Value = stocks.StockDesc
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockQty",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_quantity
+                        Value = stocks.StockQty
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockRP",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_reorder_point
+                        Value = stocks.StockReorderPoint
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockUsed",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_used
+                        Value = stocks.StockUsed
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockScrap",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_scrap
+                        Value = stocks.StockScrap
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockSize",
                         DataType = DbType.String,
-                        Value = stocks.stock_size
+                        Value = stocks.StockSize
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockColor",
                         DataType = DbType.String,
-                        Value = stocks.stock_color
+                        Value = stocks.StockColor
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockModifiedDate",
                         DataType = DbType.DateTime,
-                        Value = stocks.stock_modified_date
+                        Value = stocks.StockModifiedDate
                     }
                 }
             };
@@ -89,7 +91,10 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Stocks> FindAllStocks()
         {
-            IEnumerator<Stocks> dataSet = FindAll<Stocks>("SELECT * FROM Purchasing.stocks");
+            IEnumerator<Stocks> dataSet = FindAll<Stocks>("SELECT stock_id as StockId, stock_name as StockName, " +
+                "stock_description as StockDesc, stock_quantity as StockQty, stock_reorder_point as StockReorderPoint, " +
+                "stock_used as StockUsed, stock_scrap as StockScrap, stock_size as StockSize, stock_color as StockColor, " +
+                "stock_modified_date as StockModifiedDate FROM Purchasing.stocks");
 
             while (dataSet.MoveNext())
             {
@@ -97,13 +102,20 @@ namespace Realta.Persistence.Repositories
                 yield return data;
 
             }
+
+            //var dataSet = GetAll<Stocks>("SELECT * FROM Purchasing.stocks");
+
+            //return dataSet;
         }
 
         public async Task<IEnumerable<Stocks>> FindAllStocksAsync()
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM Purchasing.stocks;",
+                CommandText = "SELECT stock_id as StockId, stock_name as StockName, " +
+                "stock_description as StockDesc, stock_quantity as StockQty, stock_reorder_point as StockReorderPoint, " +
+                "stock_used as StockUsed, stock_scrap as StockScrap, stock_size as StockSize, stock_color as StockColor, " +
+                "stock_modified_date as StockModifiedDate FROM Purchasing.stocks",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] { }
 
@@ -126,7 +138,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM purchasing.stocks where stock_id=@stockId;",
+                CommandText = "SELECT stock_id as StockId, stock_name as StockName, " +
+                "stock_description as StockDesc, stock_quantity as StockQty, stock_reorder_point as StockReorderPoint, " +
+                "stock_used as StockUsed, stock_scrap as StockScrap, stock_size as StockSize, stock_color as StockColor, " +
+                "stock_modified_date as StockModifiedDate FROM Purchasing.stocks where stock_id=@stockId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -154,8 +169,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO region (stock_name, stock_description, stock_quantity, stock_reorder_point, stock_used, " +
-                "stock_scrap, stock_size, stock_color, stock_modified_date) values (@stockName,@stockDesc, @stockQty, @stockRP, " +
+                CommandText = "INSERT INTO purchasing.stocks (stock_name, stock_description, " +
+                "stock_quantity, stock_reorder_point, stock_used, " +
+                "stock_scrap, stock_size, stock_color, " +
+                "stock_modified_date) values (@stockName,@stockDesc, @stockQty, @stockRP, " +
                 "@stockUsed, @stockScrap ,@stockSize, @stockColor, @stockModifiedDate);" +
                 "SELECT CAST (scope_identity() as int);",
                 CommandType = CommandType.Text,
@@ -163,52 +180,52 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockName",
                         DataType = DbType.String,
-                        Value = stocks.stock_name
+                        Value = stocks.StockName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockDesc",
                         DataType = DbType.String,
-                        Value = stocks.stock_description
+                        Value = stocks.StockDesc
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockQty",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_quantity
+                        Value = stocks.StockQty
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockRP",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_name
+                        Value = stocks.StockReorderPoint
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockUsed",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_used
+                        Value = stocks.StockUsed
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockScrap",
                         DataType = DbType.Int16,
-                        Value = stocks.stock_scrap
+                        Value = stocks.StockScrap
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockSize",
                         DataType = DbType.String,
-                        Value = stocks.stock_size
+                        Value = stocks.StockSize
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockColor",
                         DataType = DbType.String,
-                        Value = stocks.stock_color
+                        Value = stocks.StockColor
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockModifiedDate",
                         DataType = DbType.DateTime,
-                        Value = stocks.stock_modified_date
+                        Value = stocks.StockModifiedDate
                     }
                 }
             };
 
-            stocks.stock_id = _adoContext.ExecuteScalar<int>(model);
+            stocks.StockId = _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
 
@@ -222,7 +239,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockId",
                         DataType = DbType.Int32,
-                        Value = stocks.stock_id
+                        Value = stocks.StockId
                     }
                 }
             };

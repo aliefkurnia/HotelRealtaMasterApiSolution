@@ -31,32 +31,32 @@ namespace Realta.Persistence.Repositories
                    new SqlCommandParameterModel() {
                         ParameterName = "@sphoId",
                         DataType = DbType.Int32,
-                        Value = stockPhoto.spho_id
+                        Value = stockPhoto.SphoId
                     },
                    new SqlCommandParameterModel() {
                         ParameterName = "@sphoThumbnailFilename",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_thumbnail_filename
+                        Value = stockPhoto.SphoThumbnailFilename
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoPhotoFilename",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_photo_filename
+                        Value = stockPhoto.SphoPhotoFileName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoPrimary",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_primary
+                        Value = stockPhoto.SphoPrimary
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoUrl",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_url
+                        Value = stockPhoto.SphoUrl
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoStockId",
                         DataType = DbType.Int32,
-                        Value = stockPhoto.spho_stock_id
+                        Value = stockPhoto.SphoStockId
                     }
                 }
             };
@@ -141,32 +141,63 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoThumbnailFilename",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_thumbnail_filename
+                        Value = stockPhoto.SphoThumbnailFilename
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoPhotoFilename",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_photo_filename
+                        Value = stockPhoto.SphoPhotoFileName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoPrimary",
-                        DataType = DbType.String,
-                        Value = stockPhoto.spho_primary
+                        DataType = DbType.Int16,
+                        Value = stockPhoto.SphoPrimary
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoUrl",
                         DataType = DbType.String,
-                        Value = stockPhoto.spho_url
+                        Value = stockPhoto.SphoUrl
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoStockId",
                         DataType = DbType.Int32,
-                        Value = stockPhoto.spho_stock_id
+                        Value = stockPhoto.SphoStockId
                     }
                 }
             };
 
-            stockPhoto.spho_id = _adoContext.ExecuteScalar<int>(model);
+            stockPhoto.SphoId = _adoContext.ExecuteScalar<int>(model);
+            _adoContext.Dispose();
+        }
+
+        public void InsertUploadPhoto(StockPhoto stockPhoto)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "INSERT INTO purchasing.stock_photo (spho_photo_filename, spho_primary, " +
+                "spho_stock_id) values (@sphoPhotoFilename, @sphoPrimary, " +
+                "@sphoStockId);",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@sphoPhotoFilename",
+                        DataType = DbType.String,
+                        Value = stockPhoto.SphoPhotoFileName
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@sphoPrimary",
+                        DataType = DbType.Int16,
+                        Value = stockPhoto.SphoPrimary
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@sphoStockId",
+                        DataType = DbType.Int32,
+                        Value = stockPhoto.SphoStockId
+                    }
+                }
+            };
+
+            _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
 
@@ -180,7 +211,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@sphoId",
                         DataType = DbType.Int32,
-                        Value = stockPhoto.spho_id
+                        Value = stockPhoto.SphoId
                     }
                 }
             };

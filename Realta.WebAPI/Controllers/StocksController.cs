@@ -29,16 +29,16 @@ namespace Realta.WebAPI.Controllers
 
             var stocksDto = stocks.Select(r => new StocksDto
             {
-                StockId = r.stock_id,
-                StockName = r.stock_name,
-                StockDescription = r.stock_description,
-                StockQuantity = r.stock_quantity,
-                StockReorderPoint = r.stock_reorder_point,
-                StockUsed = r.stock_used,
-                StockScrap = r.stock_scrap,
-                StockSize = r.stock_size,
-                StockColor = r.stock_color,
-                StockModifiedDate = r.stock_modified_date
+                StockId = r.StockId,
+                StockName = r.StockName,
+                StockDescription = r.StockDesc,
+                StockQuantity = r.StockQty,
+                StockReorderPoint = r.StockReorderPoint,
+                StockUsed = r.StockUsed,
+                StockScrap = r.StockScrap,
+                StockSize = r.StockSize,
+                StockColor = r.StockColor,
+                StockModifiedDate = r.StockModifiedDate
             });
 
             return Ok(stocksDto);
@@ -57,16 +57,16 @@ namespace Realta.WebAPI.Controllers
 
             var stockDto = new StocksDto
             {
-                StockId = stock.stock_id,
-                StockName = stock.stock_name,
-                StockDescription = stock.stock_description,
-                StockQuantity= stock.stock_quantity,
-                StockReorderPoint= stock.stock_reorder_point,
-                StockUsed= stock.stock_used,
-                StockScrap = stock.stock_scrap,
-                StockSize = stock.stock_size,
-                StockColor = stock.stock_color,
-                StockModifiedDate = stock.stock_modified_date
+                StockId = stock.StockId,
+                StockName = stock.StockName,
+                StockDescription = stock.StockDesc,
+                StockQuantity= stock.StockQty,
+                StockReorderPoint= stock.StockReorderPoint,
+                StockUsed= stock.StockUsed,
+                StockScrap = stock.StockScrap,
+                StockSize = stock.StockSize,
+                StockColor = stock.StockColor,
+                StockModifiedDate = stock.StockModifiedDate
             };
 
             return Ok(stockDto);
@@ -85,23 +85,23 @@ namespace Realta.WebAPI.Controllers
 
             var stock = new Stocks 
             { 
-                stock_name = stocksDto.StockName,
-                stock_description = stocksDto.StockDescription,
-                stock_quantity = stocksDto.StockQuantity,
-                stock_reorder_point = stocksDto.StockReorderPoint,
-                stock_used = stocksDto.StockUsed,
-                stock_scrap = stocksDto.StockScrap,
-                stock_size = stocksDto.StockSize,
-                stock_color = stocksDto.StockColor,
-                stock_modified_date = stocksDto.StockModifiedDate
+                StockName = stocksDto.StockName,
+                StockDesc = stocksDto.StockDescription,
+                StockQty = stocksDto.StockQuantity,
+                StockReorderPoint = stocksDto.StockReorderPoint,
+                StockUsed = stocksDto.StockUsed,
+                StockScrap = stocksDto.StockScrap,
+                StockSize = stocksDto.StockSize,
+                StockColor = stocksDto.StockColor,
+                StockModifiedDate = DateTime.Now
             };
 
             // post 
             _repositoryManager.StockRepository.Insert(stock);
-            stocksDto.StockId = stock.stock_id;
+            stocksDto.StockId = stock.StockId;
 
             //forward
-            return CreatedAtRoute("GetStock", new { id = stock.stock_id }, stocksDto);
+            return CreatedAtRoute("GetStock", new { id = stock.StockId }, stocksDto);
         }
 
         // PUT api/<StocksController>/5
@@ -115,32 +115,32 @@ namespace Realta.WebAPI.Controllers
             }
 
             var stock = new Stocks {
-                stock_id = id,
-                stock_name = stocksDto.StockName,
-                stock_description= stocksDto.StockDescription,
-                stock_quantity= stocksDto.StockQuantity,
-                stock_reorder_point= stocksDto.StockReorderPoint,
-                stock_used= stocksDto.StockUsed,
-                stock_scrap= stocksDto.StockScrap,  
-                stock_size= stocksDto.StockSize,
-                stock_color= stocksDto.StockColor,  
-                stock_modified_date = DateTime.Now
+                StockId = id,
+                StockName = stocksDto.StockName,
+                StockDesc= stocksDto.StockDescription,
+                StockQty= stocksDto.StockQuantity,
+                StockReorderPoint= stocksDto.StockReorderPoint,
+                StockUsed= stocksDto.StockUsed,
+                StockScrap= stocksDto.StockScrap,  
+                StockSize= stocksDto.StockSize,
+                StockColor= stocksDto.StockColor,  
+                StockModifiedDate = DateTime.Now
             };
 
             _repositoryManager.StockRepository.Edit(stock);
 
             return CreatedAtRoute("GetStock", new { id = id }, new StocksDto 
                 {
-                    StockId = stock.stock_id,
-                    StockName = stock.stock_name,
-                    StockDescription = stock.stock_description,
-                    StockQuantity = stock.stock_quantity,
-                    StockReorderPoint = stock.stock_reorder_point,
-                    StockUsed = stock.stock_used,
-                    StockScrap = stock.stock_scrap,
-                    StockSize = stock.stock_size,
-                    StockColor = stock.stock_color,
-                    StockModifiedDate = stock.stock_modified_date
+                    StockId = stock.StockId,
+                    StockName = stock.StockName,
+                    StockDescription = stock.StockDesc,
+                    StockQuantity = stock.StockQty,
+                    StockReorderPoint = stock.StockReorderPoint,
+                    StockUsed = stock.StockUsed,
+                    StockScrap = stock.StockScrap,
+                    StockSize = stock.StockSize,
+                    StockColor = stock.StockColor,
+                    StockModifiedDate = stock.StockModifiedDate
                 });
         }
 

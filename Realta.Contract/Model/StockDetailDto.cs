@@ -5,23 +5,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
 
 namespace Realta.Contract
 {
     public class StockDetailDto
     {
-        public int? stod_id { get; set; }
-        public int? stod_stock_id { get; set; }
+        public int? StodId { get; set; }
+        public int? StodStockId { get; set; }
 
 
-        public string? stod_barcode_number { get; set; }
+        public string? StodBarcodeNumber { get; set; }
 
-        public string? stod_status { get; set; }
-        public string? stod_notes { get; set; }
+        public string? StodStatus { get; set; }
+        public string? StodNotes { get; set; }
 
-        public int? stod_faci_id { get; set; }
+        public int? StodFaciId { get; set; }
 
-        public int? stod_pohe_id { get; set; }
+        public string? StodPoNumber { get; set; }
     }
 }

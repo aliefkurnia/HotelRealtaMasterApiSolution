@@ -8,25 +8,25 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Entities
 {
-    [Table("purchasing.stock_detail")]
+    [Table("Purchasing.stock_detail")]
     public class StockDetail
     {
         [Key]
         [Column(Order = 1)]
-        public int? stod_id { get; set; }
+        public int? StodId { get; set; }
         [Key]
         [Column(Order = 2)]
-        [ForeignKey("purchasing.stocks")]
-        public int? stod_stock_id { get; set; }
-        public string? stod_barcode_number { get; set; }
-        public string? stod_status { get; set; }
-        public string? stod_notes { get; set; }
+        [ForeignKey("Purchasing.stocks")]
+        public int? StodStockId { get; set; }
+        public string? StodBarcodeNumber { get; set; }
+        public string? StodStatus { get; set; }
+        public string? StodNotes { get; set; }
 
         [ForeignKey("Hotel.facilities")]
-        public int? stod_faci_id { get; set; }
+        public int? StodFaciId { get; set; }
 
-        [ForeignKey("purchasing.purchase_order_header")]
-        public int? stod_pohe_id { get; set; }
+        [ForeignKey("Purchasing.purchase_order_header")]
+        public int? StodPoheId { get; set; }
 
     }
 }
