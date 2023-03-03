@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Repositories
 {
-    public interface IPrice_ItemsRepository
+    public interface IPriceItemsRepository
     {
         IEnumerable<PriceItems> FindAllPriceItems();
         Task<IEnumerable<PriceItems>> FindAllPriceItemsAsync();
@@ -16,5 +16,7 @@ namespace Realta.Domain.Repositories
         void Insert(PriceItems priceItems);
         void Edit(PriceItems priceItems);
         void Remove(PriceItems priceItems);
+        int GetIdSequence();
+
     }
 }

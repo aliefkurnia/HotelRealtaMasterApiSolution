@@ -20,12 +20,14 @@ namespace Realta.Persistence.Base
         private IAddressRepository _addressRepository;
         private IMembersRepository _membersRepository;
         private IServiceTaskRepository _service_TaskRepository;
-        private IPrice_ItemsRepository _price_itemsRepository;
+        private IPriceItemsRepository _price_itemsRepository;
         private IPolicyRepository _policyRepository;
         private ICategory_GroupRepository _category_GroupRepository;
+        private Lazy<IPriceItemsPhotoRepository> _priceItemsPhotoRepository;
         public RepositoryManager(AdoDbContext adoContext)
         {
             _adoContext = adoContext;
+            _priceItemsPhotoRepository = new Lazy<IPriceItemsPhotoRepository>(() => new PriceItemsPhotoRepository (adoContext));
         }
 
 
@@ -103,7 +105,7 @@ namespace Realta.Persistence.Base
         }
 
 
-        public IPrice_ItemsRepository PriceItemsRepository
+        public IPriceItemsRepository PriceItemsRepository
         {
             get
             {
@@ -140,5 +142,7 @@ namespace Realta.Persistence.Base
                 return _category_GroupRepository;
             }
         }
+
+        public IPriceItemsPhotoRepository PriceItemsPhotoRepository => _priceItemsPhotoRepository.Value;
     }
 }

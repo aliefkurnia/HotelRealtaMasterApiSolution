@@ -28,3 +28,7 @@ C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Real
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\refint\Realta.Services.dll
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Contract.dll
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Domain.dll
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Domain.pdb
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Contract.pdb

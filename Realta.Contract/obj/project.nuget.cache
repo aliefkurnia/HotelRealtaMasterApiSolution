@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "zjz6MEVdpwqWc/JU/ozpd8ItvRmLplAR+VRFzv+dfdlvTAx0FNQoK9keIPEM63QDp0w831izrjY46qgogy4Jqg==",
+  "dgSpecHash": "j8RZiEz2iIa2kxRQLZZNuMwHdEk+wT0Y95L+JhzX5jGwmVFtBrQHgl9xFabRuOLC/bZ4wlbaUWhiPSeX+z/frg==",
   "success": true,
   "projectFilePath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alief\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\alief\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
     "C:\\Users\\alief\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
-    "C:\\Users\\alief\\.nuget\\packages\\microsoft.sqlserver.types\\160.1000.6\\microsoft.sqlserver.types.160.1000.6.nupkg.sha512"
+    "C:\\Users\\alief\\.nuget\\packages\\microsoft.sqlserver.types\\160.1000.6\\microsoft.sqlserver.types.160.1000.6.nupkg.sha512",
+    "C:\\Users\\alief\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

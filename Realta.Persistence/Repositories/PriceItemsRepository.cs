@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Realta.Persistence.Repositories
 {
-    public class PriceItemsRepository : RepositoryBase<PriceItems>, IPrice_ItemsRepository
+    public class PriceItemsRepository : RepositoryBase<PriceItems>, IPriceItemsRepository
     {
         public PriceItemsRepository(AdoDbContext adoContext) : base(adoContext)
         {
@@ -78,7 +78,7 @@ namespace Realta.Persistence.Repositories
                 "                                                         prit_price as PritPrice," +
                 "                                                         prit_description as PritDescription," +
                 "                                                         prit_type as PritType," +
-                "                                                         prit_modified_date as PritModifiedDate" +
+                "                                                         prit_modified_date as PritModifiedDate," +
                 "                                                         prit_icon_url as PritIconUrl" +
                 "                                                  FROM master.Price_items ORDER BY prit_id;");
             while (dataset.MoveNext())
@@ -103,7 +103,7 @@ namespace Realta.Persistence.Repositories
                 "                     prit_price as PritPrice," +
                 "                     prit_description as PritDescription," +
                 "                     prit_type as PritType," +
-                "                     prit_modified_date as PritModifiedDate" +
+                "                     prit_modified_date as PritModifiedDate," +
                 "                     prit_icon_url as PritIconUrl" +
                 "              FROM master.price_items WHERE prit_name LIKE '%' + @prit_name + '%';",
                 CommandType = CommandType.Text,
@@ -162,7 +162,9 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO master.price_items (prit_name,prit_price,prit_description,prit_type,prit_icon_url) values (@prit_name,@prit_price,@prit_description,@prit_type,@prit_icon_url);SELECT cast(scope_identity() as int)",
+                CommandText = "INSERT INTO master.price_items (prit_name,prit_price,prit_description,prit_type,prit_icon_url) values (@prit_name,@prit_price,@prit_description,@prit_type,@prit_icon_url);" 
+                + " SELECT cast(scope_identity() as int)"
+                ,
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -213,6 +215,19 @@ namespace Realta.Persistence.Repositories
             };
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+        public int GetIdSequence()
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT IDENT_CURRENT('Master.Price_items');",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            decimal id = _adoContext.ExecuteScalar<decimal>(model);
+            _adoContext.Dispose();
+            return (int)id;
         }
     }
 }

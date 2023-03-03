@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.SqlServer.Types": {
               "target": "Package",
               "version": "[160.1000.6, )"
@@ -202,7 +206,7 @@
         "projectName": "Realta.Services.Abstraction",
         "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
         "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alief\\Source\\Repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
+        "outputPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -218,7 +222,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
+                "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -230,6 +238,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -274,6 +288,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
+                "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
+              },
               "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
                 "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
               }

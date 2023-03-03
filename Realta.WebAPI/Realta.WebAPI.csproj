@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Realta.Services\Realta.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>

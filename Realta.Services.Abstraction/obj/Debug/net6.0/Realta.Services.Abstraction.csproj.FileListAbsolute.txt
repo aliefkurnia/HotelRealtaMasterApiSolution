@@ -22,3 +22,6 @@ C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\refint\Realta.Services.Abstraction.dll
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.pdb
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\ref\Realta.Services.Abstraction.dll
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Contract.dll
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Contract.pdb
+C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CopyComplete

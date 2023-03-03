@@ -14,11 +14,12 @@ namespace Realta.WebAPI.Controllers
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerManager _logger;
-
-        public PriceItemsController(IRepositoryManager repositoryManager, ILoggerManager logger)
+        private readonly IServiceManager _serviceManager;
+        public PriceItemsController(IRepositoryManager repositoryManager, ILoggerManager logger, IServiceManager serviceManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
+            _serviceManager = serviceManager;
         }
 
         // GET: api/<Price_ItemsController>
@@ -145,11 +146,64 @@ namespace Realta.WebAPI.Controllers
             var priceItems = _repositoryManager.PriceItemsRepository.FindPriceItemsById(id);
             if (priceItems == null)
             {
-                _logger.LogError($"address with {id} not found");
+                _logger.LogError($"Price Items with {id} not found");
                 return NotFound();
             }
             _repositoryManager.PriceItemsRepository.Remove(priceItems);
             return Ok("Data has been removed");
         }
+
+        //POST api/<Price_ItemsController>
+        [HttpPost("UploadPrit"), DisableRequestSizeLimit]
+        public async Task<IActionResult> CreatePriceItemsPhoto()
+        {
+            //1. declare formCollection to hold form-data
+            var formColletion = await Request.ReadFormAsync();
+
+            //2. extract files to variable files
+            var files = formColletion.Files;
+
+            //3. hold each ouput formCollection to each variable
+            formColletion.TryGetValue("PritName", out var pritName);
+            formColletion.TryGetValue("PritPrice", out var pritPrice);
+            formColletion.TryGetValue("PritDescription", out var pritDescription);
+            formColletion.TryGetValue("PritType", out var pritType);
+
+            //4. declare variable and store in object 
+            var priceItemsCreateDto = new PriceItemsCreateDto
+            {
+                PritName = pritName.ToString(),
+                PritPrice = decimal.Parse(pritPrice.ToString()),
+                PritDescription = pritDescription.ToString(),
+                PritType = pritType.ToString(),
+                PritIconUrl = $"localhost:7068/resources/images/{pritName}",
+                PritModifiedDate = DateTime.Now
+            };
+
+            //5. store to list
+            var allPhotos = new List<IFormFile>();
+            foreach (var item in files)
+            {
+                allPhotos.Add(item);
+            }
+
+            //6. declare variable productphotogroup
+            var priceItemsPhotoGroup = new PriceItemsPhotoGroupDto
+            {
+                PriceItemsForCreateDto = priceItemsCreateDto,
+                AllPhotos = allPhotos
+            };
+
+            if (priceItemsPhotoGroup != null)
+            {
+                _serviceManager.PriceItemsPhotoService.InsertPriceItemsAndPriceItemsPhoto(priceItemsPhotoGroup, out var pritId);
+                var priceItemsResult = _repositoryManager.PriceItemsRepository.FindPriceItemsById(pritId);
+                return Ok(priceItemsResult);
+            }
+            _logger.LogError("PriceItemsDto object sent from client is null");
+            return BadRequest("Object Is Null");
+        }
+
+
     }
 }

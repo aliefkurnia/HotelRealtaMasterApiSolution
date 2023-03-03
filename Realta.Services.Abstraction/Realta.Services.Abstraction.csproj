@@ -8,4 +8,12 @@
     <AssemblyName>Realta.Services.Abstraction</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Realta.Contract\Realta.Contract.csproj" />
+  </ItemGroup>
+
 </Project>
