@@ -148,7 +148,7 @@ namespace Realta.Persistence.Repositories
                     },
                 }
             };
-            //_adoContext.ExecuteNonQuery(model);
+            _adoContext.ExecuteNonQuery(model);
             venPro.vepro_id = _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
