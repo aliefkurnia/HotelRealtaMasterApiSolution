@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.Entities
 {
-    [Table("Stocks")]
+    [Table("Purchasing.stocks")]
     public class Stocks
     {
         [Key]
-        public int? stock_id { get; set; }
-        public string stock_name { get; set; }
-        public string? stock_description { get; set; }
-        public Int16 stock_quantity { get; set; }
-        public Int16 stock_reorder_point { get; set; }
-        public Int16? stock_used { get; set; }
-        public Int16? stock_scrap { get; set; }
-        public string? stock_size { get; set; }
-        public string? stock_color { get; set; }
-        public DateTime? stock_modified_date { get; set; }
+        public int? StockId { get; set; }
+        public string StockName { get; set; }
+        public string? StockDesc { get; set; }
+        public Int16 StockQty { get; set; }
+        public Int16 StockReorderPoint { get; set; }
+        public Int16? StockUsed { get; set; }
+        public Int16? StockScrap { get; set; }
+        public string? StockSize { get; set; }
+        public string? StockColor { get; set; }
+        public DateTime? StockModifiedDate { get; set; }
 
     }
 }

@@ -7,17 +7,18 @@ namespace Realta.Domain.Entities
     public class PurchaseOrderHeader
     {
         [Key]
-        public int pohe_id { get; set; }
-        public string pohe_number { get; set; }
-        public byte pohe_status { get; set; } = 1;
-        public DateTime pohe_order_date { get; set; }
-        public decimal? pohe_subtotal { get; set; }
-        public decimal pohe_tax { get; set; }
-        public decimal? pohe_total_amount { get; set; }
-        public decimal pohe_refund { get; set; }
-        public DateTime pohe_arrival_date{ get; set; }
-        public string pohe_pay_type { get; set; }
-        public int pohe_emp_id { get; set; }
-        public int pohe_vendor_id{ get; set; }
+        public int PoheId { get; set; }
+        public string PoheNumber { get; set; }
+        public byte PoheStatus { get; set; } = 1;
+        public DateTime PoheOrderDate { get; set; }
+        public decimal? PoheSubtotal { get; set; }
+        public decimal PoheTax { get; set; }
+        public decimal? PoheTotalAmount { get; set; }
+        public decimal PoheRefund { get; set; }
+        public DateTime? PoheArrivalDate { get; set; }
+        public string PohePayType { get; set; }
+        public string VendorName { get; set; }
+        public int PoheEmpId { get; set; }
+        public int PoheVendorId { get; set; }
     }
 }

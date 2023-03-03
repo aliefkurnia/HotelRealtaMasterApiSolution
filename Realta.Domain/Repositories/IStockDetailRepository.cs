@@ -12,8 +12,7 @@ namespace Realta.Domain.Repositories
         IEnumerable<StockDetail> FindAllStockDetail();
         Task<IEnumerable<StockDetail>> FindAllStockDetailAsync();
         StockDetail FindStockDetailById(int id);
-        void Insert(StockDetail stockDetail);
-        void Edit(StockDetail stockDetail);
+        void SwitchStatus(StockDetail stockDetail);
         void Remove(StockDetail stockDetail);
     }
 }

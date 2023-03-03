@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Realta.Contract;
+using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
 using Realta.Services.Abstraction;
@@ -29,13 +29,13 @@ namespace Realta.WebAPI.Controllers
 
             var stocksDetailDto = stockDetail.Select(r => new StockDetailDto
             {
-                stod_stock_id = r.stod_stock_id,
-                stod_id = r.stod_id,
-                stod_barcode_number = r.stod_barcode_number,
-                stod_status = r.stod_status,
-                stod_notes = r.stod_notes,
-                stod_faci_id = r.stod_faci_id,
-                stod_pohe_id = r.stod_pohe_id
+                StodStockId = r.StodStockId,
+                StodId = r.StodId,
+                StodBarcodeNumber = r.StodBarcodeNumber,
+                StodStatus = r.StodStatus,
+                StodNotes = r.StodNotes,
+                StodFaciId = r.StodFaciId,
+                StodPoNumber = _repositoryManager.PurchaseOrderRepository.FindById(r.StodPoheId.Value).PoheNumber
             });
 
             return Ok(stocksDetailDto);
@@ -54,71 +54,16 @@ namespace Realta.WebAPI.Controllers
 
             var stockDetailDto = new StockDetailDto
             {
-                stod_stock_id = stockDetail.stod_stock_id,
-                stod_id=stockDetail.stod_id,
-                stod_barcode_number=stockDetail.stod_barcode_number,
-                stod_status=stockDetail.stod_status,
-                stod_notes=stockDetail.stod_notes,
-                stod_faci_id=stockDetail.stod_faci_id,
-                stod_pohe_id=stockDetail.stod_pohe_id
+                StodStockId = stockDetail.StodStockId,
+                StodId =stockDetail.StodId,
+                StodBarcodeNumber=stockDetail.StodBarcodeNumber,
+                StodStatus=stockDetail.StodStatus,
+                StodNotes=stockDetail.StodNotes,
+                StodFaciId=stockDetail.StodFaciId,
+                StodPoNumber=_repositoryManager.PurchaseOrderRepository.FindById(stockDetail.StodPoheId.Value).PoheNumber
             };
 
             return Ok(stockDetailDto);
-        }
-
-        // POST api/<StockDetailController>
-        [HttpPost]
-        public IActionResult Post([FromBody] StockDetailDto stockDetailDto)
-        {
-            //1. prevent regionDto from is null
-            if (stockDetailDto == null)
-            {
-                _logger.LogError("StockDetailDto object sent from client is null");
-                return BadRequest("StockDetailDto object is null");
-            }
-
-            var stockDetail = new StockDetail
-            {
-                stod_stock_id = stockDetailDto.stod_stock_id,
-                stod_barcode_number = stockDetailDto.stod_barcode_number,
-                stod_status = stockDetailDto.stod_status,
-                stod_notes = stockDetailDto.stod_notes,
-                stod_faci_id = stockDetailDto.stod_faci_id,
-                stod_pohe_id = stockDetailDto.stod_pohe_id
-            };
-
-            // post 
-            _repositoryManager.StockDetailRepository.Insert(stockDetail);
-            stockDetailDto.stod_id = stockDetail.stod_id;
-
-            //forward
-            return CreatedAtRoute("GetStockDetail", new { id = stockDetail.stod_id }, stockDetailDto);
-        }
-
-        // PUT api/<StockDetailController>/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] StockDetailDto stockDetailDto)
-        {
-            if (stockDetailDto == null)
-            {
-                _logger.LogError("StockPhotoDto object sent from client is null");
-                return BadRequest("StockPotoDto object is null");
-            }
-
-            var stockDetail = new StockDetail
-            {
-                stod_stock_id = stockDetailDto.stod_stock_id,
-                stod_barcode_number= stockDetailDto.stod_barcode_number,
-                stod_status= stockDetailDto.stod_status,
-                stod_notes= stockDetailDto.stod_notes,
-                stod_faci_id= stockDetailDto.stod_faci_id,
-                stod_pohe_id= stockDetailDto.stod_pohe_id
-            };
-
-            _repositoryManager.StockDetailRepository.Edit(stockDetail);
-            stockDetailDto.stod_id = id;
-
-            return CreatedAtRoute("GetStockPhoto", new { id = id }, stockDetailDto);
         }
 
         // DELETE api/<StockDetailController>/5
@@ -148,6 +93,30 @@ namespace Realta.WebAPI.Controllers
         {
             var stockPhotos = await _repositoryManager.StockDetailRepository.FindAllStockDetailAsync();
             return Ok(stockPhotos.ToList());
+        }
+
+        [HttpPut("switchStatus/{id}")]
+        public IActionResult EditStatus(int id, [FromBody] StockDetailDto stockDetailDto)
+        {
+            if (stockDetailDto == null)
+            {
+                _logger.LogError("StockPhotoDto object sent from client is null");
+                return BadRequest("StockPotoDto object is null");
+            }
+
+            var stockDetail = new StockDetail
+            {
+                StodId = id,
+                StodStockId = stockDetailDto.StodStockId,
+                StodStatus = stockDetailDto.StodStatus,
+                StodNotes = stockDetailDto.StodNotes,
+                StodFaciId = stockDetailDto.StodFaciId
+            };
+
+            _repositoryManager.StockDetailRepository.SwitchStatus(stockDetail);
+            var stockDetailStatus = _repositoryManager.StockDetailRepository.FindStockDetailById(id);
+
+            return Ok(stockDetailStatus);
         }
     }
 }
