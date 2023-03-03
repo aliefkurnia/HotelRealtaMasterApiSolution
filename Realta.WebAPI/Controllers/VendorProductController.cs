@@ -59,12 +59,12 @@ namespace Realta.WebAPI.Controllers
             }
             var venporDto = new VendorProduct
             {
-                vepro_id = vendpor.vepro_id,
-                vepro_qty_stocked = vendpor.vepro_qty_stocked,
-                vepro_qty_remaining = vendpor.vepro_qty_remaining,
-                vepro_price = vendpor.vepro_price,
-                venpro_stock_id = vendpor.venpro_stock_id,
-                vepro_vendor_id = vendpor.vepro_vendor_id
+                VeproId = vendpor.VeproId,
+                VeproQtyStocked = vendpor.VeproQtyStocked,
+                VeproQtyRemaining = vendpor.VeproQtyRemaining,
+                VeproPrice = vendpor.VeproPrice,
+                VenproStockId = vendpor.VenproStockId,
+                VeproVendorId = vendpor.VeproVendorId
             };
 
             return Ok(venporDto);
@@ -82,19 +82,19 @@ namespace Realta.WebAPI.Controllers
 
             var venpro = new VendorProduct()
             {
-                vepro_qty_stocked = Dto.vepro_qty_stocked,
-                vepro_qty_remaining= Dto.vepro_qty_remaining,
-                vepro_price = Dto.vepro_price,
-                venpro_stock_id = Dto.venpro_stock_id,
-                vepro_vendor_id = Dto.vepro_vendor_id
+                VeproQtyStocked = Dto.VeproQtyStocked,
+                VeproQtyRemaining= Dto.VeproQtyRemaining,
+                VeproPrice = Dto.VeproPrice,
+                VenproStockId = Dto.VenproStockId,
+                VeproVendorId = Dto.VeproVendorId
             };
 
             //post to database
             _repositoryManager.VendorProductRepository.Insert(venpro);
 
-            var result = _repositoryManager.VendorProductRepository.FindVendorProductById(venpro.vepro_id);
+            var result = _repositoryManager.VendorProductRepository.FindVendorProductById(venpro.VeproId);
             //Redirect
-            return CreatedAtRoute("GetVenpro", new { id = venpro.vepro_id }, result);
+            return CreatedAtRoute("GetVenpro", new { id = venpro.VeproId }, result);
         }
 
         // PUT api/<VendorProductController>/5
@@ -113,10 +113,10 @@ namespace Realta.WebAPI.Controllers
 
             var venPo = new VendorProduct()
             {
-                vepro_id = id,
-                vepro_qty_stocked = VenpoDto.vepro_qty_stocked,
-                vepro_qty_remaining = VenpoDto.vepro_qty_remaining,
-                vepro_price = VenpoDto.vepro_price
+                VeproId = id,
+                VeproQtyStocked = VenpoDto.VeproQtyStocked,
+                VeproQtyRemaining = VenpoDto.VeproQtyRemaining,
+                VeproPrice = VenpoDto.VeproPrice
             };
 
             //post to database

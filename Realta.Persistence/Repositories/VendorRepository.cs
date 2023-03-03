@@ -30,27 +30,27 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorId",
                         DataType = DbType.Int32,
-                        Value = vendor.vendor_entity_id
+                        Value = vendor.VendorEntityId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorName",
                         DataType = DbType.String,
-                        Value = vendor.vendor_name
+                        Value = vendor.VendorName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorActive",
                         DataType = DbType.Boolean,
-                        Value = vendor.vendor_active
+                        Value = vendor.VendorActive
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorPriority",
                         DataType = DbType.Boolean,
-                        Value = vendor.vendor_priority
+                        Value = vendor.VendorPriority
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorWebURL",
                         DataType = DbType.String,
-                        Value = vendor.vendor_weburl
+                        Value = vendor.VendorWeburl
                     }
                 }
             };
@@ -112,27 +112,27 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendor_entity_id",
                         DataType = DbType.Int32,
-                        Value = vendor.vendor_entity_id
+                        Value = vendor.VendorEntityId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendor_name",
                         DataType = DbType.String,
-                        Value = vendor.vendor_name
+                        Value = vendor.VendorName
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendor_active",
                         DataType = DbType.Boolean,
-                        Value = vendor.vendor_active
+                        Value = vendor.VendorActive
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendor_priority",
                         DataType = DbType.Boolean,
-                        Value = vendor.vendor_priority
+                        Value = vendor.VendorPriority
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendor_weburl",
                         DataType = DbType.String,
-                        Value = vendor.vendor_weburl
+                        Value = vendor.VendorWeburl
                     }
                 }
             };
@@ -151,7 +151,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendorId",
                         DataType = DbType.Int32,
-                        Value = vendor.vendor_entity_id
+                        Value = vendor.VendorEntityId
                     }
                 }
             };

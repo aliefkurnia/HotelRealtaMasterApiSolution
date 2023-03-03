@@ -31,22 +31,22 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@id",
                         DataType = DbType.Int32,
-                        Value = venPro.vepro_id
+                        Value = venPro.VeproId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_qty_stocked",
                         DataType = DbType.Int32,
-                        Value = venPro.vepro_qty_stocked
+                        Value = venPro.VeproQtyStocked
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_qty_remaining",
                         DataType = DbType.Int32,
-                        Value = venPro.vepro_qty_remaining
+                        Value = venPro.VeproQtyRemaining
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_price",
                         DataType = DbType.Decimal,
-                        Value = venPro.vepro_price
+                        Value = venPro.VeproPrice
                     },
                 }
             };
@@ -124,32 +124,31 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_qty_stocked",
                         DataType = DbType.Int32,
-                        Value = venPro.vepro_qty_stocked
+                        Value = venPro.VeproQtyStocked
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_qty_remaining",
                         DataType = DbType.Int32,
-                        Value = venPro.vepro_qty_remaining
+                        Value = venPro.VeproQtyRemaining
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_price",
                         DataType = DbType.Decimal,
-                        Value = venPro.vepro_price
+                        Value = venPro.VeproPrice
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@venpro_stock_id",
                         DataType = DbType.Int32,
-                        Value = venPro.venpro_stock_id
+                        Value = venPro.VenproStockId
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vepro_vendor_id",
                         DataType = DbType.Int32,
-                        Value = venPro.vepro_vendor_id
+                        Value = venPro.VeproVendorId
                     },
                 }
             };
-            _adoContext.ExecuteNonQuery(model);
-            venPro.vepro_id = _adoContext.ExecuteScalar<int>(model);
+            venPro.VeproId = _adoContext.ExecuteScalar<int>(model);
             _adoContext.Dispose();
         }
 
@@ -165,7 +164,7 @@ namespace Realta.Persistence.Repositories
                    {
                        ParameterName = "@id",
                        DataType = DbType.Int32,
-                       Value = venPro.vepro_id
+                       Value = venPro.VeproId
                    }
                 }
             };

@@ -52,13 +52,13 @@ namespace Realta.WebAPI.Controllers
             }
             var vendorDto = new Vendor
             {
-                vendor_entity_id = vendor.vendor_entity_id,
-                vendor_name = vendor.vendor_name,
-                vendor_active = vendor.vendor_active,
-                vendor_priority = vendor.vendor_priority,
-                vendor_register_time = vendor.vendor_register_time,
-                vendor_weburl = vendor.vendor_weburl,
-                vendor_modified_date = vendor.vendor_modified_date
+                VendorEntityId = vendor.VendorEntityId,
+                VendorName = vendor.VendorName,
+                VendorActive = vendor.VendorActive,
+                VendorPriority = vendor.VendorPriority,
+                VendorRegisterTime = vendor.VendorRegisterTime,
+                VendorWeburl = vendor.VendorWeburl,
+                VendorModifiedDate = vendor.VendorModifiedDate
             };
 
             return Ok(vendorDto);
@@ -77,19 +77,19 @@ namespace Realta.WebAPI.Controllers
 
             var vendor = new Vendor()
             {
-                vendor_entity_id = vendorDto.vendor_entity_id,
-                vendor_name = vendorDto.vendor_name,
-                vendor_active = vendorDto.vendor_active,
-                vendor_priority = vendorDto.vendor_priority,
-                vendor_register_time = vendorDto.vendor_register_time,
-                vendor_weburl = vendorDto.vendor_weburl,
-                vendor_modified_date = vendorDto.vendor_modified_date
+                VendorEntityId = vendorDto.VendorEntityId,
+                VendorName = vendorDto.VendorName,
+                VendorActive = vendorDto.VendorActive,
+                VendorPriority = vendorDto.VendorPriority,
+                VendorRegisterTime = vendorDto.VendorRegisterTime,
+                VendorWeburl = vendorDto.VendorWeburl,
+                VendorModifiedDate = vendorDto.VendorModifiedDate
             };
             //post to database
             _repositoryManager.VendorRepository.Insert(vendor);
 
             //Redirect
-            return CreatedAtRoute("GetVendor", new { id = vendorDto.vendor_entity_id }, vendorDto);
+            return CreatedAtRoute("GetVendor", new { id = vendorDto.VendorEntityId }, vendorDto);
         }
 
         // PUT api/<VendorController>/5
@@ -112,11 +112,11 @@ namespace Realta.WebAPI.Controllers
 
             var vendor = new Vendor()
             {
-                vendor_entity_id = id,
-                vendor_name = vendorDto.vendor_name,
-                vendor_active = vendorDto.vendor_active,
-                vendor_priority = vendorDto.vendor_priority,
-                vendor_weburl = vendorDto.vendor_weburl
+                VendorEntityId = id,
+                VendorName = vendorDto.VendorName,
+                VendorActive = vendorDto.VendorActive,
+                VendorPriority = vendorDto.VendorPriority,
+                VendorWeburl = vendorDto.VendorWeburl
             };
 
             //post to database
