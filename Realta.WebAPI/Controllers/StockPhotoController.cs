@@ -3,7 +3,7 @@ using Realta.Services.Abstraction;
 using Realta.Domain.Entities;
 using Realta.Domain.Base;
 using Realta.Contract;
-using Realta.Contract.Model;
+using Realta.Contract.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
