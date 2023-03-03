@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Realta.Contract.Model
+namespace Realta.Contract.Models
 {
     public class VendorDto
     {
