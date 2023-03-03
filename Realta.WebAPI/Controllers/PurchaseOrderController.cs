@@ -27,69 +27,56 @@ namespace Realta.WebAPI.Controllers
         public async Task<IActionResult> Get()
         {
             var result = await _repositoryManager.PurchaseOrderRepository.FindAllAsync();
-            var resultDto = result.Select(r => new PurchaseOrderHeaderDto
-            {
-                PoheId = r.PoheId,
-                PoheNumber = r.PoheNumber,
-                PoheStatus = r.PoheStatus,
-                PoheOrderDate = r.PoheOrderDate,
-                PoheSubtotal = r.PoheSubtotal,
-                PoheTax = r.PoheTax,
-                PoheTotalAmount = r.PoheTotalAmount,
-                PoheRefund = r.PoheRefund,
-                PoheArrivalDate = r.PoheArrivalDate,
-                PohePayType = r.PohePayType,
-                PoheEmpId = r.PoheEmpId,
-                PoheVendorId = r.PoheVendorId
-            });
-
-            return Ok(resultDto);
+            return Ok(result);
         }
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
         [HttpGet("{poNumber}")]
         public async Task<IActionResult> Get(string poNumber)
         {
-            var result = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
-            if (result == null)
+            var header = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
+
+            if (header == null)
             {
                 _logger.LogError($"POD with id {poNumber} not found");
                 return NotFound();
             }
 
             var details = await _repositoryManager.PurchaseOrderRepository.FindAllDetAsync(poNumber);
-
-            var resultDto = new PurchaseOrderHeaderDto
+            var detailsDto = details.Select(d => new PurchaseOrderDetailDto
             {
-                PoheId = result.PoheId,
-                PoheNumber = result.PoheNumber,
-                PoheStatus = result.PoheStatus,
-                PoheOrderDate = result.PoheOrderDate,
-                PoheSubtotal = result.PoheSubtotal,
-                PoheTax = result.PoheTax,
-                PoheTotalAmount = result.PoheTotalAmount,
-                PoheRefund = result.PoheRefund,
-                PoheArrivalDate = result.PoheArrivalDate,
-                PohePayType = result.PohePayType,
-                PoheEmpId = result.PoheEmpId,
-                PoheVendorId = result.PoheVendorId,
-                Details = details.Select(d => new PurchaseOrderDetailDto
-                {
-                    PodeId = d.PodeId,
-                    StockName = d.StockName,
-                    PodePoheId = d.PodePoheId,
-                    PodeOrderQty = d.PodeOrderQty,
-                    PodePrice = d.PodePrice,
-                    PodeLineTotal = d.PodeLineTotal,
-                    PodeReceivedQty = d.PodeReceivedQty,
-                    PodeRejectedQty = d.PodeRejectedQty,
-                    PodeStockedQty = d.PodeStockedQty,
-                    PodeModifiedDate = d.PodeModifiedDate,
-                    PodeStockId = d.PodeStockId
-                })
+                PodeId = d.PodeId,
+                StockName = d.StockName,
+                PodePoheId = d.PodePoheId,
+                PodeOrderQty = d.PodeOrderQty,
+                PodePrice = d.PodePrice,
+                PodeLineTotal = d.PodeLineTotal,
+                PodeReceivedQty = d.PodeReceivedQty,
+                PodeRejectedQty = d.PodeRejectedQty,
+                PodeStockedQty = d.PodeStockedQty,
+                PodeModifiedDate = d.PodeModifiedDate,
+                PodeStockId = d.PodeStockId
+            });
+
+            var result = new PurchaseOrderHeaderDto
+            {
+                PoheId = header.PoheId,
+                PoheNumber = header.PoheNumber,
+                PoheStatus = header.PoheStatus,
+                PoheOrderDate = header.PoheOrderDate,
+                PoheSubtotal = header.PoheSubtotal,
+                PoheTax = header.PoheTax,
+                PoheTotalAmount = header.PoheTotalAmount,
+                PoheRefund = header.PoheRefund,
+                PoheArrivalDate = header.PoheArrivalDate,
+                PohePayType = header.PohePayType,
+                VendorName = header.VendorName,
+                PoheEmpId = header.PoheEmpId,
+                PoheVendorId = header.PoheVendorId,
+                Details = detailsDto
             };
 
-            return Ok(resultDto);
+            return Ok(result);
         }
 
         // POST api/<PurchaseOrderController>
