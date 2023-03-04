@@ -9,11 +9,13 @@ namespace Realta.Domain.Repositories
 {
     public interface IVendorProductRepository
     {
-        IEnumerable<VendorProduct> FindAllVendorProduct();
         Task<IEnumerable<VendorProduct>> FindAllVendorProductAsync();
-        VendorProduct FindVendorProductById(int id);
+        VendorProduct FindVendorProductById(int vendorId);
+        Task<IEnumerable<VendorProduct>> FindVendorProductByVendorId(int vendorId);
         void Insert(VendorProduct venPro);
         void Edit(VendorProduct venPro);
         void Remove(VendorProduct venPro);
+        bool ValidasiInsert(int stockId, int vendorId);
+
     }
 }

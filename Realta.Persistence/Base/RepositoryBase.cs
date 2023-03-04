@@ -3,6 +3,7 @@ using Realta.Persistence.Interface;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -67,7 +68,6 @@ namespace Realta.Persistence.Base
             _adoContext.Dispose();
             return listOfData;
         }
-
         public void Update(SqlCommandModel model)
         {
             _adoContext.ExecuteNonQuery(model);

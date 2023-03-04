@@ -24,49 +24,34 @@ namespace Realta.WebAPI.Controllers
 
         // GET: api/<VendorProductController>
         [HttpGet]
-        //tanpa asyncronous
-        //public IActionResult FetchAll()
-        //{
-        //    try
-        //    {
-        //        var venpor = _repositoryManager.VendorProductRepository.FindAllVendorProduct().ToList();
-        //        return Ok(venpor);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        _logger.LogError($"Error : {nameof(Get)}");
-        //        return StatusCode(500, "Internal server error.");
-        //    }
-        //}
-
         public async Task<IActionResult> GetAsync()
         {
             var products = await _repositoryManager.VendorProductRepository.FindAllVendorProductAsync();    
             return Ok(products.ToList());
         }
 
-
         // GET api/<VendorProductController>/5
         [HttpGet("{id}", Name = "GetVenpro")]
-        public IActionResult FindById(int id)
+        public async Task<IActionResult> FindById(int id)
         {
-            var vendpor = _repositoryManager.VendorProductRepository.FindVendorProductById(id);
 
+            var vendpor = await _repositoryManager.VendorProductRepository.FindVendorProductByVendorId(id);
             if (vendpor == null)
             {
                 _logger.LogError("Region object sent from client is null");
                 return BadRequest($"Region with id {id} is not found");
             }
-            var venporDto = new VendorProduct
+            var venporDto = vendpor.Select( v => new VendorProductDto
             {
-                VeproId = vendpor.VeproId,
-                VeproQtyStocked = vendpor.VeproQtyStocked,
-                VeproQtyRemaining = vendpor.VeproQtyRemaining,
-                VeproPrice = vendpor.VeproPrice,
-                VenproStockId = vendpor.VenproStockId,
-                VeproVendorId = vendpor.VeproVendorId
-            };
-
+                VeproId = v.VeproId,
+                VendorName = v.VendorName,
+                StockName = v.StockName,
+                VeproQtyStocked = v.VeproQtyStocked,
+                VeproQtyRemaining = v.VeproQtyRemaining,
+                VeproPrice = v.VeproPrice,
+                VenproStockId = v.VenproStockId,
+                VeproVendorId = v.VeproVendorId
+            });
             return Ok(venporDto);
         }
 
@@ -89,12 +74,18 @@ namespace Realta.WebAPI.Controllers
                 VeproVendorId = Dto.VeproVendorId
             };
 
+           var validasi =  _repositoryManager.VendorProductRepository.ValidasiInsert(Dto.VenproStockId, Dto.VeproVendorId);
             //post to database
-            _repositoryManager.VendorProductRepository.Insert(venpro);
-
-            var result = _repositoryManager.VendorProductRepository.FindVendorProductById(venpro.VeproId);
-            //Redirect
-            return CreatedAtRoute("GetVenpro", new { id = venpro.VeproId }, result);
+            if (validasi == true)
+            {
+                _repositoryManager.VendorProductRepository.Insert(venpro);
+                // var result = _repositoryManager.VendorProductRepository.FindVendorProductById(venpro.VeproId);
+                return Ok($"Object with {Dto.VendorName} Has been Inserted");//Redirect
+            }
+            else
+            {
+                return BadRequest("Data Input Has Been Exist");
+            }
         }
 
         // PUT api/<VendorProductController>/5
@@ -117,10 +108,7 @@ namespace Realta.WebAPI.Controllers
 
             //post to database
             _repositoryManager.VendorProductRepository.Edit(venPo);
-            var result = _repositoryManager.VendorProductRepository.FindVendorProductById(id);
-
-            //Redirect
-            return CreatedAtRoute("GetVenpro", new { id }, result);
+            return Ok("Update Sucessfully");
         }
 
         // DELETE api/<VendorProductController>/5

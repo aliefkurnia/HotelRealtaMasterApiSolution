@@ -10,8 +10,8 @@ namespace Realta.Contract.Models
     public class VendorProductDto
     {
         public int VeproId { get; set; }
-        public string StockName { get; set; }
-        public string VendorName { get; set; }
+        public string? StockName { get; set; }
+        public string? VendorName { get; set; }
         public int VeproQtyStocked { get; set; }
         public int VeproQtyRemaining { get; set; }
         public decimal VeproPrice { get; set; }

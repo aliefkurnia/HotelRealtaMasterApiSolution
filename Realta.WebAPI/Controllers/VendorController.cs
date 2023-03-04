@@ -50,7 +50,7 @@ namespace Realta.WebAPI.Controllers
                 _logger.LogError("Object  sent from client is null");
                 return BadRequest($"Object with id {id} is not found");
             }
-            var vendorDto = new Vendor
+            var vendorDto = new VendorDto
             {
                 VendorEntityId = vendor.VendorEntityId,
                 VendorName = vendor.VendorName,
@@ -87,7 +87,6 @@ namespace Realta.WebAPI.Controllers
             };
             //post to database
             _repositoryManager.VendorRepository.Insert(vendor);
-
             //Redirect
             return CreatedAtRoute("GetVendor", new { id = vendorDto.VendorEntityId }, vendorDto);
         }
