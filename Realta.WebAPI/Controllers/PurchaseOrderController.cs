@@ -86,7 +86,7 @@ namespace Realta.WebAPI.Controllers
             });
         }
 
-        // PUT api/<PurchaseOrderController>/5
+        // PUT api/<PurchaseOrderController>/detail/5
         [HttpPut("detail/{id}")]
         public IActionResult UpdateQty(int id, [FromBody] QtyUpdateDto dto)
         {
@@ -115,7 +115,7 @@ namespace Realta.WebAPI.Controllers
             });
         }
 
-        // DELETE api/<PurchaseOrderController>/detail/PO-20230222-001
+        // DELETE api/<PurchaseOrderController>/status/PO-20230222-001
         [HttpPut("status/{poNumber}")]
         public IActionResult UpdateStatus(string poNumber, [FromBody] StatusUpdateDto dto)
         {
