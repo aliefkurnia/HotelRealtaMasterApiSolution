@@ -4,6 +4,7 @@ using Realta.Domain.Base;
 using Realta.Domain.Entities;
 using Realta.Services.Abstraction;
 using System.Reflection.PortableExecutable;
+using System.Web;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,15 +25,37 @@ namespace Realta.WebAPI.Controllers
 
         // GET: api/<PurchaseOrderController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(string? search, int? status)
         {
             var result = await _repositoryManager.PurchaseOrderRepository.FindAllAsync();
-            return Ok(result);
+
+            if (search != null)
+            {
+                string decodedKeyword = Uri.UnescapeDataString(search);
+                result = result.Where(p => 
+                    p.VendorName.Contains(decodedKeyword) ||
+                    p.PoheNumber.Contains(decodedKeyword)
+                );
+                if (!result.Any()) return NotFound();
+            }
+
+            if (status != null)
+            {
+                result = result.Where(p => p.PoheStatus == status);
+                if (!result.Any()) return NotFound();
+            }
+
+            return Ok(new 
+            { 
+                status = "Success",
+                message = "Success to fetch data.",
+                data = result
+            });
         }
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
         [HttpGet("{poNumber}")]
-        public async Task<IActionResult> Get(string poNumber)
+        public async Task<IActionResult> GetByPo(string poNumber)
         {
             var header = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
 
@@ -43,6 +66,7 @@ namespace Realta.WebAPI.Controllers
             }
 
             var details = await _repositoryManager.PurchaseOrderRepository.FindAllDetAsync(poNumber);
+            //var h = details.FirstOrDefault();
             var detailsDto = details.Select(d => new PurchaseOrderDetailDto
             {
                 PodeId = d.PodeId,
@@ -76,12 +100,17 @@ namespace Realta.WebAPI.Controllers
                 Details = detailsDto
             };
 
-            return Ok(result);
+            return Ok(new
+            {
+                status = "Success",
+                message = "Success to fetch data.",
+                data = result
+            });
         }
 
         // POST api/<PurchaseOrderController>
         [HttpPost]
-        public IActionResult Post([FromBody] PurchaseOrderDto dto)
+        public IActionResult InsertPurchaseOrder([FromBody] PurchaseOrderDto dto)
         {
             var header = new PurchaseOrderHeader
             {
@@ -97,12 +126,17 @@ namespace Realta.WebAPI.Controllers
             };
 
             _repositoryManager.PurchaseOrderRepository.Insert(header, detail);
-            return Ok("Purchase order has been created");
+            //return Ok("Purchase order has been created");
+            return CreatedAtAction(nameof(InsertPurchaseOrder), new
+            {
+                status = "Success",
+                message = "Purchase order has been created."
+            });
         }
 
         // PUT api/<PurchaseOrderController>/5
         [HttpPut("detail/{id}")]
-        public IActionResult PutDetail(int id, [FromBody] QtyUpdateDto dto)
+        public IActionResult UpdateQty(int id, [FromBody] QtyUpdateDto dto)
         {
             if (dto == null)
             {
@@ -128,12 +162,16 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager.PurchaseOrderRepository.UpdateQty(value);
 
             //forward 
-            return Ok("Data has been updated");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Data has been updated."
+            });
         }
 
         // DELETE api/<PurchaseOrderController>/detail/PO-20230222-001
         [HttpPut("status/{poNumber}")]
-        public IActionResult PutStatus(string poNumber, [FromBody] StatusUpdateDto dto)
+        public IActionResult UpdateStatus(string poNumber, [FromBody] StatusUpdateDto dto)
         {
             var data = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
 
@@ -159,7 +197,11 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager.PurchaseOrderRepository.UpdateStatus(value);
 
             //forward 
-            return Ok("Status has been updated");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Status has been updated."
+            });
 
         }
 
@@ -183,7 +225,11 @@ namespace Realta.WebAPI.Controllers
             }
 
             _repositoryManager.PurchaseOrderRepository.Remove(result);
-            return Ok("Data has been removed.");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Data has been removed."
+            });
         }
 
         // DELETE api/<PurchaseOrderController>/detail/5
@@ -206,7 +252,11 @@ namespace Realta.WebAPI.Controllers
             }
 
             _repositoryManager.PurchaseOrderRepository.RemoveDetail(result);
-            return Ok("Data has been removed.");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Data has been removed."
+            });
         }
     }
 }

@@ -4,6 +4,7 @@ using Realta.Domain.Repositories;
 using Realta.Persistence.Base;
 using Realta.Persistence.RepositoryContext;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Realta.Persistence.Repositories
 {
