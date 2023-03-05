@@ -440,42 +440,5 @@ namespace Realta.Persistence.Repositories
 
             Delete(model);
         }
-
-        //public Task<IEnumerable<PurchaseOrderHeader>> GetPaging(PurchaseOrderParameters param)
-        //{
-            //SqlCommandModel model = new()
-            //{
-            //    CommandText = "SELECT poh.pohe_id AS PoheId, " +
-            //                    "poh.pohe_number AS PoheNumber, " +
-            //                    "poh.pohe_status AS PoheStatus, " +
-            //                    "poh.pohe_order_date AS PoheOrderDate, " +
-            //                    "poh.pohe_subtotal AS PoheSubtotal, " +
-            //                    "poh.pohe_tax AS PoheTax, " +
-            //                    "poh.pohe_total_amount AS PoheTotalAmount, " +
-            //                    "poh.pohe_refund AS PoheRefund, " +
-            //                    "poh.pohe_arrival_date AS PoheArrivalDate, " +
-            //                    "poh.pohe_pay_type AS PohePayType, " +
-            //                    "ven.vendor_name AS VendorName, " +
-            //                    "poh.pohe_emp_id AS PoheEmpId, " +
-            //                    "poh.pohe_vendor_id AS PoheVendorId " +
-            //                    "FROM purchasing.purchase_order_header AS poh " +
-            //                    "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id " +
-            //                    "OFFSET @pageNo ROWS FETCH NEXT @pageSize ROWS ONLY;",
-            //    CommandType = CommandType.Text,
-            //    CommandParameters = new SqlCommandParameterModel[] {
-            //        new SqlCommandParameterModel() {
-            //            ParameterName = "@pageNo",
-            //            DataType = DbType.Int32,
-            //            Value = param.PageNumber
-            //        },
-            //        new SqlCommandParameterModel() {
-            //            ParameterName = "@pageSize",
-            //            DataType = DbType.Int32,
-            //            Value = param.PageSize
-            //        }
-            //    }
-            //};
-        //    return null;
-        //}
     }
 }
