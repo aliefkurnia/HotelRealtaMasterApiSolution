@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 using System.Reflection.PortableExecutable;
 using System.Web;
@@ -25,25 +27,11 @@ namespace Realta.WebAPI.Controllers
 
         // GET: api/<PurchaseOrderController>
         [HttpGet]
-        public async Task<IActionResult> Get(string? search, int? status)
+        public async Task<IActionResult> Get([FromQuery] PurchaseOrderParameters param)
         {
-            var result = await _repositoryManager.PurchaseOrderRepository.FindAllAsync();
+            var result = await _repositoryManager.PurchaseOrderRepository.GetAllAsync(param);
 
-            if (search != null)
-            {
-                string decodedKeyword = Uri.UnescapeDataString(search);
-                result = result.Where(p => 
-                    p.VendorName.Contains(decodedKeyword) ||
-                    p.PoheNumber.Contains(decodedKeyword)
-                );
-                if (!result.Any()) return NotFound();
-            }
-
-            if (status != null)
-            {
-                result = result.Where(p => p.PoheStatus == status);
-                if (!result.Any()) return NotFound();
-            }
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(result.MetaData));
 
             return Ok(new 
             { 
@@ -55,50 +43,15 @@ namespace Realta.WebAPI.Controllers
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
         [HttpGet("{poNumber}")]
-        public async Task<IActionResult> GetByPo(string poNumber)
+        public IActionResult GetByPo(string poNumber)
         {
-            var header = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
+            var result = _repositoryManager.PurchaseOrderRepository.FindAllDet(poNumber);
 
-            if (header == null)
+            if (result.PoheNumber == null)
             {
                 _logger.LogError($"POD with id {poNumber} not found");
                 return NotFound();
             }
-
-            var details = await _repositoryManager.PurchaseOrderRepository.FindAllDetAsync(poNumber);
-            //var h = details.FirstOrDefault();
-            var detailsDto = details.Select(d => new PurchaseOrderDetailDto
-            {
-                PodeId = d.PodeId,
-                StockName = d.StockName,
-                PodePoheId = d.PodePoheId,
-                PodeOrderQty = d.PodeOrderQty,
-                PodePrice = d.PodePrice,
-                PodeLineTotal = d.PodeLineTotal,
-                PodeReceivedQty = d.PodeReceivedQty,
-                PodeRejectedQty = d.PodeRejectedQty,
-                PodeStockedQty = d.PodeStockedQty,
-                PodeModifiedDate = d.PodeModifiedDate,
-                PodeStockId = d.PodeStockId
-            });
-
-            var result = new PurchaseOrderHeaderDto
-            {
-                PoheId = header.PoheId,
-                PoheNumber = header.PoheNumber,
-                PoheStatus = header.PoheStatus,
-                PoheOrderDate = header.PoheOrderDate,
-                PoheSubtotal = header.PoheSubtotal,
-                PoheTax = header.PoheTax,
-                PoheTotalAmount = header.PoheTotalAmount,
-                PoheRefund = header.PoheRefund,
-                PoheArrivalDate = header.PoheArrivalDate,
-                PohePayType = header.PohePayType,
-                VendorName = header.VendorName,
-                PoheEmpId = header.PoheEmpId,
-                PoheVendorId = header.PoheVendorId,
-                Details = detailsDto
-            };
 
             return Ok(new
             {
@@ -126,7 +79,6 @@ namespace Realta.WebAPI.Controllers
             };
 
             _repositoryManager.PurchaseOrderRepository.Insert(header, detail);
-            //return Ok("Purchase order has been created");
             return CreatedAtAction(nameof(InsertPurchaseOrder), new
             {
                 status = "Success",
@@ -138,12 +90,6 @@ namespace Realta.WebAPI.Controllers
         [HttpPut("detail/{id}")]
         public IActionResult UpdateQty(int id, [FromBody] QtyUpdateDto dto)
         {
-            if (dto == null)
-            {
-                _logger.LogError($"POD with id {id} not found");
-                return NotFound();
-            }
-
             //1. prevent PODDTO from null
             if (dto == null)
             {
