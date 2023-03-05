@@ -3,6 +3,7 @@ using Realta.Persistence.Interface;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -60,6 +61,18 @@ namespace Realta.Persistence.Base
             _adoContext.DisposeAsync();
             return dataT;
         }
+
+        public async Task<IEnumerable<T>> GetAllAsync<T>(SqlCommandModel model)
+        {
+            var dataT = _adoContext.ExecuteReaderAsync<T>(model);
+            var listData = new List<T>();
+            while (await dataT.MoveNextAsync())
+            {
+                listData.Add(dataT.Current);
+            }
+            _adoContext.DisposeAsync();
+            return listData;
+        } 
 
         public IEnumerator<T> FindByCondition<T>(SqlCommandModel model)
         {
