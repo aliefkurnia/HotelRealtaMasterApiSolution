@@ -221,8 +221,6 @@ namespace Realta.Persistence.Repositories
         }
         public async Task<IEnumerable<VendorProduct>> FindVendorProductByVendorId(int vendorId)
         {
-           // throw new NotImplementedException();
-
             string sqlStatement =
               "SELECT venpro.vepro_id as VeproId, " +
               "ven.vendor_name as VendorName, " +

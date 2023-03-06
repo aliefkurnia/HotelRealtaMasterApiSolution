@@ -17,7 +17,6 @@ namespace Realta.Persistence.Repositories
         public VendorRepository(AdoDbContext AdoContext) : base (AdoContext) 
         { 
         }
-
         public void Edit(Vendor vendor)
         {
             SqlCommandModel model = new SqlCommandModel()
@@ -84,17 +83,8 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "Select " +
-                    "vendor_entity_id AS VendorEntityId, " +
-                    "vendor_name AS VendorName, " +
-                    "vendor_active AS VendorActive, " +
-                    "vendor_priority AS VendorPriority, " +
-                    "vendor_register_date AS VendorRegisterDate, " +
-                    "vendor_weburl AS VendorWeburl, " +
-                    "vendor_modified_date AS VendorModifiedDate " +
-                    "From purchasing.vendor " +
-                    "WHERE vendor_entity_id = @Id;",
-                CommandType = CommandType.Text,
+                CommandText= "[Purchasing].[spFindById]",
+                CommandType = CommandType.StoredProcedure,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
                         ParameterName = "@Id",
