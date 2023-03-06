@@ -1,5 +1,6 @@
 ﻿using Realta.Domain.Entities;
 using Realta.Domain.Repositories;
+using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
 using Realta.Persistence.RepositoryContext;
 using System;

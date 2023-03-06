@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 using System.Numerics;
 
@@ -64,8 +65,15 @@ namespace Realta.WebAPI.Controllers
             return Ok(vendorDto);
 
         }
-            // POST api/<VendorController>
-            [HttpPost]
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetVendorPaging([FromQuery] VendorParameters vendorParameters)
+        {
+            var products = await _repositoryManager.VendorRepository.GetVendorPaging(vendorParameters);
+            return Ok(products);
+        }
+        // POST api/<VendorController>
+        [HttpPost]
         public IActionResult CreateVendor([FromBody] VendorDto vendorDto)
         {
             // lakukan validasi pada regiondto not null
