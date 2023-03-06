@@ -14,7 +14,8 @@ namespace Realta.Persistence.Base
     {
         private readonly AdoDbContext _adoContext;
         private IVendorRepository _vendorRepository;
-        private IPurchaseOrderRepository _purchaseOrderRepository;
+        private Lazy<IPurchaseOrderRepository> _purchaseOrderRepository;
+        private Lazy<ICartRepository> _cartRepository;
         private IStockRepository _stockRepository;
         private IStockDetailRepository _stockDetailRepository;
         private IStockPhotoRepository _stockPhotoRepository;
@@ -23,6 +24,8 @@ namespace Realta.Persistence.Base
         public RepositoryManager(AdoDbContext adoContext)
         {
             _adoContext = adoContext;
+            _purchaseOrderRepository = new Lazy<IPurchaseOrderRepository>(() => new PurchaseOrderRepository(adoContext));
+            _cartRepository = new Lazy<ICartRepository>(() => new CartRepository(adoContext));
         }
 
         public IVendorRepository VendorRepository
@@ -37,17 +40,8 @@ namespace Realta.Persistence.Base
             }
         }
 
-        public IPurchaseOrderRepository PurchaseOrderRepository
-        {
-            get
-            {
-                if (_purchaseOrderRepository == null)
-                {
-                    _purchaseOrderRepository = new PurchaseOrderRepository(_adoContext);
-                }
-                return _purchaseOrderRepository;
-            }
-        }
+        public IPurchaseOrderRepository PurchaseOrderRepository => _purchaseOrderRepository.Value;
+        public ICartRepository CartRepository => _cartRepository.Value;
 
         public IStockRepository StockRepository
         {
@@ -95,5 +89,6 @@ namespace Realta.Persistence.Base
                 return _vendorProductRepository;
             }
         }
+
     }
 }

@@ -62,6 +62,18 @@ namespace Realta.Persistence.Base
             return dataT;
         }
 
+        public async Task<IEnumerable<T>> GetAllAsync<T>(SqlCommandModel model)
+        {
+            var dataT = _adoContext.ExecuteReaderAsync<T>(model);
+            var listData = new List<T>();
+            while (await dataT.MoveNextAsync())
+            {
+                listData.Add(dataT.Current);
+            }
+            _adoContext.DisposeAsync();
+            return listData;
+        } 
+
         public IEnumerator<T> FindByCondition<T>(SqlCommandModel model)
         {
             var listOfData = _adoContext.ExecuteReader<T>(model);
