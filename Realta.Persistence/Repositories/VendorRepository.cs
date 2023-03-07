@@ -121,21 +121,21 @@ namespace Realta.Persistence.Repositories
                     vendor_weburl AS VendorWeburl,
                     vendor_modified_date AS VendorModifiedDate 
                     From purchasing.vendor
-					ORDER BY VendorEntityId",
-					//OFFSET @pageNo ROWS FETCH NEXT @pageSize ROWS ONLY;",
-                CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
-                            ParameterName = "@pageNo",
-                            DataType = DbType.Int32,
-                            Value = vendorParameters.PageNumber
-                        },
-                     new SqlCommandParameterModel() {
-                            ParameterName = "@pageSize",
-                            DataType = DbType.Int32,
-                            Value = vendorParameters.PageSize
-                        }
-                }
+					ORDER BY VendorEntityId"
+                //        ,
+                //CommandType = CommandType.Text,
+                //CommandParameters = new SqlCommandParameterModel[] {
+                //    new SqlCommandParameterModel() {
+                //            ParameterName = "@pageNo",
+                //            DataType = DbType.Int32,
+                //            Value = vendorParameters.PageNumber
+                //        },
+                //     new SqlCommandParameterModel() {
+                //            ParameterName = "@pageSize",
+                //            DataType = DbType.Int32,
+                //            Value = vendorParameters.PageSize
+                //        }
+                //}
             };
             var  dataSet = await GetAllAsync<Vendor>(model);
 
