@@ -300,7 +300,7 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
-        public void Insert(PurchaseOrderHeader header, PurchaseOrderDetail detail)
+        public void Insert(PurchaseOrderTransfer data)
         {
             SqlCommandModel model = new()
             {
@@ -309,34 +309,14 @@ namespace Realta.Persistence.Repositories
                 CommandParameters = new SqlCommandParameterModel[]
                 {
                     new SqlCommandParameterModel() {
-                        ParameterName = "@pohe_pay_type",
+                        ParameterName = "@cart_id",
+                        DataType = DbType.Int32,
+                        Value = data.PoCartId
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pay_type",
                         DataType = DbType.String,
-                        Value = header.PohePayType
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pohe_emp_id",
-                        DataType = DbType.Int32,
-                        Value = header.PoheEmpId
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pohe_vendor_id",
-                        DataType = DbType.Int32,
-                        Value = header.PoheVendorId
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pode_order_qty",
-                        DataType = DbType.Int32,
-                        Value = detail.PodeOrderQty
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pode_price",
-                        DataType = DbType.Decimal,
-                        Value = detail.PodePrice
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pode_stock_id",
-                        DataType = DbType.Int32,
-                        Value = detail.PodeStockId
+                        Value = data.PoPayType
                     }
                 }
             };

@@ -24,9 +24,9 @@ namespace Realta.WebAPI.Controllers
 
         // GET: api/<CartController>
         [HttpGet]
-        public async Task<IActionResult> GetCart()
+        public async Task<IActionResult> GetCart(int? empId)
         {
-            var result = await _repositoryManager.CartRepository.GetAllAsync();
+            var result = await _repositoryManager.CartRepository.GetAllAsync(empId);
 
             return Ok(new
             {
