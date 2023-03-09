@@ -9,7 +9,6 @@ namespace Realta.Domain.Repositories
 {
     public interface IStockRepository
     {
-        IEnumerable<Stocks> FindAllStocks();
         Task<IEnumerable<Stocks>> FindAllStocksAsync();
         Stocks FindStocksById(int id);
         void Insert(Stocks stocks);

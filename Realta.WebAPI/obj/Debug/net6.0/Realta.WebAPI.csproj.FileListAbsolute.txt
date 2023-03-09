@@ -44,3 +44,8 @@ D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\refint\R
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\Realta.WebAPI.pdb
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\Realta.WebAPI.genruntimeconfig.cache
 D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\ref\Realta.WebAPI.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.Realta.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.Realta.WebAPI.props
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Realta.WebAPI.props
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Realta.WebAPI.props
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.WebAPI\obj\Debug\net6.0\staticwebassets.pack.json

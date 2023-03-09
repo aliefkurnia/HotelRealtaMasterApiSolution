@@ -60,7 +60,11 @@ namespace Realta.WebAPI.Controllers
                 _repositoryManager.StockPhotoRepository.InsertUploadPhoto(stockPhoto);
             }
 
-            return Ok("Success Upload Foto");
+            return Ok(new
+            {
+                Status = "Success",
+                Message = "Success Upload Foto"
+            });
 
         }
 
@@ -83,7 +87,11 @@ namespace Realta.WebAPI.Controllers
             }
 
             _repositoryManager.StockPhotoRepository.Remove(stockPhoto);
-            return Ok("Data has been remove");
+            return Ok(new
+            {
+                Status = "Success",
+                Message = "Data has been remove"
+            });
         }
 
     }
