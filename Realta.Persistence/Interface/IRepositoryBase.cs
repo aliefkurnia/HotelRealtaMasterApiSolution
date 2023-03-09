@@ -11,6 +11,7 @@ namespace Realta.Persistence.Interface
     {
         IEnumerator<T> FindAll<T>(string sql);
         IEnumerator<T> FindByCondition<T>(SqlCommandModel model);
+        Task<IEnumerable<T>> GetAllAsync<T>(SqlCommandModel model);
         IAsyncEnumerator<T> FindAllAsync<T>(SqlCommandModel model);
         void Create(SqlCommandModel model);
         void Update(SqlCommandModel model);

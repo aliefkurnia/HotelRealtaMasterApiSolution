@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
 
 namespace Realta.Domain.Repositories
 {
@@ -17,6 +18,8 @@ namespace Realta.Domain.Repositories
         void Edit(PriceItems priceItems);
         void Remove(PriceItems priceItems);
         int GetIdSequence();
+        Task<IEnumerable<PriceItems>> GetPriceItemsPaging(PriceItemsParameters priceItemsParameters);
+        Task<PagedList<PriceItems>> GetPriceItemsPageList(PriceItemsParameters priceItemsParameters);
 
     }
 }

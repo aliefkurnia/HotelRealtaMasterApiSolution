@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -204,6 +206,21 @@ namespace Realta.WebAPI.Controllers
             return BadRequest("Object Is Null");
         }
 
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetPriceItemsPaging([FromQuery] PriceItemsParameters priceItemsParameters)
+        {
+            var priceitems = await _repositoryManager.PriceItemsRepository.GetPriceItemsPaging(priceItemsParameters);
+            return Ok(priceitems);
+        }
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetPriceItemsPageList([FromQuery] PriceItemsParameters priceItemsParameters)
+        {
+            var priceitems = await _repositoryManager.PriceItemsRepository.GetPriceItemsPageList(priceItemsParameters);
+            Response.Headers.Add("X-Pagination",JsonConvert.SerializeObject(priceitems.MetaData));
+            return Ok(priceitems);
+        }
 
     }
 }

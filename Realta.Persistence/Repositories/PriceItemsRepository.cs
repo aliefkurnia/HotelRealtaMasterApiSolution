@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
+//using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -89,9 +91,35 @@ namespace Realta.Persistence.Repositories
 
         }
 
-        public Task<IEnumerable<PriceItems>> FindAllPriceItemsAsync()
+        public async Task<IEnumerable<PriceItems>> FindAllPriceItemsAsync()
         {
-            throw new NotImplementedException();
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT prit_id as PritId," +
+                              "prit_name as PritName," +
+                              "prit_price as PritPrice," +
+                              "prit_description as PritDescription," +
+                              "prit_type as PritType," +
+                              "prit_modified_date as PritModifiedDate," +
+                              "prit_icon_url as PritIconUrl" +
+                              " FROM master.Price_items ORDER BY prit_id;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+
+            };
+
+            IAsyncEnumerator<PriceItems> dataSet = FindAllAsync<PriceItems>(model);
+
+            var item = new List<PriceItems>();
+
+
+            while (await dataSet.MoveNextAsync())
+            {
+                item.Add(dataSet.Current);
+            }
+
+
+            return item;
         }
 
         public IEnumerable<PriceItems> FindPriceItemsByName(string name)
@@ -228,6 +256,95 @@ namespace Realta.Persistence.Repositories
             decimal id = _adoContext.ExecuteScalar<decimal>(model);
             _adoContext.Dispose();
             return (int)id;
+        }
+
+        public async Task<IEnumerable<PriceItems>> GetPriceItemsPaging(PriceItemsParameters priceItemsParameters)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT prit_id as PritId," +
+                              "   prit_name as PritName," +
+                              "   prit_price as PritPrice," +
+                              "   prit_description as PritDescription," +
+                              "   prit_type as PritType," +
+                              "   prit_modified_date as PritModifiedDate," +
+                              "   prit_icon_url as PritIconUrl "+
+                              "FROM master.price_items order by prit_id "+
+                              "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@pageNo",
+                        DataType = DbType.Int32,
+                        Value = priceItemsParameters.PageNumber
+                    },
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@pageSize",
+                        DataType = DbType.Int32,
+                        Value = priceItemsParameters.PageSize
+                    }
+                }
+            };
+
+            IAsyncEnumerator<PriceItems> dataSet = FindAllAsync<PriceItems>(model);
+
+            var item = new List<PriceItems>();
+
+            while (await dataSet.MoveNextAsync())
+            {
+                item.Add(dataSet.Current);
+            }
+
+            return item;
+        }
+
+        public async Task<PagedList<PriceItems>> GetPriceItemsPageList(PriceItemsParameters priceItemsParameters)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT prit_id as PritId," +
+                              "   prit_name as PritName," +
+                              "   prit_price as PritPrice," +
+                              "   prit_description as PritDescription," +
+                              "   prit_type as PritType," +
+                              "   prit_modified_date as PritModifiedDate," +
+                              "   prit_icon_url as PritIconUrl " +
+                              "FROM master.price_items order by prit_id " +
+                              "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@pageNo",
+                        DataType = DbType.Int32,
+                        Value = priceItemsParameters.PageNumber
+                    },
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@pageSize",
+                        DataType = DbType.Int32,
+                        Value = priceItemsParameters.PageSize
+                    }
+                }
+            };
+            var priceItems = await GetAllAsync<PriceItems>(model);
+            var totalRow = FindAllPriceItems().Count();
+
+            var priceItemsSearch = priceItems.Where(p => p.PritName
+            .ToLower()
+            .Contains(priceItemsParameters.SearchTerm == null ? "" : priceItemsParameters.SearchTerm.Trim().ToLower()));
+
+            //var priceItemsSearch = priceItems.AsQueryable()
+            //    .SearchProduct(priceItems.SearchTerm)
+            //    .Sort(priceItems.OrderBy);
+
+            return new PagedList<PriceItems>(priceItems.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
+            //return new PagedList<PriceItems>(priceItemsSearch.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
+
         }
     }
 }

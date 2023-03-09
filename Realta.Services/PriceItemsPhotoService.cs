@@ -38,7 +38,7 @@ namespace Realta.Services
             //2. insert product to table
             _repositoryManager.PriceItemsRepository.Insert(priceItems);
 
-            //3. if insert product success then get prorductId
+            //3. if insert product success then get pirt_id
             pritId = _repositoryManager.PriceItemsRepository.GetIdSequence();
 
 
