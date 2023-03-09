@@ -1,5 +1,5 @@
-﻿ using Microsoft.AspNetCore.Mvc;
-using Realta.Contract;
+﻿using Microsoft.AspNetCore.Mvc;
+using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
 using Realta.Domain.RequestFeatures;

@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 using System.Reflection.PortableExecutable;
+using System.Web;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,105 +27,73 @@ namespace Realta.WebAPI.Controllers
 
         // GET: api/<PurchaseOrderController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] PurchaseOrderParameters param)
         {
-            var result = await _repositoryManager.PurchaseOrderRepository.FindAllAsync();
-            var resultDto = result.Select(r => new PurchaseOrderHeaderDto
-            {
-                PoheId = r.PoheId,
-                PoheNumber = r.PoheNumber,
-                PoheStatus = r.PoheStatus,
-                PoheOrderDate = r.PoheOrderDate,
-                PoheSubtotal = r.PoheSubtotal,
-                PoheTax = r.PoheTax,
-                PoheTotalAmount = r.PoheTotalAmount,
-                PoheRefund = r.PoheRefund,
-                PoheArrivalDate = r.PoheArrivalDate,
-                PohePayType = r.PohePayType,
-                PoheEmpId = r.PoheEmpId,
-                PoheVendorId = r.PoheVendorId
-            });
+            var result = await _repositoryManager.PurchaseOrderRepository.GetAllAsync(param);
 
-            return Ok(resultDto);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(result.MetaData));
+
+            return Ok(new 
+            { 
+                status = "Success",
+                message = "Success to fetch data.",
+                data = result
+            });
         }
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
         [HttpGet("{poNumber}")]
-        public async Task<IActionResult> Get(string poNumber)
+        public IActionResult GetByPo(string poNumber)
         {
-            var result = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
-            if (result == null)
+            var result = _repositoryManager.PurchaseOrderRepository.FindAllDet(poNumber);
+
+            if (result.PoheNumber == null)
             {
                 _logger.LogError($"POD with id {poNumber} not found");
                 return NotFound();
             }
 
-            var details = await _repositoryManager.PurchaseOrderRepository.FindAllDetAsync(poNumber);
-
-            var resultDto = new PurchaseOrderHeaderDto
+            return Ok(new
             {
-                PoheId = result.PoheId,
-                PoheNumber = result.PoheNumber,
-                PoheStatus = result.PoheStatus,
-                PoheOrderDate = result.PoheOrderDate,
-                PoheSubtotal = result.PoheSubtotal,
-                PoheTax = result.PoheTax,
-                PoheTotalAmount = result.PoheTotalAmount,
-                PoheRefund = result.PoheRefund,
-                PoheArrivalDate = result.PoheArrivalDate,
-                PohePayType = result.PohePayType,
-                PoheEmpId = result.PoheEmpId,
-                PoheVendorId = result.PoheVendorId,
-                Details = details.Select(d => new PurchaseOrderDetailDto
-                {
-                    PodeId = d.PodeId,
-                    StockName = d.StockName,
-                    PodePoheId = d.PodePoheId,
-                    PodeOrderQty = d.PodeOrderQty,
-                    PodePrice = d.PodePrice,
-                    PodeLineTotal = d.PodeLineTotal,
-                    PodeReceivedQty = d.PodeReceivedQty,
-                    PodeRejectedQty = d.PodeRejectedQty,
-                    PodeStockedQty = d.PodeStockedQty,
-                    PodeModifiedDate = d.PodeModifiedDate,
-                    PodeStockId = d.PodeStockId
-                })
-            };
-
-            return Ok(resultDto);
+                status = "Success",
+                message = "Success to fetch data.",
+                data = result
+            });
         }
 
         // POST api/<PurchaseOrderController>
         [HttpPost]
-        public IActionResult Post([FromBody] PurchaseOrderDto dto)
+        public IActionResult InsertPurchaseOrder([FromBody] PurchaseOrderDto[] dto)
         {
-            var header = new PurchaseOrderHeader
+            foreach (var i in dto)
             {
-                PoheEmpId = dto.PoEmpId,
-                PoheVendorId = dto.PoVendorId,
-                PohePayType = dto.PoPayType,
-            };
-            var detail = new PurchaseOrderDetail
-            {
-                PodeOrderQty = dto.PoOrderQty,
-                PodePrice = dto.PoPrice,
-                PodeStockId = dto.PoStockId
-            };
+                var header = new PurchaseOrderHeader
+                {
+                    PoheEmpId = i.PoEmpId,
+                    PoheVendorId = i.PoVendorId,
+                    PohePayType = i.PoPayType,
+                };
+                var detail = new PurchaseOrderDetail
+                {
+                    PodeOrderQty = i.PoOrderQty,
+                    PodePrice = i.PoPrice,
+                    PodeStockId = i.PoStockId
+                };
 
-            _repositoryManager.PurchaseOrderRepository.Insert(header, detail);
-            return Ok("Purchase order has been created");
-        }
-
-        // PUT api/<PurchaseOrderController>/5
-        [HttpPut("detail/{id}")]
-        public IActionResult PutDetail(int id, [FromBody] QtyUpdateDto dto)
-        {
-            if (dto == null)
-            {
-                _logger.LogError($"POD with id {id} not found");
-                return NotFound();
+                _repositoryManager.PurchaseOrderRepository.Insert(header, detail);
             }
 
+            return CreatedAtAction(nameof(InsertPurchaseOrder), new
+            {
+                status = "Success",
+                message = "Purchase order has been created."
+            });
+        }
+
+        // PUT api/<PurchaseOrderController>/detail/5
+        [HttpPut("detail/{id}")]
+        public IActionResult UpdateQty(int id, [FromBody] QtyUpdateDto dto)
+        {
             //1. prevent PODDTO from null
             if (dto == null)
             {
@@ -141,12 +112,16 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager.PurchaseOrderRepository.UpdateQty(value);
 
             //forward 
-            return Ok("Data has been updated");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Data has been updated."
+            });
         }
 
-        // DELETE api/<PurchaseOrderController>/detail/PO-20230222-001
+        // DELETE api/<PurchaseOrderController>/status/PO-20230222-001
         [HttpPut("status/{poNumber}")]
-        public IActionResult PutStatus(string poNumber, [FromBody] StatusUpdateDto dto)
+        public IActionResult UpdateStatus(string poNumber, [FromBody] StatusUpdateDto dto)
         {
             var data = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
 
@@ -172,7 +147,11 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager.PurchaseOrderRepository.UpdateStatus(value);
 
             //forward 
-            return Ok("Status has been updated");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Status has been updated."
+            });
 
         }
 
@@ -196,7 +175,11 @@ namespace Realta.WebAPI.Controllers
             }
 
             _repositoryManager.PurchaseOrderRepository.Remove(result);
-            return Ok("Data has been removed.");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Data has been removed."
+            });
         }
 
         // DELETE api/<PurchaseOrderController>/detail/5
@@ -219,7 +202,11 @@ namespace Realta.WebAPI.Controllers
             }
 
             _repositoryManager.PurchaseOrderRepository.RemoveDetail(result);
-            return Ok("Data has been removed.");
+            return Ok(new
+            {
+                status = "Success",
+                message = "Data has been removed."
+            });
         }
     }
 }

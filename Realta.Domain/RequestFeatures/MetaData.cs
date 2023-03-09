@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Realta.Domain.RequestFeatures
+=======
+﻿namespace Realta.Domain.RequestFeatures
+>>>>>>> a3d71f2f678ee5f4482d2fca01414a760c6bcf83
 {
     public class MetaData
     {
@@ -15,4 +19,8 @@ namespace Realta.Domain.RequestFeatures
         public bool HasPrevious => CurrentPage > 1;
         public bool HasNext => CurrentPage < TotalPages;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a3d71f2f678ee5f4482d2fca01414a760c6bcf83
 }
