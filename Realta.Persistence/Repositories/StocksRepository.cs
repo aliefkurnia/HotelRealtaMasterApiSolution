@@ -1,5 +1,6 @@
 ﻿using Realta.Domain.Entities;
 using Realta.Domain.Repositories;
+using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
 using Realta.Persistence.Interface;
 using Realta.Persistence.RepositoryContext;
@@ -128,6 +129,36 @@ namespace Realta.Persistence.Repositories
 
 
             return item;
+        }
+
+        public async Task<PagedList<Stocks>> GetAllStockPaging(StocksParameters stocksParameters)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT stock_id as StockId, stock_name as StockName, " +
+                "stock_description as StockDesc, stock_quantity as StockQty, stock_reorder_point as StockReorderPoint, " +
+                "stock_used as StockUsed, stock_scrap as StockScrap, stock_size as StockSize, stock_color as StockColor, " +
+                "stock_modified_date as StockModifiedDate FROM Purchasing.stocks ORDER BY stock_id " +
+                "OFFSET @pageNo ROWS FETCH NEXT @pageSize ROWS ONLY",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pageNo",
+                        DataType = DbType.Int32,
+                        Value = stocksParameters.PageNumber
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pageSize",
+                        DataType = DbType.Int32,
+                        Value = stocksParameters.PageSize
+                    }
+                }
+            };
+
+            var stocks = await GetAllAsync<Stocks>(model);
+            var totalRows = stocks.Count();
+
+            return new PagedList<Stocks>(stocks.ToList(), totalRows, stocksParameters.PageNumber, stocksParameters.PageSize);
         }
 
         public void Insert(Stocks stocks)

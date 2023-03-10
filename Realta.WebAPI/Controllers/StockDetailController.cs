@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
@@ -31,12 +32,12 @@ namespace Realta.WebAPI.Controllers
             var stocksDetailDto = stockDetail.Select(r => new StockDetailDto
             {
                 StodId = r.StodId,
-                StodStockId = r.StodStockId,
+                StockName = r.StockName,
                 StodBarcodeNumber = r.StodBarcodeNumber,
                 StodStatus = r.StodStatus,
                 StodNotes = r.StodNotes,
-                StodFaciId = r.StodFaciId,
-                StodPoNumber = _repositoryManager.PurchaseOrderRepository.FindById(r.StodPoheId.Value).PoheNumber
+                FaciRoomNumber = r.FaciRoomNumber,
+                StodPoNumber = r.PoheNumber
             });
 
             var respon = new
@@ -45,7 +46,28 @@ namespace Realta.WebAPI.Controllers
                 Data = stocksDetailDto.ToList()
             };
 
-            return Ok(respon);
+            return Ok(stocksDetailDto.ToList());
+        }
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetStockDetailPageList([FromQuery] StockDetailParameters stockDetailParameters)
+        {
+            var stockDetail = await _repositoryManager.StockDetailRepository.FindAllStockDetailByStckIdPaging(stockDetailParameters);
+
+            var stocksDetailDto = stockDetail.Select(r => new StockDetailDto
+            {
+                StodId = r.StodId,
+                StockName = r.StockName,
+                StodBarcodeNumber = r.StodBarcodeNumber,
+                StodStatus = r.StodStatus,
+                StodNotes = r.StodNotes,
+                FaciRoomNumber = r.FaciRoomNumber,
+                StodPoNumber = r.PoheNumber
+            });
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(stockDetail.MetaData));
+
+            return Ok(stocksDetailDto);
         }
 
         // GET api/<StockDetailController>/5
@@ -62,12 +84,12 @@ namespace Realta.WebAPI.Controllers
             var stockDetailDto = new StockDetailDto
             {
                 StodId =stockDetail.StodId,
-                StodStockId=stockDetail.StodStockId,
+                StockName=stockDetail.StockName,
                 StodBarcodeNumber=stockDetail.StodBarcodeNumber,
                 StodStatus=stockDetail.StodStatus,
                 StodNotes=stockDetail.StodNotes,
-                StodFaciId=stockDetail.StodFaciId,
-                StodPoNumber=_repositoryManager.PurchaseOrderRepository.FindById(stockDetail.StodPoheId.Value).PoheNumber
+                FaciRoomNumber = stockDetail.FaciRoomNumber,
+                StodPoNumber=stockDetail.PoheNumber
             };
 
             return Ok(stockDetailDto);
@@ -75,9 +97,9 @@ namespace Realta.WebAPI.Controllers
 
         // PUT api/<StockDetailController>/5
         [HttpPut("switchStatus/{id}")]
-        public IActionResult EditStatus(int id, [FromBody] StockDetailDto stockDetailDto)
+        public IActionResult EditStatus(int id, [FromBody] UpdateStatusStockDetailDto updateStatusStockDetailDto)
         {
-            if (stockDetailDto == null)
+            if (updateStatusStockDetailDto == null)
             {
                 _logger.LogError("StockPhotoDto object sent from client is null");
                 return BadRequest("StockPotoDto object is null");
@@ -85,12 +107,13 @@ namespace Realta.WebAPI.Controllers
 
             var stockDetail = new StockDetail
             {   StodId = id,
-                StodStatus = stockDetailDto.StodStatus,
-                StodNotes = stockDetailDto.StodNotes,
-                StodFaciId = stockDetailDto.StodFaciId
+                StodStatus = updateStatusStockDetailDto.StodStatus,
+                StodNotes = updateStatusStockDetailDto.StodNotes,
+                StodFaciId = updateStatusStockDetailDto.StodFaciId
             };
 
             _repositoryManager.StockDetailRepository.SwitchStatus(stockDetail);
+
             var stockDetailStatus = _repositoryManager.StockDetailRepository.FindStockDetailById(id);
 
             return CreatedAtRoute("GetStockDetail", new {id = stockDetailStatus.StodId}, new

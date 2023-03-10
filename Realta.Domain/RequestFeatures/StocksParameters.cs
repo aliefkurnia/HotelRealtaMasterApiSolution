@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Realta.Domain.RequestFeatures
 {
-    public class StockDetailParameters : RequestParameters
+    public class StocksParameters : RequestParameters
     {
-        public int StockId { get; set; }
+        public string SearchTerm { get; set; }
+        public string OrderBy { get; set; } = "StockName";
     }
 }

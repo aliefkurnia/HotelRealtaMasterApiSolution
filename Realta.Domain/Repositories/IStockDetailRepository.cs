@@ -10,6 +10,7 @@ namespace Realta.Domain.Repositories
 {
     public interface IStockDetailRepository
     {
+        Task<PagedList<StockDetail>> FindAllStockDetailByStckIdPaging(StockDetailParameters stockDetailParameters);
         Task<IEnumerable<StockDetail>> FindAllStockDetailByStockId(int stockId);
         StockDetail FindStockDetailById(int id);
         void SwitchStatus(StockDetail stockDetail);

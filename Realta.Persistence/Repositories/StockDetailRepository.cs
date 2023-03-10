@@ -20,14 +20,55 @@ namespace Realta.Persistence.Repositories
         {
         }
 
+        public async Task<PagedList<StockDetail>> FindAllStockDetailByStckIdPaging(StockDetailParameters stockDetailParameters)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT stod_id as StodId, stock_name as StockName, " +
+               "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
+               "fa.faci_room_number as FaciRoomNumber, po.pohe_number as PoheNumber FROM Purchasing.stock_detail sd " +
+               "JOIN Purchasing.purchase_order_header po ON sd.stod_pohe_id = po.pohe_id " +
+               "JOIN Hotel.facilities fa ON sd.stod_faci_id = fa.faci_id " +
+               "JOIN Purchasing.stocks s ON s.stock_id = sd.stod_stock_id " +
+               "WHERE sd.stod_stock_id=@stodStockId ORDER BY sd.stod_id " +
+               "OFFSET @pageNo ROWS FETCH NEXT @pageSize ROWS ONLY",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stodStockId",
+                        DataType = DbType.Int32,
+                        Value = stockDetailParameters.StockId
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pageNo",
+                        DataType = DbType.Int32,
+                        Value = stockDetailParameters.PageNumber
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pageSize",
+                        DataType = DbType.Int32,
+                        Value = stockDetailParameters.PageSize
+                    }
+                }
+            };
+
+            var stockDetails = await GetAllAsync<StockDetail>(model);
+            var totalRows = stockDetails.Count();
+
+            return new PagedList<StockDetail>(stockDetails.ToList(), totalRows, stockDetailParameters.PageNumber, stockDetailParameters.PageSize);
+        }
+
         public async Task<IEnumerable<StockDetail>> FindAllStockDetailByStockId(int stockId)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-               CommandText = "SELECT stod_id as StodId, stod_stock_id as StodStockId, stod_barcode_number as StodBarcodeNumber, " +
-               "stod_status as StodStatus, stod_notes as StodNotes, stod_faci_id as StodFaciId, " +
-               "stod_pohe_id as StodPoheId FROM Purchasing.stock_detail " +
-               "where stod_stock_id=@stodStockId;",
+               CommandText = "SELECT stod_id as StodId, stock_name as StockName, " +
+               "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
+               "fa.faci_room_number as FaciRoomNumber, po.pohe_number as PoheNumber FROM Purchasing.stock_detail sd " +
+               "JOIN Purchasing.purchase_order_header po ON sd.stod_pohe_id = po.pohe_id " +
+               "JOIN Hotel.facilities fa ON sd.stod_faci_id = fa.faci_id " +
+               "Join Purchasing.stocks s on s.stock_id = sd.stod_stock_id " +
+               "where sd.stod_stock_id=@stodStockId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -51,9 +92,12 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT stod_id as StodId, stod_stock_Id as StodStockId, " +
-                "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
-                "stod_faci_id as StodFaciId, stod_pohe_id as StodPoheId FROM Purchasing.stock_detail " +
+                CommandText = "SELECT stod_id as StodId, stock_name as StockName, " +
+               "stod_barcode_number as StodBarcodeNumber, stod_status as StodStatus, stod_notes as StodNotes, " +
+               "fa.faci_room_number as FaciRoomNumber, po.pohe_number as PoheNumber FROM Purchasing.stock_detail sd " +
+               "JOIN Purchasing.purchase_order_header po ON sd.stod_pohe_id = po.pohe_id " +
+               "JOIN Hotel.facilities fa ON sd.stod_faci_id = fa.faci_id " +
+               "JOIN Purchasing.stocks s ON s.stock_id = sd.stod_stock_id " +
                 "where stod_id=@stodId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
