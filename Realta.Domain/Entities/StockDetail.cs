@@ -18,15 +18,20 @@ namespace Realta.Domain.Entities
         [Column(Order = 2)]
         [ForeignKey("Purchasing.stocks")]
         public int? StodStockId { get; set; }
+        public string? StockName { get; set; }
         public string? StodBarcodeNumber { get; set; }
         public string? StodStatus { get; set; }
         public string? StodNotes { get; set; }
 
+
         [ForeignKey("Hotel.facilities")]
         public int? StodFaciId { get; set; }
+        public string? FaciRoomNumber { get; set; }
 
         [ForeignKey("Purchasing.purchase_order_header")]
         public int? StodPoheId { get; set; }
+        public string? PoheNumber { get; set; }
+
 
     }
 }

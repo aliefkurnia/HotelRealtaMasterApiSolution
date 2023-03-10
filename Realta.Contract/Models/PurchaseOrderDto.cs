@@ -25,10 +25,4 @@ namespace Realta.Contract.Models
         public byte PoheStatus { get; set; }
     }
 
-    public class QtyUpdateDto
-    {
-        public short PodeOrderQty { get; set; }
-        public decimal PodeReceivedQty { get; set; } = 0;
-        public decimal PodeRejectedQty { get; set; } = 0;
-    }
 }

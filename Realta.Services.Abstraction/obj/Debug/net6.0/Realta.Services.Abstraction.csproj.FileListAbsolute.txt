@@ -1,0 +1,12 @@
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.deps.json
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.AssemblyReference.cache
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfoInputs.cache
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfo.cs
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CoreCompileInputs.cache
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\refint\Realta.Services.Abstraction.dll
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.pdb
+D:\Code_id\Project\RealtaHotelPurchasing\Realta.Services.Abstraction\obj\Debug\net6.0\ref\Realta.Services.Abstraction.dll
