@@ -28,12 +28,13 @@ namespace Realta.WebAPI.Controllers
         {
             var result = await _repositoryManager.CartRepository.GetAllAsync(empId);
 
-            return Ok(new
-            {
-                status = "Success",
-                message = "Success to fetch data.",
-                data = result
-            });
+            return Ok(result);
+            //return Ok(new
+            //{
+            //    status = "Success",
+            //    message = "Success to fetch data.",
+            //    data = result
+            //});
         }
 
         // POST api/<CartController>

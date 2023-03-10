@@ -14,7 +14,6 @@ namespace Realta.Contract.Models
         [Range(1, 5, ErrorMessage = "Status must be between 1 and 5.")]
         public byte PoheStatus { get; set; }
     }
-
     public class QtyUpdateDto
     {
         public short PodeOrderQty { get; set; }
