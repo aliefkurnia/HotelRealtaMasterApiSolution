@@ -8,7 +8,7 @@ using Realta.Services.Abstraction;
 
 namespace Realta.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/stocks")]
     [ApiController]
     public class StocksController : ControllerBase
     {
@@ -21,32 +21,17 @@ namespace Realta.WebAPI.Controllers
             _logger = logger;
         }
 
-        // GET: api/<StocksController>
+        // GET: api/<ProductController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> GetAsync()
         {
-            var stocks = _repositoryManager.StockRepository.FindAllStocks().ToList();
-
-            var stocksDto = stocks.Select(r => new StocksDto
-            {
-                StockId = r.StockId,
-                StockName = r.StockName,
-                StockDescription = r.StockDesc,
-                StockQuantity = r.StockQty,
-                StockReorderPoint = r.StockReorderPoint,
-                StockUsed = r.StockUsed,
-                StockScrap = r.StockScrap,
-                StockSize = r.StockSize,
-                StockColor = r.StockColor,
-                StockModifiedDate = r.StockModifiedDate
-            });
-
-            return Ok(stocksDto);
+            var stocks = await _repositoryManager.StockRepository.FindAllStocksAsync();
+            return Ok(stocks.ToList());
         }
 
         // GET api/<StocksController>/5
         [HttpGet("{id}", Name = "GetStock")]
-        public IActionResult FindAllStocksById(int id)
+        public IActionResult FindStocksById(int id)
         {
             var stock = _repositoryManager.StockRepository.FindStocksById(id);
             if (stock == null)
@@ -87,10 +72,7 @@ namespace Realta.WebAPI.Controllers
             { 
                 StockName = stocksDto.StockName,
                 StockDesc = stocksDto.StockDescription,
-                StockQty = stocksDto.StockQuantity,
                 StockReorderPoint = stocksDto.StockReorderPoint,
-                StockUsed = stocksDto.StockUsed,
-                StockScrap = stocksDto.StockScrap,
                 StockSize = stocksDto.StockSize,
                 StockColor = stocksDto.StockColor,
                 StockModifiedDate = DateTime.Now
@@ -101,7 +83,12 @@ namespace Realta.WebAPI.Controllers
             stocksDto.StockId = stock.StockId;
 
             //forward
-            return CreatedAtRoute("GetStock", new { id = stock.StockId }, stocksDto);
+            return CreatedAtRoute("GetStock", new { id = stock.StockId }, new
+            {
+                Status = "Success",
+                Message = "Data has been create",
+                Data = stocksDto
+            });
         }
 
         // PUT api/<StocksController>/5
@@ -118,30 +105,21 @@ namespace Realta.WebAPI.Controllers
                 StockId = id,
                 StockName = stocksDto.StockName,
                 StockDesc= stocksDto.StockDescription,
-                StockQty= stocksDto.StockQuantity,
                 StockReorderPoint= stocksDto.StockReorderPoint,
-                StockUsed= stocksDto.StockUsed,
-                StockScrap= stocksDto.StockScrap,  
                 StockSize= stocksDto.StockSize,
                 StockColor= stocksDto.StockColor,  
                 StockModifiedDate = DateTime.Now
             };
 
             _repositoryManager.StockRepository.Edit(stock);
+            stocksDto.StockId = id;
 
-            return CreatedAtRoute("GetStock", new { id = id }, new StocksDto 
-                {
-                    StockId = stock.StockId,
-                    StockName = stock.StockName,
-                    StockDescription = stock.StockDesc,
-                    StockQuantity = stock.StockQty,
-                    StockReorderPoint = stock.StockReorderPoint,
-                    StockUsed = stock.StockUsed,
-                    StockScrap = stock.StockScrap,
-                    StockSize = stock.StockSize,
-                    StockColor = stock.StockColor,
-                    StockModifiedDate = stock.StockModifiedDate
-                });
+            return CreatedAtRoute("GetStock", new { id = id }, new
+            {
+                Status = "Success",
+                Message = $"Data from id : {stocksDto.StockId} has been update",
+                Data = stocksDto
+            });
         }
 
         // DELETE api/<StocksController>/5
@@ -163,16 +141,11 @@ namespace Realta.WebAPI.Controllers
             }
 
             _repositoryManager.StockRepository.Remove(stock);
-            return Ok("Data has been remove");
+            return Ok(new
+            {
+                Status = "Success",
+                Message = "Data Has Been Remove"
+            });
         }
-
-        // GET: api/<ProductController>
-        [HttpGet, Route("findAllAsync")]
-        public async Task<IActionResult> GetAsync()
-        {
-            var products = await _repositoryManager.StockRepository.FindAllStocksAsync();
-            return Ok(products.ToList());
-        }
-
     }
 }

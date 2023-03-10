@@ -1,4 +1,4 @@
-﻿namespace Realta.Contract.Models
+namespace Realta.Contract.Models
 {
     public class PurchaseOrderDetailDto
     {

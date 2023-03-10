@@ -1,4 +1,5 @@
 ﻿using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace Realta.Domain.Repositories
 {
     public interface IStockDetailRepository
     {
-        IEnumerable<StockDetail> FindAllStockDetail();
-        Task<IEnumerable<StockDetail>> FindAllStockDetailAsync();
+        Task<PagedList<StockDetail>> FindAllStockDetailByStckIdPaging(StockDetailParameters stockDetailParameters);
+        Task<IEnumerable<StockDetail>> FindAllStockDetailByStockId(int stockId);
         StockDetail FindStockDetailById(int id);
         void SwitchStatus(StockDetail stockDetail);
-        void Remove(StockDetail stockDetail);
+        void GenerateBarcodePO(PurchaseOrderDetail purchaseOrderDetail);
+
     }
 }

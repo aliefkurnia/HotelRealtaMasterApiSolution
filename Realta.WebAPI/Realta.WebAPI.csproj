@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>Realta.WebAPI</AssemblyName>
     <RootNamespace>Realta.WebAPI</RootNamespace>
+    <UserSecretsId>fbb9904d-085b-4f57-8655-60616368f5b0</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>

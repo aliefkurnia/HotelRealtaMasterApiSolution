@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Realta.WebAPI.Controllers
 {
-    [Route("api/stock_detail")]
+    [Route("api/stock")]
     [ApiController]
     public class StockDetailController : ControllerBase
     {
@@ -21,28 +23,55 @@ namespace Realta.WebAPI.Controllers
             _logger = logger;
         }
 
-        // GET: api/<StockDetailController>
-        [HttpGet]
-        public IActionResult Get()
+        // GET: api/<StockDetailController>/3
+        [HttpGet("{stockId}")]
+        public async Task<IActionResult> Get(int stockId)
         {
-            var stockDetail = _repositoryManager.StockDetailRepository.FindAllStockDetail().ToList();
+            var stockDetail = await _repositoryManager.StockDetailRepository.FindAllStockDetailByStockId(stockId);
 
             var stocksDetailDto = stockDetail.Select(r => new StockDetailDto
             {
-                StodStockId = r.StodStockId,
                 StodId = r.StodId,
+                StockName = r.StockName,
                 StodBarcodeNumber = r.StodBarcodeNumber,
                 StodStatus = r.StodStatus,
                 StodNotes = r.StodNotes,
-                StodFaciId = r.StodFaciId,
-                StodPoNumber = _repositoryManager.PurchaseOrderRepository.FindById(r.StodPoheId.Value).PoheNumber
+                FaciRoomNumber = r.FaciRoomNumber,
+                StodPoNumber = r.PoheNumber
             });
+
+            var respon = new
+            {
+                Status = "success",
+                Data = stocksDetailDto.ToList()
+            };
+
+            return Ok(stocksDetailDto.ToList());
+        }
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetStockDetailPageList([FromQuery] StockDetailParameters stockDetailParameters)
+        {
+            var stockDetail = await _repositoryManager.StockDetailRepository.FindAllStockDetailByStckIdPaging(stockDetailParameters);
+
+            var stocksDetailDto = stockDetail.Select(r => new StockDetailDto
+            {
+                StodId = r.StodId,
+                StockName = r.StockName,
+                StodBarcodeNumber = r.StodBarcodeNumber,
+                StodStatus = r.StodStatus,
+                StodNotes = r.StodNotes,
+                FaciRoomNumber = r.FaciRoomNumber,
+                StodPoNumber = r.PoheNumber
+            });
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(stockDetail.MetaData));
 
             return Ok(stocksDetailDto);
         }
 
         // GET api/<StockDetailController>/5
-        [HttpGet("{id}", Name = "GetStockDetail")]
+        [HttpGet("/detail/{id}", Name = "GetStockDetail")]
         public IActionResult FindStockDetailById(int id)
         {
             var stockDetail = _repositoryManager.StockDetailRepository.FindStockDetailById(id);
@@ -54,69 +83,74 @@ namespace Realta.WebAPI.Controllers
 
             var stockDetailDto = new StockDetailDto
             {
-                StodStockId = stockDetail.StodStockId,
                 StodId =stockDetail.StodId,
+                StockName=stockDetail.StockName,
                 StodBarcodeNumber=stockDetail.StodBarcodeNumber,
                 StodStatus=stockDetail.StodStatus,
                 StodNotes=stockDetail.StodNotes,
-                StodFaciId=stockDetail.StodFaciId,
-                StodPoNumber=_repositoryManager.PurchaseOrderRepository.FindById(stockDetail.StodPoheId.Value).PoheNumber
+                FaciRoomNumber = stockDetail.FaciRoomNumber,
+                StodPoNumber=stockDetail.PoheNumber
             };
 
             return Ok(stockDetailDto);
         }
 
-        // DELETE api/<StockDetailController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                _logger.LogError("Id object sent from client is null");
-                return BadRequest("Id object is null");
-            }
-
-            // find region by id
-            var stockDetail = _repositoryManager.StockDetailRepository.FindStockDetailById(id.Value);
-            if (stockDetail == null)
-            {
-                _logger.LogError($"Stock Photo with id {id} not found");
-                return NotFound();
-            }
-
-            _repositoryManager.StockDetailRepository.Remove(stockDetail);
-            return Ok("Data has been remove");
-        }
-
-        [HttpGet, Route("findAllAsync")]
-        public async Task<IActionResult> GetAsync()
-        {
-            var stockPhotos = await _repositoryManager.StockDetailRepository.FindAllStockDetailAsync();
-            return Ok(stockPhotos.ToList());
-        }
-
+        // PUT api/<StockDetailController>/5
         [HttpPut("switchStatus/{id}")]
-        public IActionResult EditStatus(int id, [FromBody] StockDetailDto stockDetailDto)
+        public IActionResult EditStatus(int id, [FromBody] UpdateStatusStockDetailDto updateStatusStockDetailDto)
         {
-            if (stockDetailDto == null)
+            if (updateStatusStockDetailDto == null)
             {
                 _logger.LogError("StockPhotoDto object sent from client is null");
                 return BadRequest("StockPotoDto object is null");
             }
 
             var stockDetail = new StockDetail
-            {
-                StodId = id,
-                StodStockId = stockDetailDto.StodStockId,
-                StodStatus = stockDetailDto.StodStatus,
-                StodNotes = stockDetailDto.StodNotes,
-                StodFaciId = stockDetailDto.StodFaciId
+            {   StodId = id,
+                StodStatus = updateStatusStockDetailDto.StodStatus,
+                StodNotes = updateStatusStockDetailDto.StodNotes,
+                StodFaciId = updateStatusStockDetailDto.StodFaciId
             };
 
             _repositoryManager.StockDetailRepository.SwitchStatus(stockDetail);
+
             var stockDetailStatus = _repositoryManager.StockDetailRepository.FindStockDetailById(id);
 
-            return Ok(stockDetailStatus);
+            return CreatedAtRoute("GetStockDetail", new {id = stockDetailStatus.StodId}, new
+            {
+                Status = "Success",
+                Message = "Status from Id : " + id + " has been update",
+                Data = stockDetailStatus
+            });
         }
+
+        // PUT api/<StockDetailController>/5
+        [HttpPut("generateBarcodePo/{id}")]
+        public IActionResult GenerateBarcode(int id, [FromBody] PurchaseOrderDetail purchaseOrderDetailDto)
+        {
+            if (purchaseOrderDetailDto == null)
+            {
+                _logger.LogError("purchasingOrderDetail object sent from client is null");
+                return BadRequest("purchasingOrderDetail object is null");
+            }
+
+            var purchaseOrderDetail  = new PurchaseOrderDetail
+            {
+                PodeId = id,
+                PodeOrderQty = purchaseOrderDetailDto.PodeOrderQty,
+                PodeReceivedQty = purchaseOrderDetailDto.PodeReceivedQty,
+                PodeRejectedQty = purchaseOrderDetailDto.PodeRejectedQty
+            };
+
+            _repositoryManager.StockDetailRepository.GenerateBarcodePO(purchaseOrderDetail);
+            
+
+            return Ok(new 
+            {
+                Status = "Success",
+                Message = "Generate Barcode Is Success",
+            });
+        }
+
     }
 }

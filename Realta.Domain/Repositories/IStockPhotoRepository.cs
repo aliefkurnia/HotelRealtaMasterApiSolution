@@ -9,12 +9,8 @@ namespace Realta.Domain.Repositories
 {
     public interface IStockPhotoRepository
     {
-        IEnumerable<StockPhoto> FindAllStockPhoto();
-        Task<IEnumerable<StockPhoto>> FindAllStockPhotoAsync();
         StockPhoto FindStockPhotoById(int id);
-        void Insert(StockPhoto stockPhoto);
         void InsertUploadPhoto(StockPhoto stockPhoto);
-        void Edit(StockPhoto stockPhoto);
         void Remove(StockPhoto stockPhoto);
     }
 }
