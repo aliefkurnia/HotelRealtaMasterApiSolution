@@ -63,24 +63,11 @@ namespace Realta.WebAPI.Controllers
 
         // POST api/<PurchaseOrderController>
         [HttpPost]
-        public IActionResult InsertPurchaseOrder([FromBody] PurchaseOrderDto[] dto)
+        public IActionResult InsertPurchaseOrder([FromBody] PurchaseOrderTransfer[] data)
         {
-            foreach (var i in dto)
+            foreach (var i in data)
             {
-                var header = new PurchaseOrderHeader
-                {
-                    PoheEmpId = i.PoEmpId,
-                    PoheVendorId = i.PoVendorId,
-                    PohePayType = i.PoPayType,
-                };
-                var detail = new PurchaseOrderDetail
-                {
-                    PodeOrderQty = i.PoOrderQty,
-                    PodePrice = i.PoPrice,
-                    PodeStockId = i.PoStockId
-                };
-
-                _repositoryManager.PurchaseOrderRepository.Insert(header, detail);
+                _repositoryManager.PurchaseOrderRepository.Insert(i);
             }
 
             return CreatedAtAction(nameof(InsertPurchaseOrder), new

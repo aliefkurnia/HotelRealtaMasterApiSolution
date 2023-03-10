@@ -13,7 +13,7 @@ namespace Realta.Persistence.Repositories
         {
         }
 
-        public async Task<IEnumerable<Cart>> GetAllAsync()
+        public async Task<IEnumerable<Cart>> GetAllAsync(int? empId)
         {
             SqlCommandModel model = new()
             {
@@ -31,10 +31,21 @@ namespace Realta.Persistence.Repositories
                               + "JOIN hr.employee AS e ON e.emp_id = c.cart_emp_id "
                               + "JOIN purchasing.vendor_product AS vp ON vp.vepro_id = c.cart_vepro_id "
                               + "JOIN purchasing.stocks AS s ON s.stock_id = vp.venpro_stock_id "
-                              + "JOIN purchasing.vendor AS v ON v.vendor_entity_id = vp.vepro_vendor_id;",
+                              + "JOIN purchasing.vendor AS v ON v.vendor_entity_id = vp.vepro_vendor_id",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] { }
             };
+            if (empId.HasValue)
+            {
+                model.CommandText += " WHERE c.cart_emp_id = @empId";
+                model.CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                    ParameterName = "@empId",
+                    DataType = DbType.Int32,
+                    Value = empId
+                    }
+                };
+            }
 
             var result = await GetAllAsync<Cart>(model);
             return result;

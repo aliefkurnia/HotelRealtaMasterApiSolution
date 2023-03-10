@@ -11,7 +11,7 @@ namespace Realta.Domain.Repositories
         PurchaseOrderHeader FindById(int id);
         PurchaseOrderDetail FindDetById(int id);
         PurchaseOrderHeader FindByPo(string po);
-        void Insert(PurchaseOrderHeader header, PurchaseOrderDetail detail);
+        void Insert(PurchaseOrderTransfer data);
         void UpdateStatus(PurchaseOrderHeader header);
         void UpdateQty(PurchaseOrderDetail purchaseOrderDetail);
         void Remove(PurchaseOrderHeader header);

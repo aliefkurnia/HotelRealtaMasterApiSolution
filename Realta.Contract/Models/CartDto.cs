@@ -1,4 +1,6 @@
-﻿namespace Realta.Contract.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Realta.Contract.Models
 {
     public class CartDto
     {
