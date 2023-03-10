@@ -32,28 +32,40 @@ namespace Realta.WebAPI.Controllers
 
         // GET api/<VendorProductController>/5
         [HttpGet("{id}", Name = "GetVenpro")]
-        public async Task<IActionResult> FindById(int id)
+        public IActionResult GetVendorById(int id)
         {
-
-            var vendpor = await _repositoryManager.VendorProductRepository.FindVendorProductByVendorId(id);
-            if (vendpor == null)
+            try
             {
-                _logger.LogError("Region object sent from client is null");
-                return BadRequest($"Region with id {id} is not found");
+                var vendor = _repositoryManager.VendorProductRepository.GetVendorProduct(id);
+                return Ok(vendor);
             }
-            var venporDto = vendpor.Select( v => new VendorProductDto
-            {
-                VeproId = v.VeproId,
-                VendorName = v.VendorName,
-                StockName = v.StockName,
-                VeproQtyStocked = v.VeproQtyStocked,
-                VeproQtyRemaining = v.VeproQtyRemaining,
-                VeproPrice = v.VeproPrice,
-                VenproStockId = v.VenproStockId,
-                VeproVendorId = v.VeproVendorId
-            });
-            return Ok(venporDto);
+            catch { 
+            
+                return BadRequest("Object Not Found");
+            }
         }
+        //public async Task<IActionResult> FindById(int id)
+        //{
+
+        //    var vendpor = await _repositoryManager.VendorProductRepository.FindVendorProductByVendorId(id);
+        //    if (vendpor == null)
+        //    {
+        //        _logger.LogError("Region object sent from client is null");
+        //        return BadRequest($"Region with id {id} is not found");
+        //    }
+        //    var venporDto = vendpor.Select( v => new VendorProductDto
+        //    {
+        //        VeproId = v.VeproId,
+        //        VendorName = v.VendorName,
+        //        StockName = v.StockName,
+        //        VeproQtyStocked = v.VeproQtyStocked,
+        //        VeproQtyRemaining = v.VeproQtyRemaining,
+        //        VeproPrice = v.VeproPrice,
+        //        VenproStockId = v.VenproStockId,
+        //        VeproVendorId = v.VeproVendorId
+        //    });
+        //    return Ok(venporDto);
+        //}
 
         // POST api/<VendorProductController>
         [HttpPost]
@@ -80,7 +92,7 @@ namespace Realta.WebAPI.Controllers
             {
                 _repositoryManager.VendorProductRepository.Insert(venpro);
                 // var result = _repositoryManager.VendorProductRepository.FindVendorProductById(venpro.VeproId);
-                return Ok($"Object with {Dto.VendorName} Has been Inserted");//Redirect
+                return Ok($"Object with Has been Inserted");//Redirect
             }
             else
             {

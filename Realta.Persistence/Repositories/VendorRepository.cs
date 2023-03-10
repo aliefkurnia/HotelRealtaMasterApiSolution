@@ -1,4 +1,5 @@
-﻿using Realta.Domain.Entities;
+﻿using Realta.Domain.Dto;
+using Realta.Domain.Entities;
 using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
@@ -122,20 +123,20 @@ namespace Realta.Persistence.Repositories
                     vendor_modified_date AS VendorModifiedDate 
                     From purchasing.vendor
 					ORDER BY VendorEntityId"
-                //        ,
-                //CommandType = CommandType.Text,
-                //CommandParameters = new SqlCommandParameterModel[] {
-                //    new SqlCommandParameterModel() {
-                //            ParameterName = "@pageNo",
-                //            DataType = DbType.Int32,
-                //            Value = vendorParameters.PageNumber
-                //        },
-                //     new SqlCommandParameterModel() {
-                //            ParameterName = "@pageSize",
-                //            DataType = DbType.Int32,
-                //            Value = vendorParameters.PageSize
-                //        }
-                //}
+                        ,
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                            ParameterName = "@pageNo",
+                            DataType = DbType.Int32,
+                            Value = vendorParameters.PageNumber
+                        },
+                     new SqlCommandParameterModel() {
+                            ParameterName = "@pageSize",
+                            DataType = DbType.Int32,
+                            Value = vendorParameters.PageSize
+                        }
+                }
             };
             var  dataSet = await GetAllAsync<Vendor>(model);
 

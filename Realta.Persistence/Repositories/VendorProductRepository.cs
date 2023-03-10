@@ -1,4 +1,5 @@
-﻿using Realta.Domain.Entities;
+﻿using Realta.Domain.Dto;
+using Realta.Domain.Entities;
 using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
@@ -259,5 +260,64 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
+        public VendorProductNested GetVendorProduct(int vendorId)
+        {
+            string sqlStatement =
+                              @"SELECT venpro.vepro_id as VeproId, 
+                              ven.vendor_name as VendorName, 
+                              s.stock_name as StockName, 
+                              venpro.vepro_qty_stocked as VeproQtyStocked, 
+                              venpro.vepro_qty_remaining as VeproQtyRemaining, 
+                              venpro.vepro_price as VeproPrice, 
+                              venpro.venpro_stock_id as VenproStockId, 
+                              venpro.vepro_vendor_id as VeproVendorId 
+                              FROM Purchasing.vendor_product as venpro 
+                              JOIN Purchasing.stocks as s 
+                              ON s.stock_id = venpro.venpro_stock_id 
+                              JOIN Purchasing.vendor as ven 
+                              ON venpro.vepro_vendor_id = ven.vendor_entity_id 
+                              WHERE ven.vendor_entity_id = @Id; ";
+
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@Id",
+                        DataType = DbType.Int32,
+                        Value = vendorId
+                    }
+                }
+            };
+            var dataSet = FindByCondition<VendorProductJoin>(model);
+            var listData = new List<VendorProductJoin>();
+
+            while (dataSet.MoveNext())
+            {
+                listData.Add(dataSet.Current);
+            }
+
+            var vendor = listData.Select(x => new { x.VeproVendorId, x.VendorName }).FirstOrDefault();
+
+            var product = listData.Select(x => new VendorProduct
+            {
+                VeproId = x.VeproId,
+                StockName = x.StockName,
+                VeproQtyStocked = x.VeproQtyStocked,
+                VeproQtyRemaining = x.VeproQtyRemaining,
+                VeproPrice = x.VeproPrice,
+                VenproStockId = x.VenproStockId,
+                VeproVendorId = x.VeproVendorId
+            });
+
+            var nestedJson = new VendorProductNested
+            {
+                VeproVendorId = vendor.VeproVendorId,
+                VendorName = vendor.VendorName,
+                VendorProducts = product.ToList()
+            };
+            return nestedJson;
+        }
     }
 }

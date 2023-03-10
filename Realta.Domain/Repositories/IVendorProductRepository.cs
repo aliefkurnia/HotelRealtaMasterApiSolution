@@ -1,4 +1,5 @@
-﻿using Realta.Domain.Entities;
+﻿using Realta.Domain.Dto;
+using Realta.Domain.Entities;
 using Realta.Domain.RequestFeatures;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace Realta.Domain.Repositories
         Task<IEnumerable<VendorProduct>> FindAllVendorProductAsync();
         VendorProduct FindVendorProductById(int vendorId);
         Task<IEnumerable<VendorProduct>> FindVendorProductByVendorId(int vendorId);
-    //    Task<IEnumerable<VendorProduct>> GetVendorProductPaging(VendorProductParameters vendorProductParameters);
+        //    Task<IEnumerable<VendorProduct>> GetVendorProductPaging(VendorProductParameters vendorProductParameters);
+        VendorProductNested GetVendorProduct(int VendorId);
         void Insert(VendorProduct venPro);
         void Edit(VendorProduct venPro);
         void Remove(VendorProduct venPro);

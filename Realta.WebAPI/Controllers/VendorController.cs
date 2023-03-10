@@ -69,8 +69,17 @@ namespace Realta.WebAPI.Controllers
         [HttpGet("paging")]
         public async Task<IActionResult> GetVendorPaging([FromQuery] VendorParameters vendorParameters)
         {
+            try
+            {
             var products = await _repositoryManager.VendorRepository.GetVendorPaging(vendorParameters);
             return Ok(products);
+
+            }
+            catch (Exception)
+            {
+
+                return BadRequest("Object is null");
+            }
         }
         // POST api/<VendorController>
         [HttpPost]
