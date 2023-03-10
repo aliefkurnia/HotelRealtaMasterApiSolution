@@ -127,11 +127,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD:Realta.Services.Abstraction/obj/project.assets.json
       "projectUniqueName": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
       "projectName": "Realta.Services.Abstraction",
       "projectPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
       "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
       "outputPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\obj\\",
+=======
+      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+      "projectName": "Realta.Contract",
+      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+      "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
+      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Contract\\obj\\",
+>>>>>>> 329198e:Realta.Contract/obj/project.assets.json
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
