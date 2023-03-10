@@ -24,16 +24,17 @@ namespace Realta.WebAPI.Controllers
 
         // GET: api/<CartController>
         [HttpGet]
-        public async Task<IActionResult> GetCart()
+        public async Task<IActionResult> GetCart(int? empId)
         {
-            var result = await _repositoryManager.CartRepository.GetAllAsync();
+            var result = await _repositoryManager.CartRepository.GetAllAsync(empId);
 
-            return Ok(new
-            {
-                status = "Success",
-                message = "Success to fetch data.",
-                data = result
-            });
+            return Ok(result);
+            //return Ok(new
+            //{
+            //    status = "Success",
+            //    message = "Success to fetch data.",
+            //    data = result
+            //});
         }
 
         // POST api/<CartController>
