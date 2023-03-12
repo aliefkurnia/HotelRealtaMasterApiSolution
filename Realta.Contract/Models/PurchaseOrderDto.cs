@@ -10,12 +10,19 @@ namespace Realta.Contract.Models
 {
     public class PurchaseOrderDto
     {
-        public int PoVendorId { get; set; }
-        public int PoEmpId { get; set; }
-        public string? PoPayType { get; set; }
-        public int PoStockId { get; set; }
-        public short PoOrderQty { get; set; }
-        public decimal PoPrice { get; set; }
+        public int PoheId { get; set; }
+        public string VendorName { get; set; }
+        public string PoheNumber { get; set; }
+        public byte PoheStatus { get; set; } = 1;
+        public DateTime PoheOrderDate { get; set; } = DateTime.Now;
+        public decimal PoheSubtotal { get; set; }
+        public decimal PoheTax { get; set; } = 0.1m;
+        public decimal PoheTotalAmount => PoheSubtotal + (PoheTax * PoheSubtotal);
+        public decimal PoheRefund { get; set; } = 0;
+        public DateTime? PoheArrivalDate { get; set; }
+        public string PohePayType { get; set; }
+        public int? PoheEmpId { get; set; }
+        public int? PoheVendorId { get; set; }
     }
 
     public class StatusUpdateDto

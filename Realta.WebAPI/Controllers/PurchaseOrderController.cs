@@ -33,12 +33,14 @@ namespace Realta.WebAPI.Controllers
 
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(result.MetaData));
 
-            return Ok(new 
-            { 
-                status = "Success",
-                message = "Success to fetch data.",
-                data = result
-            });
+            // return Ok(new 
+            // { 
+            //     status = "Success",
+            //     message = "Success to fetch data.",
+            //     data = result
+            // });
+            
+            return Ok(result);
         }
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
@@ -53,12 +55,14 @@ namespace Realta.WebAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(new
-            {
-                status = "Success",
-                message = "Success to fetch data.",
-                data = result
-            });
+            // return Ok(new
+            // {
+            //     status = "Success",
+            //     message = "Success to fetch data.",
+            //     data = result
+            // });
+            return Ok(result);
+
         }
 
         // POST api/<PurchaseOrderController>
