@@ -27,27 +27,27 @@ namespace Realta.Persistence.Repositories
                 CommandType = CommandType.StoredProcedure,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorId",
+                        ParameterName = "@Id",
                         DataType = DbType.Int32,
                         Value = vendor.VendorEntityId
                     },
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorName",
+                        ParameterName = "@name",
                         DataType = DbType.String,
                         Value = vendor.VendorName
                     },
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorActive",
+                        ParameterName = "@Active",
                         DataType = DbType.Boolean,
                         Value = vendor.VendorActive
                     },
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorPriority",
+                        ParameterName = "@Priority",
                         DataType = DbType.Boolean,
                         Value = vendor.VendorPriority
                     },
                     new SqlCommandParameterModel() {
-                        ParameterName = "@vendorWebURL",
+                        ParameterName = "@WebURL",
                         DataType = DbType.String,
                         Value = vendor.VendorWeburl
                     }
@@ -155,15 +155,10 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO purchasing.vendor (vendor_entity_id, vendor_name, vendor_active, vendor_priority, vendor_weburl) " +
-                "VALUES (@vendor_entity_id, @vendor_name, @vendor_active, @vendor_priority, @vendor_weburl);",
+                CommandText = "INSERT INTO purchasing.vendor (vendor_name, vendor_active, vendor_priority, vendor_weburl) " +
+                "VALUES (@vendor_name, @vendor_active, @vendor_priority, @vendor_weburl);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@vendor_entity_id",
-                        DataType = DbType.Int32,
-                        Value = vendor.VendorEntityId
-                    },
                     new SqlCommandParameterModel() {
                         ParameterName = "@vendor_name",
                         DataType = DbType.String,

@@ -560,11 +560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
+      "projectUniqueName": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
       "projectName": "Realta.Persistence",
-      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
+      "projectPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
       "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Persistence\\obj\\",
+      "outputPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -581,8 +581,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
-              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
+            "D:\\Bootcamp 18\\RealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
             }
           }
         }

@@ -447,11 +447,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+      "projectUniqueName": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services\\Realta.Services.csproj",
       "projectName": "Realta.Services",
-      "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\Realta.Services.csproj",
+      "projectPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services\\Realta.Services.csproj",
       "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-      "outputPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services\\obj\\",
+      "outputPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -468,8 +468,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
-              "projectPath": "D:\\Bootcamp 18\\HotelRealtaApi\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
+            "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+              "projectPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj"
             }
           }
         }

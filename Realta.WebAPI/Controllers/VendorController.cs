@@ -105,7 +105,8 @@ namespace Realta.WebAPI.Controllers
             //post to database
             _repositoryManager.VendorRepository.Insert(vendor);
             //Redirect
-            return CreatedAtRoute("GetVendor", new { id = vendorDto.VendorEntityId }, vendorDto);
+            //return CreatedAtRoute("GetVendor", new { id = vendorDto.VendorEntityId }, vendorDto);
+            return Ok("Create Success");
         }
 
         // PUT api/<VendorController>/5
@@ -139,7 +140,7 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager.VendorRepository.Edit(vendor);
 
             //Redirect
-            return CreatedAtRoute("GetVendor", new { id }, result );
+            return CreatedAtRoute("GetVendor", new { id }, vendor );
         }
 
         // DELETE api/<VendorController>/5
