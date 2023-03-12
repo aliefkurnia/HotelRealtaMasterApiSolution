@@ -13,8 +13,9 @@ namespace Realta.WebAPI.Extensions
            {
                options.AddPolicy("CorsPolicy", builder =>
                    builder.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader());
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .WithExposedHeaders("X-Pagination"));
            });
 
         // add IIS configure options deploy to IIS

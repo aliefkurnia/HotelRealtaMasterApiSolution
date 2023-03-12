@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {}
+    "D:\\Bootcamp 18\\newAPI\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {}
   },
   "projects": {
-    "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+    "D:\\Bootcamp 18\\newAPI\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "projectUniqueName": "D:\\Bootcamp 18\\newAPI\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
         "projectName": "Realta.Services.Abstraction",
-        "projectPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "projectPath": "D:\\Bootcamp 18\\newAPI\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
         "packagesPath": "C:\\Users\\hafiz\\.nuget\\packages\\",
-        "outputPath": "D:\\Bootcamp 18\\RealtaAPI\\Realta.Services.Abstraction\\obj\\",
+        "outputPath": "D:\\Bootcamp 18\\newAPI\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hafiz\\AppData\\Roaming\\NuGet\\NuGet.Config",

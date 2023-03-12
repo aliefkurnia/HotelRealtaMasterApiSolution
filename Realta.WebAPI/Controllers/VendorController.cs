@@ -6,6 +6,7 @@ using Realta.Domain.Entities;
 using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 using System.Numerics;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -71,10 +72,12 @@ namespace Realta.WebAPI.Controllers
         {
             try
             {
-            var products = await _repositoryManager.VendorRepository.GetVendorPaging(vendorParameters);
-            return Ok(products);
+            var vendor = await _repositoryManager.VendorRepository.GetVendorPage(vendorParameters);
+            
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(vendor.MetaData));
+            return Ok(vendor);
 
-            }
+            }   
             catch (Exception)
             {
 

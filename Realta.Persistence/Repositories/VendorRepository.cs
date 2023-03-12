@@ -81,6 +81,49 @@ namespace Realta.Persistence.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<PagedList<Vendor>> GetVendorPage(VendorParameters vendorParameters)
+        {
+
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = @"Select 
+                    vendor_entity_id AS VendorEntityId, 
+                    vendor_name AS VendorName, 
+                    vendor_active AS VendorActive, 
+                    vendor_priority AS VendorPriority, 
+                    vendor_register_date AS VendorRegisterDate, 
+                    vendor_weburl AS VendorWeburl,
+                    vendor_modified_date AS VendorModifiedDate 
+                    From purchasing.vendor
+					ORDER BY VendorEntityId"
+                ,
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pageNo",
+                        DataType = DbType.Int32,
+                        Value = vendorParameters.PageNumber
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@pageSize",
+                        DataType = DbType.Int32,
+                        Value = vendorParameters.PageSize
+                    }
+                }
+            };
+            var  dataSet = await GetAllAsync<Vendor>(model);
+
+            if (vendorParameters.Keyword != null)
+            {
+                string decodedKeyword = Uri.UnescapeDataString(vendorParameters.Keyword);
+                dataSet = dataSet.Where(p =>
+                    p.VendorName.ToLower().Contains(decodedKeyword.ToLower())  );
+            }
+            var totalRows = dataSet.Count();
+
+            return PagedList<Vendor>.ToPagedList(dataSet.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
+        }
+
         public Vendor FindVendorById(int id)
         {
             SqlCommandModel model = new SqlCommandModel()
