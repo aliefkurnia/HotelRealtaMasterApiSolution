@@ -170,16 +170,16 @@ namespace Realta.Persistence.Repositories
                         ,
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
-                            ParameterName = "@pageNo",
-                            DataType = DbType.Int32,
-                            Value = vendorParameters.PageNumber
-                        },
-                     new SqlCommandParameterModel() {
-                            ParameterName = "@pageSize",
-                            DataType = DbType.Int32,
-                            Value = vendorParameters.PageSize
-                        }
+                    // new SqlCommandParameterModel() {
+                    //         ParameterName = "@pageNo",
+                    //         DataType = DbType.Int32,
+                    //         Value = vendorParameters.PageNumber
+                    //     },
+                    //  new SqlCommandParameterModel() {
+                    //         ParameterName = "@pageSize",
+                    //         DataType = DbType.Int32,
+                    //         Value = vendorParameters.PageSize
+                    //     }
                 }
             };
             var  dataSet = await GetAllAsync<Vendor>(model);
@@ -196,8 +196,8 @@ namespace Realta.Persistence.Repositories
                 .Search(vendorParameters.Keyword)
                 .Sort(vendorParameters.OrderBy);
 
-            //return PagedList<Vendor>.ToPagedList(dataSet.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
-            return new PagedList<Vendor>(vendorSearch.ToList(),totalRows, vendorParameters.PageNumber, vendorParameters.PageSize);
+            return PagedList<Vendor>.ToPagedList(dataSet.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
+            //return new PagedList<Vendor>(vendorSearch.ToList(),totalRows, vendorParameters.PageNumber, vendorParameters.PageSize);
         }
 
         public void Insert(Vendor vendor)
