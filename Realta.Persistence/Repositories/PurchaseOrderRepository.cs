@@ -6,6 +6,7 @@ using Realta.Persistence.Base;
 using Realta.Persistence.RepositoryContext;
 using System.Data;
 using System.Data.SqlClient;
+using Realta.Persistence.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -66,39 +67,42 @@ namespace Realta.Persistence.Repositories
                               + "poh.pohe_vendor_id AS PoheVendorId "
                               + "FROM purchasing.purchase_order_header AS poh "
                               + "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id "
-                              + "ORDER BY poh.pohe_order_date DESC ",
+                              + "ORDER BY poh.pohe_order_date DESC;",
                                 //+ "OFFSET @pageNo ROWS FETCH NEXT @pageSize ROWS ONLY;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pageNo",
-                        DataType = DbType.Int32,
-                        Value = param.PageNumber
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pageSize",
-                        DataType = DbType.Int32,
-                        Value = param.PageSize
-                    }
+                    // new SqlCommandParameterModel() {
+                    //     ParameterName = "@pageNo",
+                    //     DataType = DbType.Int32,
+                    //     Value = param.PageNumber
+                    // },
+                    // new SqlCommandParameterModel() {
+                    //     ParameterName = "@pageSize",
+                    //     DataType = DbType.Int32,
+                    //     Value = param.PageSize
+                    // }
                 }
             };
 
             var result = await GetAllAsync<PurchaseOrderHeader>(model);
 
-            if (param.Keyword != null)
-            {
-                string decodedKeyword = Uri.UnescapeDataString(param.Keyword);
-                result = result.Where(p =>
-                    p.VendorName.ToLower().Contains(decodedKeyword.ToLower()) ||
-                    p.PoheNumber.ToLower().Contains(decodedKeyword.ToLower())
-                );
-            }
+            // cek keyword
+            // if (param.Keyword != null)
+            // {
+            //     var decodedKeyword = Uri.UnescapeDataString(param.Keyword);
+            //     result = result.Where(p =>
+            //         p.VendorName.ToLower().Contains(decodedKeyword.ToLower()) ||
+            //         p.PoheNumber.ToLower().Contains(decodedKeyword.ToLower())
+            //     );
+            // }
 
-            if (param.Status != null) result = result.Where(p => p.PoheStatus == param.Status);
-
+            // if (param.Status != null) result = result.Where(p => p.PoheStatus == param.Status);
+            
+            result = result.AsQueryable().Search(param.Keyword).Sort(param.OrderBy).Status(param.Status);
             var totalRows = result.Count();
             
             return PagedList<PurchaseOrderHeader>.ToPagedList(result.ToList(), param.PageNumber, param.PageSize);
+            // return new PagedList<PurchaseOrderHeader>(result.ToList(), totalRows, param.PageNumber, param.PageSize);
         }
 
         public PurchaseOrderNested FindAllDet(string po)
