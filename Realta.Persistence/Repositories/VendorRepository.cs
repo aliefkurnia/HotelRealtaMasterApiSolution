@@ -4,6 +4,7 @@ using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
 using Realta.Persistence.Interface;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
@@ -183,15 +184,20 @@ namespace Realta.Persistence.Repositories
             };
             var  dataSet = await GetAllAsync<Vendor>(model);
 
-            if (vendorParameters.Keyword != null)
-            {
-                string decodedKeyword = Uri.UnescapeDataString(vendorParameters.Keyword);
-                dataSet = dataSet.Where(p =>
-                    p.VendorName.ToLower().Contains(decodedKeyword.ToLower())  );
-            }
+            //if (vendorParameters.Keyword != null)
+            //{
+            //    string decodedKeyword = Uri.UnescapeDataString(vendorParameters.Keyword);
+            //    dataSet = dataSet.Where(p =>
+            //        p.VendorName.ToLower().Contains(decodedKeyword.ToLower())  );
+            //}
             var totalRows = dataSet.Count();
 
-            return PagedList<Vendor>.ToPagedList(dataSet.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
+            var vendorSearch = dataSet.AsQueryable()
+                .Search(vendorParameters.Keyword)
+                .Sort(vendorParameters.OrderBy);
+
+            //return PagedList<Vendor>.ToPagedList(dataSet.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
+            return new PagedList<Vendor>(vendorSearch.ToList(),totalRows, vendorParameters.PageNumber, vendorParameters.PageSize);
         }
 
         public void Insert(Vendor vendor)
