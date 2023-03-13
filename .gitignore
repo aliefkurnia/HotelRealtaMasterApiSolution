@@ -1,5 +1,6 @@
 .vs
 .vscode
+.idea
 Realta.Contract/bin
 Realta.Contract/obj
 Realta.Domain/bin

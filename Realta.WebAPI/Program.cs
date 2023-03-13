@@ -1,6 +1,7 @@
 using Realta.Services.Abstraction;
 using Realta.Services;
 using Realta.WebAPI.Extensions;
+using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
@@ -39,6 +40,7 @@ internal class Program
 
         //add custom
         app.UseStaticFiles();
+
         app.UseCors("CorsPolicy");
 
         app.UseAuthorization();
