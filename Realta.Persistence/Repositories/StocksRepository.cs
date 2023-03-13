@@ -159,11 +159,11 @@ namespace Realta.Persistence.Repositories
             var stocks = await GetAllAsync<Stocks>(model);
             var totalRows = stocks.Count();
 
-            //var stockSearch = stocks.AsQueryable()
-            //    .SearchStock(stocksParameters.SearchTerm)
-            //    .Sort(stocksParameters.OrderBy);
+            var stockSearch = stocks.AsQueryable()
+                .SearchStock(stocksParameters.SearchTerm)
+                .Sort(stocksParameters.OrderBy);
 
-            return new PagedList<Stocks>(stocks.ToList(), totalRows, stocksParameters.PageNumber, stocksParameters.PageSize);
+            return new PagedList<Stocks>(stockSearch.ToList(), totalRows, stocksParameters.PageNumber, stocksParameters.PageSize);
         }
 
         public void Insert(Stocks stocks)

@@ -52,5 +52,7 @@ namespace Realta.Persistence.Repositories.RepositoryExtensions
 
             return stocks.OrderBy(orderQuery);
         }
+
+
     }
 }

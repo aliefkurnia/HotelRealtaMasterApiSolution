@@ -80,7 +80,6 @@ namespace Realta.Persistence.Base
             _adoContext.Dispose();
             return listOfData;
         }
-
         public void Update(SqlCommandModel model)
         {
             _adoContext.ExecuteNonQuery(model);

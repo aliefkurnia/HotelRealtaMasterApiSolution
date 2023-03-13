@@ -4,7 +4,7 @@ namespace Realta.Domain.Repositories
 {
     public interface ICartRepository
     {
-        Task<IEnumerable<Cart>> GetAllAsync();
+        Task<IEnumerable<Cart>> GetAllAsync(int? empId);
         void Insert(Cart cart);
         void UpdateQty(Cart cart, out bool status);
         void Remove(int id, out bool status);

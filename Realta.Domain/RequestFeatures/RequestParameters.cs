@@ -9,7 +9,7 @@ namespace Realta.Domain.RequestFeatures
     public abstract class RequestParameters
     {
         const int maxPageSize = 50;
-        public int PageNumber { get; set; } = 0;
+        public int PageNumber { get; set; } = 1;
 
         // jumlah data yang akan di fetch
         private int _pageSize = 10;
@@ -24,10 +24,5 @@ namespace Realta.Domain.RequestFeatures
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
-    }
-    public class PurchaseOrderParameters : RequestParameters
-    {
-        public string? Keyword { get; set; }
-        public int? Status { get; set; }
     }
 }

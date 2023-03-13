@@ -33,12 +33,14 @@ namespace Realta.WebAPI.Controllers
 
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(result.MetaData));
 
-            return Ok(new 
-            { 
-                status = "Success",
-                message = "Success to fetch data.",
-                data = result
-            });
+            // return Ok(new 
+            // { 
+            //     status = "Success",
+            //     message = "Success to fetch data.",
+            //     data = result
+            // });
+            
+            return Ok(result);
         }
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
@@ -53,34 +55,23 @@ namespace Realta.WebAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(new
-            {
-                status = "Success",
-                message = "Success to fetch data.",
-                data = result
-            });
+            // return Ok(new
+            // {
+            //     status = "Success",
+            //     message = "Success to fetch data.",
+            //     data = result
+            // });
+            return Ok(result);
+
         }
 
         // POST api/<PurchaseOrderController>
         [HttpPost]
-        public IActionResult InsertPurchaseOrder([FromBody] PurchaseOrderDto[] dto)
+        public IActionResult InsertPurchaseOrder([FromBody] PurchaseOrderTransfer[] data)
         {
-            foreach (var i in dto)
+            foreach (var i in data)
             {
-                var header = new PurchaseOrderHeader
-                {
-                    PoheEmpId = i.PoEmpId,
-                    PoheVendorId = i.PoVendorId,
-                    PohePayType = i.PoPayType,
-                };
-                var detail = new PurchaseOrderDetail
-                {
-                    PodeOrderQty = i.PoOrderQty,
-                    PodePrice = i.PoPrice,
-                    PodeStockId = i.PoStockId
-                };
-
-                _repositoryManager.PurchaseOrderRepository.Insert(header, detail);
+                _repositoryManager.PurchaseOrderRepository.Insert(i);
             }
 
             return CreatedAtAction(nameof(InsertPurchaseOrder), new
