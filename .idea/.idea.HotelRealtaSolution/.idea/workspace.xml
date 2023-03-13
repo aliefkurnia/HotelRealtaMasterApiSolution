@@ -5,7 +5,14 @@
     <projectFile profileName="Realta.WebAPI">Realta.WebAPI/Realta.WebAPI.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d577d8af-c47a-4cd0-827f-03c663000ce2" name="Changes" comment="merge vendor to po" />
+    <list default="true" id="d577d8af-c47a-4cd0-827f-03c663000ce2" name="Changes" comment="merge vendor to po">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HotelRealtaSolution/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HotelRealtaSolution/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/bin/Debug/net6.0/Realta.Services.Abstraction.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/bin/Debug/net6.0/Realta.Services.Abstraction.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/obj/Debug/net6.0/Realta.Services.Abstraction.csproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/obj/Debug/net6.0/Realta.Services.Abstraction.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/obj/Debug/net6.0/Realta.Services.Abstraction.pdb" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
