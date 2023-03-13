@@ -3,6 +3,7 @@ using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
 using Realta.Persistence.Interface;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections;
@@ -157,6 +158,10 @@ namespace Realta.Persistence.Repositories
 
             var stocks = await GetAllAsync<Stocks>(model);
             var totalRows = stocks.Count();
+
+            //var stockSearch = stocks.AsQueryable()
+            //    .SearchStock(stocksParameters.SearchTerm)
+            //    .Sort(stocksParameters.OrderBy);
 
             return new PagedList<Stocks>(stocks.ToList(), totalRows, stocksParameters.PageNumber, stocksParameters.PageSize);
         }
