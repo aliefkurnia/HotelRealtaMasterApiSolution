@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AssemblyName>Realta.Persistence</AssemblyName>
-    <RootNamespace>Realta.Persistence</RootNamespace>
+	<TargetFramework>net6.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<AssemblyName>Realta.Persistence</AssemblyName>
+	<RootNamespace>Realta.Persistence</RootNamespace>
   </PropertyGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.3.1" />
 	</ItemGroup>
 	
 	<ItemGroup>

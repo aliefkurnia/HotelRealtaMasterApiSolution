@@ -15,5 +15,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Realta.Contract\Realta.Contract.csproj" />
   </ItemGroup>
-
 </Project>

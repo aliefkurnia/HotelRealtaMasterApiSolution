@@ -19,5 +19,12 @@ namespace Realta.Domain.Base
         IPolicyRepository PolicyRepository { get; }
         ICategory_GroupRepository CategoryGroupRepository { get; }
         IPriceItemsPhotoRepository PriceItemsPhotoRepository { get; }
+        IPurchaseOrderRepository PurchaseOrderRepository { get; }
+        ICartRepository CartRepository { get; }
+        IStockRepository StockRepository { get; }
+        IStockDetailRepository StockDetailRepository { get; }
+        IStockPhotoRepository StockPhotoRepository { get; }
+        IVendorProductRepository VendorProductRepository { get; }
+        IVendorRepository VendorRepository { get; }
     }
 }

@@ -24,6 +24,5 @@ namespace Realta.Domain.RequestFeatures
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
-
     }
 }

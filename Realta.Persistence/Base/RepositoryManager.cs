@@ -13,7 +13,14 @@ namespace Realta.Persistence.Base
 {
     public class RepositoryManager : IRepositoryManager
     {
-        private AdoDbContext _adoContext;
+        private readonly AdoDbContext _adoContext;
+        private IVendorRepository _vendorRepository;
+        private Lazy<IPurchaseOrderRepository> _purchaseOrderRepository;
+        private Lazy<ICartRepository> _cartRepository;
+        private IStockRepository _stockRepository;
+        private IStockDetailRepository _stockDetailRepository;
+        private IStockPhotoRepository _stockPhotoRepository;
+        private IVendorProductRepository _vendorProductRepository;
         private IRegionsRepository _regionsRepository;
         private ICountryRepository _countryRepository;
         private IProvincesRepository _provincesRepository;
@@ -27,6 +34,8 @@ namespace Realta.Persistence.Base
         public RepositoryManager(AdoDbContext adoContext)
         {
             _adoContext = adoContext;
+            _purchaseOrderRepository = new Lazy<IPurchaseOrderRepository>(() => new PurchaseOrderRepository(adoContext));
+            _cartRepository = new Lazy<ICartRepository>(() => new CartRepository(adoContext));
             _priceItemsPhotoRepository = new Lazy<IPriceItemsPhotoRepository>(() => new PriceItemsPhotoRepository (adoContext));
         }
 
@@ -80,6 +89,18 @@ namespace Realta.Persistence.Base
             }
         }
 
+        public IVendorRepository VendorRepository
+        {
+            get
+            {
+                if (_vendorRepository == null)
+                {
+                    _vendorRepository = new VendorRepository(_adoContext);
+                }
+                return _vendorRepository;
+            }
+        }
+
         public IMembersRepository MembersRepository
         {
             get
@@ -91,6 +112,57 @@ namespace Realta.Persistence.Base
                 return _membersRepository;
             }
         }
+
+        public IPurchaseOrderRepository PurchaseOrderRepository => _purchaseOrderRepository.Value;
+        public ICartRepository CartRepository => _cartRepository.Value;
+
+        public IStockRepository StockRepository
+        {
+            get
+            {
+                if (_stockRepository == null)
+                {
+                    _stockRepository = new StocksRepository(_adoContext);
+                }
+                return _stockRepository;
+            }
+        }
+
+        public IStockDetailRepository StockDetailRepository
+        {
+            get
+            {
+                if (_stockDetailRepository == null)
+                {
+                    _stockDetailRepository = new StockDetailRepository(_adoContext);
+                }
+                return _stockDetailRepository;
+            }
+        }
+        public IStockPhotoRepository StockPhotoRepository
+        {
+            get
+            {
+                if (_stockPhotoRepository == null)
+                {
+                    _stockPhotoRepository = new StockPhotoRepository(_adoContext);
+                }
+                return _stockPhotoRepository;
+            }
+        }
+
+        public IVendorProductRepository VendorProductRepository
+        {
+            get
+            {
+                if (_vendorProductRepository == null)
+                {
+                    _vendorProductRepository = new VendorProductRepository(_adoContext);
+                }
+                return _vendorProductRepository;
+            }
+        }
+
 
         public IServiceTaskRepository ServiceTaskRepository
         {
