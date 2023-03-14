@@ -617,11 +617,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
       "projectName": "Realta.Persistence",
-      "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
+      "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Persistence\\Realta.Persistence.csproj",
       "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Persistence\\obj\\",
+      "outputPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -638,8 +638,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
-              "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
+            "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj": {
+              "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj"
             }
           }
         }

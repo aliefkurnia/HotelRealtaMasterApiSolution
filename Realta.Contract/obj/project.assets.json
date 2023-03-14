@@ -250,11 +250,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+      "projectUniqueName": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
       "projectName": "Realta.Contract",
-      "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+      "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
       "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\obj\\",
+      "outputPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",

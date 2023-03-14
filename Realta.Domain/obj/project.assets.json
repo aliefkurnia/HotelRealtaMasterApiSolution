@@ -139,11 +139,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alief\\Source\\Repos\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj",
       "projectName": "Realta.Domain",
-      "projectPath": "C:\\Users\\alief\\Source\\Repos\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj",
+      "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Domain\\Realta.Domain.csproj",
       "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alief\\Source\\Repos\\HotelRealtaAPI\\Realta.Domain\\obj\\",
+      "outputPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",

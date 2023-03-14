@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {}
+    "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
+    "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+        "projectUniqueName": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
         "projectName": "Realta.Contract",
-        "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
+        "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj",
         "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\obj\\",
+        "outputPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+    "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "projectUniqueName": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
         "projectName": "Realta.Services.Abstraction",
-        "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
         "packagesPath": "C:\\Users\\alief\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
+        "outputPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,8 +93,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
-                "projectPath": "C:\\Users\\alief\\source\\repos\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj"
+              "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
+                "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj"
               }
             }
           }

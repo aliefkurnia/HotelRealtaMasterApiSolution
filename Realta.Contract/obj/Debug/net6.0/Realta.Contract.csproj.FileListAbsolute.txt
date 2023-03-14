@@ -22,3 +22,15 @@ C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Real
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.deps.json
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\bin\Debug\net6.0\Realta.Contract.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.csproj.AssemblyReference.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.AssemblyInfoInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.AssemblyInfo.cs
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.csproj.CoreCompileInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\refint\Realta.Contract.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\Realta.Contract.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Contract\obj\Debug\net6.0\ref\Realta.Contract.dll

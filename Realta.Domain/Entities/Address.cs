@@ -16,6 +16,7 @@ namespace Realta.Domain.Entities
         [Required]
         public string AddrLine1 { get; set; }
         public string? AddrLine2 { get; set;}
+        public  string AddrCity { get; set; }
         public string? AddrPostalCode { get; set; }
         public string? AddrSpatialLocation { get; set; }
         [ForeignKey("addr_prov_id")]

@@ -22,35 +22,49 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "UPDATE master.address SET addr_line1=@addr_line1,addr_line2=@addr_line2,addr_postal_code=@addr_postal_code,addr_spatial_location=@addr_spatial_location, addr_prov_id= @addr_prov_id  WHERE addr_id= @addr_id;",
+                CommandText =
+                    "UPDATE master.address SET addr_line1=@addr_line1,addr_line2=@addr_line2,addr_city=@addr_city,addr_postal_code=@addr_postal_code,addr_spatial_location=@addr_spatial_location, addr_prov_id= @addr_prov_id  WHERE addr_id= @addr_id;",
                 CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_id",
                         DataType = DbType.Int32,
                         Value = address.AddrId
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_line1",
                         DataType = DbType.String,
                         Value = address.AddrLine1
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_line2",
                         DataType = DbType.String,
                         Value = address.AddrLine2
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@addr_city",
+                        DataType = DbType.String,
+                        Value = address.AddrCity
+                    },
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_postal_code",
                         DataType = DbType.String,
                         Value = address.AddrPostalCode
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_spatial_location",
                         DataType = DbType.String,
                         Value = address.AddrSpatialLocation
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_prov_id",
                         DataType = DbType.Int32,
                         Value = address.AddrProvId
@@ -66,16 +80,18 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new SqlCommandModel()
             {
                 CommandText = "SELECT addr_id as AddrId," +
-                "                     addr_line1 as AddrLine1," +
-                "                     addr_line2 as AddrLine2," +
-                "                     addr_postal_code as Addr_Postal_Code," +
-                "                     addr_spatial_location as AddrSpatialLocation," +
-                "                     addr_prov_id as AddrProvId " +
-                "                     FROM master.address where addr_id=@addr_id;",
+                  "                     addr_line1 as AddrLine1," +
+                  "                     addr_line2 as AddrLine2," +
+"                                       addr_city as addrCity," +
+                  "                     addr_postal_code as AddrPostalCode," +
+                  "                     addr_spatial_location as AddrSpatialLocation," +
+                  "                     addr_prov_id as AddrProvId " +
+        "                     FROM master.address where addr_id=@addr_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_id",
                         DataType = DbType.Int32,
                         Value = id
@@ -91,6 +107,7 @@ namespace Realta.Persistence.Repositories
             {
                 item = dataSet.Current;
             }
+
             return item;
         }
 
@@ -98,13 +115,14 @@ namespace Realta.Persistence.Repositories
         public IEnumerable<Address> FindAllAddress()
         {
             IEnumerator<Address> dataset = FindAll<Address>("" +
-                "SELECT " +
-                "addr_id as AddrId," +
-                "addr_line1 as AddrLine1," +
-                "addr_line2 as AddrLine2," +
-                "addr_postal_code as AddrPostalCode," +
-                "addr_spatial_location as AddrSpatialLocation," +
-                "addr_prov_id as AddrProvId from master.address ORDER BY addr_id;");
+            "SELECT " +
+            "addr_id as AddrId," +
+            "addr_line1 as AddrLine1," +
+            "addr_line2 as AddrLine2," +
+            "addr_city as AddrCity," +
+            "addr_postal_code as AddrPostalCode," +
+            "addr_spatial_location as AddrSpatialLocation," +
+            "addr_prov_id as AddrProvId from master.address ORDER BY addr_id;");
             while (dataset.MoveNext())
             {
                 var data = dataset.Current;
@@ -121,32 +139,43 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-
-            
-                 CommandText = "INSERT INTO master.address (addr_line1,addr_line2,addr_postal_code,addr_spatial_location, addr_prov_id) VALUES (@addr_line1,@addr_line2,@addr_postal_code,@addr_spatial_location, @addr_prov_id);SELECT cast(scope_identity() as int)",
+                CommandText =
+                    "INSERT INTO master.address (addr_line1,addr_line2,add_city,addr_postal_code,addr_spatial_location, addr_prov_id) VALUES (@addr_line1,@addr_line2,@addr_city,@addr_postal_code,@addr_spatial_location, @addr_prov_id);SELECT cast(scope_identity() as int)",
                 CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_line1",
                         DataType = DbType.String,
                         Value = address.AddrLine1
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_line2",
                         DataType = DbType.String,
                         Value = address.AddrLine2
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@addr_city",
+                        DataType = DbType.String,
+                        Value = address.AddrCity
+                    },
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_postal_code",
                         DataType = DbType.String,
                         Value = address.AddrPostalCode
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_spatial_location",
                         DataType = DbType.String,
                         Value = address.AddrSpatialLocation
                     },
-                    new SqlCommandParameterModel() {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_prov_id",
                         DataType = DbType.Int32,
                         Value = address.AddrProvId
@@ -155,7 +184,7 @@ namespace Realta.Persistence.Repositories
             };
             //_adoContext.ExecuteNonQuery(model);
             address.AddrId = _adoContext.ExecuteScalar<int>(model);
-                _adoContext.Dispose();
+            _adoContext.Dispose();
         }
 
         public void Remove(Address address)
@@ -164,8 +193,10 @@ namespace Realta.Persistence.Repositories
             {
                 CommandText = "DELETE FROM master.address WHERE addr_id=@addr_id;",
                 CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                    new SqlCommandParameterModel()
+                    {
                         ParameterName = "@addr_id",
                         DataType = DbType.Int32,
                         Value = address.AddrId

@@ -32,3 +32,22 @@ C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Real
 C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Domain.dll
 C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Domain.pdb
 C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Contract.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.deps.json
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Contract.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Domain.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Domain.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\bin\Debug\net6.0\Realta.Contract.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.AssemblyReference.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.AssemblyInfoInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.AssemblyInfo.cs
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.CoreCompileInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.csproj.CopyComplete
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\refint\Realta.Services.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\Realta.Services.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services\obj\Debug\net6.0\ref\Realta.Services.dll

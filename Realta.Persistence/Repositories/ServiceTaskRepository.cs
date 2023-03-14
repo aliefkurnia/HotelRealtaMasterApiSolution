@@ -37,7 +37,7 @@ namespace Realta.Persistence.Repositories
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_seq",
                         DataType = DbType.Int16,
-                        Value = serviceTask.setaSeq
+                        Value = serviceTask.SetaSeq
                     }
                 }
             };
@@ -108,8 +108,8 @@ namespace Realta.Persistence.Repositories
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@seta_seq",
-                        DataType = DbType.Int32,
-                        Value = serviceTask.setaSeq
+                        DataType = DbType.Int16,
+                        Value = serviceTask.SetaSeq
                     }
                 }
             };

@@ -282,7 +282,7 @@ namespace Realta.Persistence.Repositories
                     },
                     new SqlCommandParameterModel()
                     {
-                        ParameterName = "@pageSize",
+                        ParameterName = "@pagesSize",
                         DataType = DbType.Int32,
                         Value = priceItemsParameters.PageSize
                     }
@@ -312,27 +312,28 @@ namespace Realta.Persistence.Repositories
                               "   prit_type as PritType," +
                               "   prit_modified_date as PritModifiedDate," +
                               "   prit_icon_url as PritIconUrl " +
-                              "FROM master.price_items order by prit_id " +
-                              "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                              "FROM master.price_items order by prit_id ",
+                              
+                              // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {
-                    new SqlCommandParameterModel()
-                    {
-                        ParameterName = "@pageNo",
-                        DataType = DbType.Int32,
-                        Value = priceItemsParameters.PageNumber
-                    },
-                    new SqlCommandParameterModel()
-                    {
-                        ParameterName = "@pageSize",
-                        DataType = DbType.Int32,
-                        Value = priceItemsParameters.PageSize
-                    }
+                    // new SqlCommandParameterModel()
+                    // {
+                    //     ParameterName = "@pageNo",
+                    //     DataType = DbType.Int32,
+                    //     Value = priceItemsParameters.PageNumber
+                    // },
+                    // new SqlCommandParameterModel()
+                    // {
+                    //     ParameterName = "@pageSize",
+                    //     DataType = DbType.Int32,
+                    //     Value = priceItemsParameters.PageSize
+                    // }
                 }
             };
             var priceItems = await GetAllAsync<PriceItems>(model);
-            var totalRow = FindAllPriceItems().Count();
+            // var totalRow = FindAllPriceItems().Count();
 
             var priceItemsSearch = priceItems.Where(p => p.PritName
             .ToLower()
@@ -342,9 +343,10 @@ namespace Realta.Persistence.Repositories
             //    .SearchProduct(priceItems.SearchTerm)
             //    .Sort(priceItems.OrderBy);
 
-            return new PagedList<PriceItems>(priceItems.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
-            //return new PagedList<PriceItems>(priceItemsSearch.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
-
+            // return new PagedList<PriceItems>(priceItems.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
+            // return new PagedList<PriceItems>(priceItemsSearch.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
+            return PagedList<PriceItems>.ToPagedList(priceItemsSearch.ToList(), priceItemsParameters.PageNumber,
+                priceItemsParameters.PageSize);
         }
     }
 }

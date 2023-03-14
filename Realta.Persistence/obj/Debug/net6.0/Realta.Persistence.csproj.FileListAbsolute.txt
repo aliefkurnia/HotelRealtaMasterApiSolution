@@ -28,3 +28,18 @@ C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\R
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
 C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.deps.json
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Persistence.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\bin\Debug\net6.0\Realta.Domain.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.AssemblyReference.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfoInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.AssemblyInfo.cs
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.csproj.CopyComplete
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\refint\Realta.Persistence.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\Realta.Persistence.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Persistence\obj\Debug\net6.0\ref\Realta.Persistence.dll

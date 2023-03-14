@@ -18,6 +18,7 @@ namespace Realta.Contract.Models
         public string AddrLine1 { get; set; }
 
         public string AddrLine2 { get; set; }
+        public  string AddrCity { get; set; }
 
         [MaxLength(5,ErrorMessage ="postal code cannot be longer than 5")]
         public string AddrPostalCode { get; set; }

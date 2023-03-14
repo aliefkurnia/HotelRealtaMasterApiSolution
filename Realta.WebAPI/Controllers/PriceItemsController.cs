@@ -217,6 +217,9 @@ namespace Realta.WebAPI.Controllers
         [HttpGet("pageList")]
         public async Task<IActionResult> GetPriceItemsPageList([FromQuery] PriceItemsParameters priceItemsParameters)
         {
+            if (!priceItemsParameters.ValidateStockRange)
+                return BadRequest("MaxStock must Greater than MinStock");
+            
             var priceitems = await _repositoryManager.PriceItemsRepository.GetPriceItemsPageList(priceItemsParameters);
             Response.Headers.Add("X-Pagination",JsonConvert.SerializeObject(priceitems.MetaData));
             return Ok(priceitems);

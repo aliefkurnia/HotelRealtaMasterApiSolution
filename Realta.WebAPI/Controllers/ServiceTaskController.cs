@@ -52,7 +52,7 @@ namespace Realta.WebAPI.Controllers
             {
                 SetaId = serviceTask.SetaId,
                 SetaName = serviceTask.SetaName,
-                SetaSeq = serviceTask.setaSeq
+                SetaSeq = serviceTask.SetaSeq
             };
             return Ok(serviceTaskDto);
         }
@@ -70,7 +70,7 @@ namespace Realta.WebAPI.Controllers
             {
                 SetaId = serviceTaskDto.SetaId,
                 SetaName = serviceTaskDto.SetaName,
-                setaSeq = serviceTaskDto.SetaSeq
+                SetaSeq = serviceTaskDto.SetaSeq
             };
 
             _repositoryManager.ServiceTaskRepository.Insert(serviceTask);
@@ -92,10 +92,10 @@ namespace Realta.WebAPI.Controllers
             {
                 SetaId = id,
                 SetaName = serviceTaskDto.SetaName,
-                setaSeq = serviceTaskDto.setaSeq
+                SetaSeq = serviceTaskDto.SetaSeq
             };
             _repositoryManager.ServiceTaskRepository.Edit(serviceTask);
-            return CreatedAtRoute("GetService_Task", new { id = serviceTaskDto.SetaId }, new ServiceTaskDto { SetaId = id, SetaName = serviceTask.SetaName, SetaSeq = serviceTask.setaSeq });
+            return CreatedAtRoute("GetService_Task", new { id = serviceTaskDto.SetaId }, new ServiceTaskDto { SetaId = id, SetaName = serviceTask.SetaName, SetaSeq = serviceTask.SetaSeq });
         }
 
         // DELETE api/<Service_TaskController>/5

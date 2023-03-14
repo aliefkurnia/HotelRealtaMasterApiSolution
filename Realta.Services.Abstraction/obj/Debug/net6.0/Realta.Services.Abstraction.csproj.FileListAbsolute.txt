@@ -25,3 +25,18 @@ C:\Users\alief\Source\Repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug
 C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Contract.dll
 C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Contract.pdb
 C:\Users\alief\source\repos\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CopyComplete
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.deps.json
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Services.Abstraction.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Contract.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\bin\Debug\net6.0\Realta.Contract.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.AssemblyReference.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfoInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.AssemblyInfo.cs
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CoreCompileInputs.cache
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.csproj.CopyComplete
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\refint\Realta.Services.Abstraction.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\Realta.Services.Abstraction.pdb
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\obj\Debug\net6.0\ref\Realta.Services.Abstraction.dll

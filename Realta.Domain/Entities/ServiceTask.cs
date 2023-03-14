@@ -13,7 +13,7 @@ namespace Realta.Domain.Entities
         public int SetaId { get; set; }
         [Required]
         public string SetaName { get;set; }
-        public short setaSeq { get; set; }
+        public short SetaSeq { get; set; }
 
     }
 }
