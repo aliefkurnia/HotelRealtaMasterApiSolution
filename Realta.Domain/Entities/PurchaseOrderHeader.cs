@@ -8,7 +8,9 @@ namespace Realta.Domain.Entities
     {
         [Key]
         public int PoheId { get; set; }
-        public string PoheNumber { get; set; }
+        public string PoheNumber { get; set; }        
+        public int LineItem { get; set; }
+
         public byte PoheStatus { get; set; } = 1;
         public DateTime PoheOrderDate { get; set; }
         public decimal PoheSubtotal { get; set; }

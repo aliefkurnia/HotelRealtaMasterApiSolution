@@ -11,6 +11,7 @@ namespace Realta.Contract.Models
     public class PurchaseOrderDto
     {
         public int PoheId { get; set; }
+        public int LineItem { get; set; }
         public string VendorName { get; set; }
         public string PoheNumber { get; set; }
         public byte PoheStatus { get; set; } = 1;
