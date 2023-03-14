@@ -16,8 +16,4 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Realta.Domain\Realta.Domain.csproj" />
 	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="Repositories\RepositoryExtensions\" />
-	</ItemGroup>
 </Project>
