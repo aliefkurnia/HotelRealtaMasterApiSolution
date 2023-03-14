@@ -28,6 +28,7 @@ namespace Realta.WebAPI.Controllers
         public async Task<IActionResult> Post(int stockId)
         {
             var formColletion = await Request.ReadFormAsync();
+            formColletion.TryGetValue("SetPrimary", out var SetPrimary);
 
             var files = formColletion.Files;
 
@@ -47,16 +48,26 @@ namespace Realta.WebAPI.Controllers
                 return BadRequest();
             }
 
+            int counter = 0;
             foreach (var itemPhoto in stockPhotoGroupDto.AllFoto)
             {
                 var fileName = _utilityService.UploadSingleFile(itemPhoto);
                 var stockPhoto = new StockPhoto
                 {
                     SphoPhotoFileName = fileName,
-                    SphoPrimary = 0,
                     SphoStockId = stockId
                 };
+
+                if (counter == 0)
+                {
+                    stockPhoto.SphoPrimary = bool.Parse(SetPrimary);
+                }
+                else
+                {
+                    stockPhoto.SphoPrimary = false;
+                }
                 _repositoryManager.StockPhotoRepository.InsertUploadPhoto(stockPhoto);
+                counter++;
             }
 
             return Ok(new
@@ -64,6 +75,31 @@ namespace Realta.WebAPI.Controllers
                 Status = "Success",
                 Message = "Success Upload Foto"
             });
+
+        }
+
+        [HttpGet("{stockId}")]
+        public async Task<IActionResult> GetStockPhotoById(int stockId)
+        {
+            var stockPhoto = await _repositoryManager.StockPhotoRepository.GetAllPhotoByStockId(stockId);
+
+            var stockPhotoDto = stockPhoto.Select(r => new StockPhotoDto
+            {
+                SphoId = r.SphoId,
+                SphoThumbnailFilename = r.SphoThumbnailFilename,
+                SphoPhotoFileName = r.SphoPhotoFileName,
+                SphoPrimary = r.SphoPrimary,
+                SphoUrl = r.SphoUrl,
+                StockName = r.StockName
+            });
+
+            var respon = new
+            {
+                Status = "success",
+                Data = stockPhotoDto.ToList()
+            };
+
+            return Ok(stockPhotoDto.ToList());
 
         }
 
