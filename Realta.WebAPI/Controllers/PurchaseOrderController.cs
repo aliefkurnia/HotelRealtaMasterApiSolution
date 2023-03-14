@@ -45,15 +45,17 @@ namespace Realta.WebAPI.Controllers
 
         // GET api/<PurchaseOrderController>/PO-20211231-001
         [HttpGet("{poNumber}")]
-        public IActionResult GetByPo(string poNumber)
+        public async Task<IActionResult> GetByPo(string poNumber, [FromQuery] PurchaseOrderDetailParameters param)
         {
-            var result = _repositoryManager.PurchaseOrderRepository.FindAllDet(poNumber);
-
-            if (result.PoheNumber == null)
-            {
-                _logger.LogError($"POD with id {poNumber} not found");
-                return NotFound();
-            }
+            // var result = _repositoryManager.PurchaseOrderRepository.FindAllDet(poNumber);
+            var result = await _repositoryManager.PurchaseOrderRepository.GetAllDetAsync(poNumber, param);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(result.MetaData));
+            
+            // if (result.PoheNumber == null)
+            // {
+            //     _logger.LogError($"POD with id {poNumber} not found");
+            //     return NotFound();
+            // }
 
             // return Ok(new
             // {
