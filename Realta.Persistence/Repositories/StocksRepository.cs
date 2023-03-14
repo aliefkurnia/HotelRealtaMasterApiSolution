@@ -2,15 +2,9 @@
 using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
-using Realta.Persistence.Interface;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 using Realta.Persistence.RepositoryContext;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Realta.Persistence.Repositories
 {
@@ -158,7 +152,11 @@ namespace Realta.Persistence.Repositories
             var stocks = await GetAllAsync<Stocks>(model);
             var totalRows = stocks.Count();
 
-            return new PagedList<Stocks>(stocks.ToList(), totalRows, stocksParameters.PageNumber, stocksParameters.PageSize);
+            var stockSearch = stocks.AsQueryable()
+                .SearchStock(stocksParameters.SearchTerm)
+                .Sort(stocksParameters.OrderBy);
+
+            return new PagedList<Stocks>(stockSearch.ToList(), totalRows, stocksParameters.PageNumber, stocksParameters.PageSize);
         }
 
         public void Insert(Stocks stocks)

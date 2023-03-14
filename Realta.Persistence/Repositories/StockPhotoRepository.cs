@@ -22,7 +22,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM purchasing.stock_photo where spho_id=@sphoId;",
+                CommandText = "SELECT * FROM purchasing.stock_photo WHERE spho_id=@sphoId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -46,12 +46,40 @@ namespace Realta.Persistence.Repositories
             return item;
         }
 
+        public async Task<IEnumerable<StockPhoto>> GetAllPhotoByStockId(int stockId)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT spho_id as SphoId, spho_thumbnail_filename as SphoThumbnailFileName, " +
+               "spho_photo_filename as SphoPhotoFileName, spho_primary as SphoPrimary, spho_url as SphoUrl, " +
+               "s.stock_name as StockName FROM Purchasing.stock_photo sp " +
+               "JOIN Purchasing.stocks s ON s.stock_id = sp.spho_stock_id " +
+               "WHERE sp.spho_stock_id = @sphoStockId ORDER BY spho_id;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@sphoStockId",
+                        DataType = DbType.Int32,
+                        Value = stockId
+                    }
+                }
+            };
+
+            IAsyncEnumerator<StockPhoto> dataSet = FindAllAsync<StockPhoto>(model);
+            var item = new List<StockPhoto>();
+            while (await dataSet.MoveNextAsync())
+            {
+                item.Add(dataSet.Current);
+            }
+            return item;
+        }
+
         public void InsertUploadPhoto(StockPhoto stockPhoto)
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO purchasing.stock_photo (spho_photo_filename, spho_primary, " +
-                "spho_stock_id) values (@sphoPhotoFilename, @sphoPrimary, " +
+                CommandText = "INSERT INTO Purchasing.stock_photo (spho_photo_filename, spho_primary, " +
+                "spho_stock_id) VALUES (@sphoPhotoFilename, @sphoPrimary, " +
                 "@sphoStockId);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
