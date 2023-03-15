@@ -72,7 +72,7 @@ namespace Realta.Persistence.Base
             }
             _adoContext.DisposeAsync();
             return listData;
-        } 
+        }
 
         public IEnumerator<T> FindByCondition<T>(SqlCommandModel model)
         {

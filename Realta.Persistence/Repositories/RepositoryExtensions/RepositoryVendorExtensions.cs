@@ -11,12 +11,12 @@ namespace Realta.Persistence.Repositories.RepositoryExtensions
 {
     public static class RepositoryVendorExtensions
     {
-        public static IQueryable<Vendor> Search(this IQueryable<Vendor> vendors, string searchTerm)
+        public static IQueryable<Vendor> Search(this IQueryable<Vendor> vendors, string Keyword)
         {
-            if (string.IsNullOrWhiteSpace(searchTerm))
+            if (string.IsNullOrWhiteSpace(Keyword))
                 return vendors;
 
-            var lowerCaseSearchTerm = searchTerm.Trim().ToLower();
+            var lowerCaseSearchTerm = Keyword.Trim().ToLower();
 
             return vendors.Where(p => p.VendorName.ToLower().Contains(lowerCaseSearchTerm));
         }

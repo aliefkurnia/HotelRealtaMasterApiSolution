@@ -72,10 +72,10 @@ namespace Realta.WebAPI.Controllers
         {
             try
             {
-            var vendor = await _repositoryManager.VendorRepository.GetVendorPage(vendorParameters);
-            
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(vendor.MetaData));
-            return Ok(vendor);
+                var vendor = await _repositoryManager.VendorRepository.GetVendorPaging(vendorParameters);
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(vendor.MetaData));
+                return Ok(vendor);
 
             }   
             catch (Exception)

@@ -5,13 +5,21 @@
     <projectFile profileName="Realta.WebAPI">Realta.WebAPI/Realta.WebAPI.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d577d8af-c47a-4cd0-827f-03c663000ce2" name="Changes" comment="merge vendor to po">
+    <list default="true" id="d577d8af-c47a-4cd0-827f-03c663000ce2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HotelRealtaSolution/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HotelRealtaSolution/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/bin/Debug/net6.0/Realta.Services.Abstraction.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/bin/Debug/net6.0/Realta.Services.Abstraction.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/obj/Debug/net6.0/Realta.Services.Abstraction.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/obj/Debug/net6.0/Realta.Services.Abstraction.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realta.Services.Abstraction/obj/Debug/net6.0/Realta.Services.Abstraction.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Contract/Models/VendorProductDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Contract/Models/VendorProductDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Contract/Realta.Contract.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Contract/Realta.Contract.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Domain/Entities/VendorProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Domain/Entities/VendorProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Domain/Realta.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Domain/Realta.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Domain/Repositories/IVendorProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Domain/Repositories/IVendorProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Domain/Repositories/IVendorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Domain/Repositories/IVendorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Domain/RequestFeatures/VendorParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Domain/RequestFeatures/VendorParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Persistence/Base/RepositoryBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Persistence/Base/RepositoryBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Persistence/Repositories/RepositoryExtensions/RepositoryVendorExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Persistence/Repositories/RepositoryExtensions/RepositoryVendorExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Persistence/Repositories/VendorProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Persistence/Repositories/VendorProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.Persistence/Repositories/VendorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.Persistence/Repositories/VendorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.WebAPI/Controllers/VendorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.WebAPI/Controllers/VendorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realta.WebAPI/Controllers/VendorProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realta.WebAPI/Controllers/VendorProductController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +99,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="79c110d1-2871-45c4-b4f6-f109f2e3b95e" name="Changes" comment="" />
+      <changelist id="d577d8af-c47a-4cd0-827f-03c663000ce2" name="Changes" comment="" />
       <created>1678472652117</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -103,6 +111,7 @@
       <workItem from="1678601207769" duration="7536000" />
       <workItem from="1678643503728" duration="294000" />
       <workItem from="1678644915146" duration="3300000" />
+      <workItem from="1678910063909" duration="143000" />
     </task>
     <task id="LOCAL-00001" summary="fix typo on git ignore&#10;Realta.Services.Abstraction/bin&#10;Realta.Services.Abstraction/obj">
       <created>1678731843362</created>
