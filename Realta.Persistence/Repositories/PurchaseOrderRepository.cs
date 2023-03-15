@@ -84,6 +84,7 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new()
             {
                 CommandText = "SELECT pod.pode_id AS PodeId, "
+                              + "pod.pode_pohe_id AS PodePoheId, "
                               + "pod.pode_stock_id AS PodeStockId, "
                               + "sto.stock_name AS StockName, "
                               + "pod.pode_order_qty AS PodeOrderQty, "
@@ -96,6 +97,7 @@ namespace Realta.Persistence.Repositories
                               + "FROM purchasing.purchase_order_detail AS pod "
                               + "JOIN purchasing.purchase_order_header AS poh ON poh.pohe_id = pod.pode_pohe_id "
                               + "JOIN purchasing.stocks AS sto ON sto.stock_id = pod.pode_stock_id "
+                              + "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id "
                               + "WHERE poh.pohe_number = @poheNumber;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
@@ -108,7 +110,7 @@ namespace Realta.Persistence.Repositories
             };
 
             var result = await GetByCondition<PurchaseOrderDetail>(model);
-            result = result.AsQueryable().Search(param.Keyword).Sort(param.OrderBy);
+            result = result.AsQueryable().SearchPoDetail(param.Keyword).SortPoDetail(param.OrderBy);
             
             return PagedList<PurchaseOrderDetail>.ToPagedList(result.ToList(), param.PageNumber, param.PageSize);
         }
