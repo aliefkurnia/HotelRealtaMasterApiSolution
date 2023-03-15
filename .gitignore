@@ -1,6 +1,9 @@
 .idea
 .vs
 .vscode
+.idea/*
+.vs/*
+.vscode/*
 Realta.Contract/bin
 Realta.Contract/obj
 Realta.Domain/bin
@@ -9,7 +12,7 @@ Realta.Persistence/bin
 Realta.Persistence/obj
 Realta.Services/bin
 Realta.Services/obj
-Realta.Services.Abstaction/bin
-Realta.Services.Abstaction/obj
+Realta.Services.Abstraction/bin
+Realta.Services.Abstraction/obj
 Realta.WebAPI/bin
 Realta.WebAPI/obj

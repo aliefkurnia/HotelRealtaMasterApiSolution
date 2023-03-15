@@ -23,6 +23,5 @@ namespace Realta.Domain.Entities
 
         [ForeignKey("vendor_entity_id")]
         public int VeproVendorId { get; set; }
-
     }
 }

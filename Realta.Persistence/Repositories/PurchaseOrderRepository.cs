@@ -6,6 +6,7 @@ using Realta.Persistence.Base;
 using Realta.Persistence.RepositoryContext;
 using System.Data;
 using System.Data.SqlClient;
+using Realta.Persistence.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -52,6 +53,7 @@ namespace Realta.Persistence.Repositories
             SqlCommandModel model = new()
             {
                 CommandText = "SELECT poh.pohe_id AS PoheId, "
+                              + "(SELECT COUNT(*) FROM purchasing.purchase_order_detail pod WHERE pod.pode_pohe_id = poh.pohe_id) AS LineItem, "
                               + "poh.pohe_number AS PoheNumber, "
                               + "poh.pohe_status AS PoheStatus, "
                               + "poh.pohe_order_date AS PoheOrderDate, "
@@ -66,41 +68,53 @@ namespace Realta.Persistence.Repositories
                               + "poh.pohe_vendor_id AS PoheVendorId "
                               + "FROM purchasing.purchase_order_header AS poh "
                               + "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id "
-                              + "ORDER BY poh.pohe_order_date DESC ",
-                                //+ "OFFSET @pageNo ROWS FETCH NEXT @pageSize ROWS ONLY;",
+                              + "ORDER BY poh.pohe_order_date DESC;",
                 CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pageNo",
-                        DataType = DbType.Int32,
-                        Value = param.PageNumber
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@pageSize",
-                        DataType = DbType.Int32,
-                        Value = param.PageSize
-                    }
-                }
+                CommandParameters = new SqlCommandParameterModel[] {}
             };
 
             var result = await GetAllAsync<PurchaseOrderHeader>(model);
-
-            if (param.Keyword != null)
-            {
-                string decodedKeyword = Uri.UnescapeDataString(param.Keyword);
-                result = result.Where(p =>
-                    p.VendorName.ToLower().Contains(decodedKeyword.ToLower()) ||
-                    p.PoheNumber.ToLower().Contains(decodedKeyword.ToLower())
-                );
-            }
-
-            if (param.Status != null) result = result.Where(p => p.PoheStatus == param.Status);
-
-            var totalRows = result.Count();
+            result = result.AsQueryable().Search(param.Keyword).Sort(param.OrderBy).Status(param.Status);
             
             return PagedList<PurchaseOrderHeader>.ToPagedList(result.ToList(), param.PageNumber, param.PageSize);
         }
 
+        public async Task<PagedList<PurchaseOrderDetail>> GetAllDetAsync(string po, PurchaseOrderDetailParameters param)
+        {
+            SqlCommandModel model = new()
+            {
+                CommandText = "SELECT pod.pode_id AS PodeId, "
+                              + "pod.pode_pohe_id AS PodePoheId, "
+                              + "pod.pode_stock_id AS PodeStockId, "
+                              + "sto.stock_name AS StockName, "
+                              + "pod.pode_order_qty AS PodeOrderQty, "
+                              + "pod.pode_price AS PodePrice, "
+                              + "pod.pode_line_total AS PodeLineTotal, "
+                              + "pod.pode_received_qty AS PodeReceivedQty, "
+                              + "pod.pode_rejected_qty AS PodeRejectedQty, "
+                              + "pod.pode_stocked_qty AS PodeStockedQty, "
+                              + "pod.pode_modified_date AS PodeModifiedDate "
+                              + "FROM purchasing.purchase_order_detail AS pod "
+                              + "JOIN purchasing.purchase_order_header AS poh ON poh.pohe_id = pod.pode_pohe_id "
+                              + "JOIN purchasing.stocks AS sto ON sto.stock_id = pod.pode_stock_id "
+                              + "JOIN purchasing.vendor AS ven ON ven.vendor_entity_id = poh.pohe_vendor_id "
+                              + "WHERE poh.pohe_number = @poheNumber;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@poheNumber",
+                        DataType = DbType.String,
+                        Value = po
+                    }
+                }
+            };
+
+            var result = await GetByCondition<PurchaseOrderDetail>(model);
+            result = result.AsQueryable().SearchPoDetail(param.Keyword).SortPoDetail(param.OrderBy);
+            
+            return PagedList<PurchaseOrderDetail>.ToPagedList(result.ToList(), param.PageNumber, param.PageSize);
+        }
+        
         public PurchaseOrderNested FindAllDet(string po)
         {
             SqlCommandModel model = new()
@@ -323,8 +337,7 @@ namespace Realta.Persistence.Repositories
 
             Create(model);
         }
-
-
+        
         public void UpdateStatus(PurchaseOrderHeader header)
         {
             SqlCommandModel model = new()
