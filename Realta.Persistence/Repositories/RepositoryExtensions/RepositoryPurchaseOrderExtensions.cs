@@ -60,7 +60,7 @@ public static class RepositoryPurchaseOrderExtensions
 
 public static class RepositoryPurchaseOrderDetailExtensions
 {
-    public static IQueryable<PurchaseOrderDetail> SearchPoDetail(this IQueryable<PurchaseOrderDetail> source, string keyword)
+    public static IQueryable<PurchaseOrderDetail> Search(this IQueryable<PurchaseOrderDetail> source, string keyword)
     {
         if (string.IsNullOrWhiteSpace(keyword))
             return source;
@@ -70,7 +70,7 @@ public static class RepositoryPurchaseOrderDetailExtensions
         return source.Where(po => po.StockName.ToLower().Contains(lowerCaseKeyword));
     }
 
-    public static IQueryable<PurchaseOrderDetail> SortPoDetail(this IQueryable<PurchaseOrderDetail> source, string orderByQueryString)
+    public static IQueryable<PurchaseOrderDetail> Sort(this IQueryable<PurchaseOrderDetail> source, string orderByQueryString)
     {
         if (string.IsNullOrWhiteSpace(orderByQueryString))
             return source.OrderBy(e => e.StockName);

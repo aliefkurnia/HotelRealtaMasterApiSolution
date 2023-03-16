@@ -40,7 +40,12 @@ internal class Program
 
         //add custom
         app.UseStaticFiles();
-
+        // set folder resources to static file
+        app.UseStaticFiles(new StaticFileOptions()
+        {
+            FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+            RequestPath = new PathString("/Resources")
+        });
         app.UseCors("CorsPolicy");
 
         app.UseAuthorization();
