@@ -110,7 +110,7 @@ namespace Realta.Persistence.Repositories
             };
 
             var result = await GetByCondition<PurchaseOrderDetail>(model);
-            result = result.AsQueryable().SearchPoDetail(param.Keyword).SortPoDetail(param.OrderBy);
+            result = result.AsQueryable().Search(param.Keyword).Sort(param.OrderBy);
             
             return PagedList<PurchaseOrderDetail>.ToPagedList(result.ToList(), param.PageNumber, param.PageSize);
         }
