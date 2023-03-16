@@ -1,7 +1,9 @@
 .idea
-.idea/*
 .vs
 .vscode
+.idea/*
+.vs/*
+.vscode/*
 Realta.Contract/bin
 Realta.Contract/obj
 Realta.Domain/bin

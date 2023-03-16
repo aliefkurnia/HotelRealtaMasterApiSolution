@@ -50,19 +50,15 @@ namespace Realta.WebAPI.Controllers
             // var result = _repositoryManager.PurchaseOrderRepository.FindAllDet(poNumber);
             var result = await _repositoryManager.PurchaseOrderRepository.GetAllDetAsync(poNumber, param);
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(result.MetaData));
-            
-            // if (result.PoheNumber == null)
-            // {
-            //     _logger.LogError($"POD with id {poNumber} not found");
-            //     return NotFound();
-            // }
-
-            // return Ok(new
-            // {
-            //     status = "Success",
-            //     message = "Success to fetch data.",
-            //     data = result
-            // });
+            return Ok(result);
+        }
+        
+        // GET api/<PurchaseOrderController>/PO-20211231-001
+        [HttpGet("header/{poNumber}")]
+        public IActionResult GetHeaderByPo(string poNumber)
+        {
+            // var result = _repositoryManager.PurchaseOrderRepository.FindAllDet(poNumber);
+            var result = _repositoryManager.PurchaseOrderRepository.FindByPo(poNumber);
             return Ok(result);
 
         }
