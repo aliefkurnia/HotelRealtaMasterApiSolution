@@ -402,7 +402,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new()
             {
-                CommandText = "purchasing.spDeletePurchaseOrder;",
+                CommandText = "purchasing.spDeletePurchaseOrder",
                 CommandType = CommandType.StoredProcedure,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {

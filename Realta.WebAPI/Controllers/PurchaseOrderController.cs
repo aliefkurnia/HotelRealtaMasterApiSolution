@@ -108,7 +108,7 @@ namespace Realta.WebAPI.Controllers
             });
         }
 
-        // DELETE api/<PurchaseOrderController>/status/PO-20230222-001
+        // PUT api/<PurchaseOrderController>/status/PO-20230222-001
         [HttpPut("status/{poNumber}")]
         public IActionResult UpdateStatus(string poNumber, [FromBody] StatusUpdateDto dto)
         {
@@ -172,7 +172,7 @@ namespace Realta.WebAPI.Controllers
         }
 
         // DELETE api/<PurchaseOrderController>/detail/5
-        [HttpDelete("detail/{id}")]
+        [HttpDelete("detail/{id:int}")]
         public IActionResult DeleteDetail(int? id)
         {
             //1. prevent POHDTO from null
