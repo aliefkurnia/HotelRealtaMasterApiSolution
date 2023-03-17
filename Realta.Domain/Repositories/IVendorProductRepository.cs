@@ -14,7 +14,7 @@ namespace Realta.Domain.Repositories
         Task<IEnumerable<VendorProduct>> FindAllVendorProductAsync();
         VendorProduct FindVendorProductById(int vendorId);
         Task<IEnumerable<VendorProduct>> FindVendorProductByVendorId(int vendorId);
-        //    Task<IEnumerable<VendorProduct>> GetVendorProductPaging(VendorProductParameters vendorProductParameters);
+        Task<PagedList<VendorProduct>> GetVenpro(VenproParameters vendorProParameters, int id);
         VendorProductNested GetVendorProduct(int VendorId);
         void Insert(VendorProduct venPro);
         void Edit(VendorProduct venPro);

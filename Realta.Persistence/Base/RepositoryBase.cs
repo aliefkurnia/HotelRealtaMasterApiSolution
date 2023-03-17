@@ -85,7 +85,7 @@ namespace Realta.Persistence.Base
             }
             _adoContext.DisposeAsync();
             return listData;
-        } 
+        }
 
         public async Task<IEnumerable<T>> GetByCondition<T>(SqlCommandModel model)
         {

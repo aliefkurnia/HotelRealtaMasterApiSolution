@@ -3,6 +3,6 @@
     public class VendorParameters : RequestParameters
     {
         public string? Keyword { set; get; }
-        public string OrderBy { get; set; } = "VendorName";
+        public string OrderBy { get; set; } = "vendorName";
     }
 }

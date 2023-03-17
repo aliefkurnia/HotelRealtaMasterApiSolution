@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.OAuth.Claims;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,23 +29,40 @@ namespace Realta.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
-            var products = await _repositoryManager.VendorProductRepository.FindAllVendorProductAsync();    
+            var products = await _repositoryManager.VendorProductRepository.FindAllVendorProductAsync();
             return Ok(products.ToList());
         }
 
         // GET api/<VendorProductController>/5
-        [HttpGet("{id}", Name = "GetVenpro")]
-        public IActionResult GetVendorById(int id)
+        //[HttpGet("{id}", Name = "GetVenpro")]
+        //public IActionResult GetVendorById(int id)
+        //{
+        //    try
+        //    {
+        //        var vendor = _repositoryManager.VendorProductRepository.GetVendorProduct(id);
+        //        return Ok(vendor);
+        //    }
+        //    catch {
+
+        //        return BadRequest("Object Not Found");
+        //    }
+        //}
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVenproPaging([FromQuery] VenproParameters venproParameters, int id)
         {
-            try
-            {
-                var vendor = _repositoryManager.VendorProductRepository.GetVendorProduct(id);
-                return Ok(vendor);
-            }
-            catch { 
-            
-                return BadRequest("Object Not Found");
-            }
+            //try
+            //{
+               var venpro = _repositoryManager.VendorProductRepository.GetVenpro(venproParameters, id);
+               PagedList<VendorProduct> pagedList = await venpro;
+               Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(pagedList.MetaData));
+               return Ok(pagedList);
+          //  }
+            //catch
+            //{
+
+            //    return BadRequest("Object Not Found");
+            //}
         }
         //public async Task<IActionResult> FindById(int id)
         //{
