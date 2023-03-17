@@ -1,4 +1,5 @@
 ﻿using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,7 @@ namespace Realta.Domain.Repositories
         void Insert(Provinces provinces);
         void Edit(Provinces provinces);
         void Remove(Provinces provinces);
+        Task<PagedList<Provinces>> GetProvincesPageList(ProvincesParameter provincesParameter);
+
     }
 }

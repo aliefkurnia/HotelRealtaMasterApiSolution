@@ -1,4 +1,5 @@
 ﻿using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Realta.Domain.Repositories
         void Insert(ServiceTask serviceTask);
         void Edit(ServiceTask serviceTask);
         void Remove(ServiceTask serviceTask);
+        Task<PagedList<ServiceTask>> GetServiceTaskPageList(ServiceTaskParameter serviceTaskParameter);
     }
 }

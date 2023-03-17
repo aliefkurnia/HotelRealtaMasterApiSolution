@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services;
 using Realta.Services.Abstraction;
 
@@ -120,6 +122,14 @@ namespace Realta.WebAPI.Controllers
             _repositoryManager.RegionRepository.Remove(regions);
             return Ok("Data has been removed");
 
+        }
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetRegionsPageList([FromQuery] RegionsParameter regionsParameter)
+        {
+            var regions = await _repositoryManager.RegionRepository.GetRegionsPageList(regionsParameter);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(regions.MetaData));
+            return Ok(regions);
         }
     }
 }

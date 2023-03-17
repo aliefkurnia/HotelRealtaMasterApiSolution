@@ -27,7 +27,7 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<PriceItemsPhoto> FindAllPriceItemsPhoto()
         {
-            IEnumerator<PriceItemsPhoto> dataSet = FindAll<PriceItemsPhoto>("SELECT * FROM Master.Price_ItemsPhotos");
+            IEnumerator<PriceItemsPhoto> dataSet = FindAll<PriceItemsPhoto>("SELECT * FROM Master.PriceItemsPhotos");
 
             while (dataSet.MoveNext())
             {
@@ -42,7 +42,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM Master.Price_ItemsPhotos;",
+                CommandText = "SELECT * FROM Master.PriceItemsPhotos;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] { }
 
@@ -77,7 +77,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT * FROM master.price_itemsphotos where prit_id=@prit_id;",
+                CommandText = "SELECT * FROM master.priceitemsphotos where prit_id=@prit_id;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -108,9 +108,9 @@ namespace Realta.Persistence.Repositories
         {
                 SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = @"INSERT INTO master.Price_ItemsPhotos 
-                (PhotoFilename,PhotoFileSize,PhotoFileType,PhotoPrice_ItemsId,PhotoPrimary,PhotoOriginalFilename) 
-                values (@PhotoFilename,@PhotoFileSize,@PhotoFileType,@PhotoPrice_ItemsId,@PhotoPrimary,@PhotoOriginalFilename);",
+                CommandText = @"INSERT INTO master.PriceItemsPhotos
+                (PhotoFilename,PhotoFileSize,PhotoFileType,PhotoPriceItemsId,PhotoPrimary,PhotoOriginalFilename) 
+                values (@PhotoFilename,@PhotoFileSize,@PhotoFileType,@PhotoPriceItemsId,@PhotoPrimary,@PhotoOriginalFilename);",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
                     new SqlCommandParameterModel() {
@@ -129,7 +129,7 @@ namespace Realta.Persistence.Repositories
                         Value = priceItemsPhoto.PhotoFileType
                     },
                     new SqlCommandParameterModel() {
-                        ParameterName = "@PhotoPrice_ItemsId",
+                        ParameterName = "@PhotoPriceItemsId",
                         DataType = DbType.Int64,
                         Value = priceItemsPhoto.PhotoPriceItemsId
                     },

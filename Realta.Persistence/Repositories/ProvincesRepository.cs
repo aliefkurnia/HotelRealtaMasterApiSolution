@@ -1,5 +1,6 @@
 ﻿using Realta.Domain.Entities;
 using Realta.Domain.Repositories;
+using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
 using Realta.Persistence.RepositoryContext;
 using System;
@@ -9,6 +10,7 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -137,5 +139,66 @@ namespace Realta.Persistence.Repositories
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
         }
+        public async Task<IEnumerable<Provinces>> GetProvincesPaging(ProvincesParameter provincesParameter)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT prov_id as ProvId," +
+                              "   prov_name as ProvName," +
+                              "FROM master.provinces order by prov_id "+
+                              "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[]
+                {
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@pageNo",
+                        DataType = DbType.Int32,
+                        Value = provincesParameter.PageNumber
+                    },
+                    new SqlCommandParameterModel()
+                    {
+                        ParameterName = "@pagesSize",
+                        DataType = DbType.Int32,
+                        Value = provincesParameter.PageSize
+                    }
+                }
+            };
+
+            IAsyncEnumerator<Provinces> dataSet = FindAllAsync<Provinces>(model);
+
+            var item = new List<Provinces>();
+
+            while (await dataSet.MoveNextAsync())
+            {
+                item.Add(dataSet.Current);
+            }
+
+            return item;
+        }
+
+        public async Task<PagedList<Provinces>> GetProvincesPageList(ProvincesParameter provincesParameter)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT prov_id as ProvId, " +
+                              "  prov_name as ProvName," +
+                              "prov_country_id as ProvCountryId " +
+                              "FROM master.provinces order by prov_id ",
+
+                // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[]{}
+            };
+            var provinces = await GetAllAsync<Provinces>(model);
+
+            provinces = provinces.AsQueryable()
+                .SearchProvinces(provincesParameter.SearchTerm)
+                .Sort(provincesParameter.OrderBy);
+
+            return PagedList<Provinces>.ToPagedList(provinces.ToList(), provincesParameter.PageNumber,
+                provincesParameter.PageSize);
+        }
     }
 }
+

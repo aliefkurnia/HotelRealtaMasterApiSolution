@@ -178,7 +178,7 @@ namespace Realta.WebAPI.Controllers
                 PritPrice = decimal.Parse(pritPrice.ToString()),
                 PritDescription = pritDescription.ToString(),
                 PritType = pritType.ToString(),
-                PritIconUrl = $"localhost:7068/resources/images/{pritName}",
+                //PritIconUrl = $"localhost:7068/resources/images/{pritName}",
                 PritModifiedDate = DateTime.Now
             };
 
@@ -217,9 +217,6 @@ namespace Realta.WebAPI.Controllers
         [HttpGet("pageList")]
         public async Task<IActionResult> GetPriceItemsPageList([FromQuery] PriceItemsParameters priceItemsParameters)
         {
-            if (!priceItemsParameters.ValidateStockRange)
-                return BadRequest("MaxStock must Greater than MinStock");
-            
             var priceitems = await _repositoryManager.PriceItemsRepository.GetPriceItemsPageList(priceItemsParameters);
             Response.Headers.Add("X-Pagination",JsonConvert.SerializeObject(priceitems.MetaData));
             return Ok(priceitems);

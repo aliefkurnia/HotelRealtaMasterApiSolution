@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -59,7 +61,7 @@ namespace Realta.WebAPI.Controllers
 
         // POST api/<Service_TaskController>
         [HttpPost]
-        public IActionResult CreateService_Task([FromBody] ServiceTaskDto serviceTaskDto)
+        public IActionResult CreateServiceTask([FromBody] ServiceTaskDto serviceTaskDto)
         {
             if (serviceTaskDto == null)
             {
@@ -80,7 +82,7 @@ namespace Realta.WebAPI.Controllers
 
         // PUT api/<Service_TaskController>/5
         [HttpPut("{id}")]
-        public IActionResult UpdateService_Task(int id, [FromBody] ServiceTask serviceTaskDto)
+        public IActionResult UpdateServiceTask(int id, [FromBody] ServiceTask serviceTaskDto)
         {
             if (serviceTaskDto == null)
             {
@@ -95,7 +97,7 @@ namespace Realta.WebAPI.Controllers
                 SetaSeq = serviceTaskDto.SetaSeq
             };
             _repositoryManager.ServiceTaskRepository.Edit(serviceTask);
-            return CreatedAtRoute("GetService_Task", new { id = serviceTaskDto.SetaId }, new ServiceTaskDto { SetaId = id, SetaName = serviceTask.SetaName, SetaSeq = serviceTask.SetaSeq });
+            return CreatedAtRoute("GetServiceTask", new { id = serviceTaskDto.SetaId }, new ServiceTaskDto { SetaId = id, SetaName = serviceTask.SetaName, SetaSeq = serviceTask.SetaSeq });
         }
 
         // DELETE api/<Service_TaskController>/5
@@ -116,6 +118,14 @@ namespace Realta.WebAPI.Controllers
             }
             _repositoryManager.ServiceTaskRepository.Remove(servicetask);
             return Ok("Data has been removed");
+        }
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetRegionsPageList([FromQuery] ServiceTaskParameter serviceTaskParameter)
+        {
+            var seta = await _repositoryManager.ServiceTaskRepository.GetServiceTaskPageList(serviceTaskParameter);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(seta.MetaData));
+            return Ok(seta);
         }
     }
 }

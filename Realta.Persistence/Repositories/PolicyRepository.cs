@@ -9,6 +9,8 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -48,9 +50,11 @@ namespace Realta.Persistence.Repositories
 
         public IEnumerable<Policy> FindAllPolicy()
         {
-            IEnumerator<Policy> dataset = FindAll<Policy>("SELECT poli_id as PoliId," +
-                "                                                 poli_name as PoliName," +
-                "                                                 poli_description as PoliDescription  FROM master.policy ORDER BY poli_id;");
+            IEnumerator<Policy> dataset = FindAll<Policy>("" +
+                                                          "SELECT poli_id as PoliId," +
+                                                          "poli_name as PoliName," +
+                                                          "poli_description as PoliDescription  FROM " +
+                                                          "master.policy ORDER BY poli_id;");
 
             while (dataset.MoveNext())
             {
@@ -158,6 +162,34 @@ namespace Realta.Persistence.Repositories
             };
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+        public async Task<PagedList<Policy>> GetPolicyPageList(PolicyParameter policyParameter)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT poli_id as PoliId, " +
+                              "poli_name as PoliName, " +
+                              "poli_description as PoliDescription FROM " +
+                              "master.policy ORDER BY poli_id; ",
+
+                // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            var policy = await GetAllAsync<Policy>(model);
+            // var totalRow = FindAllPolicy().Count();
+
+            //var policySearch = policy.Where(p => p.PoliName
+            //    .ToLower()
+            //    .Contains(policyParameter.SearchTerm == null ? "" : policyParameter.SearchTerm.Trim().ToLower()));
+
+             policy = policy.AsQueryable()
+                .SearchPolicy(policyParameter.SearchTerm)
+                .Sort(policyParameter.OrderBy);
+
+            return PagedList<Policy>.ToPagedList(policy.ToList(), policyParameter.PageNumber,
+                policyParameter.PageSize);
         }
     }
 }

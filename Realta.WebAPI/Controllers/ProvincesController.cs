@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -124,6 +126,14 @@ namespace Realta.WebAPI.Controllers
             }
             _repositoryManager.ProvincesRepository.Remove(provinces);
             return Ok("Data has been removed");
+        }
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetProvincesPageList([FromQuery] ProvincesParameter provincesParameter)
+        {
+            var provinces = await _repositoryManager.ProvincesRepository.GetProvincesPageList(provincesParameter);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(provinces.MetaData));
+            return Ok(provinces);
         }
     }
 }

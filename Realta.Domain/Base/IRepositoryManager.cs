@@ -17,8 +17,9 @@ namespace Realta.Domain.Base
         IServiceTaskRepository ServiceTaskRepository { get; }
         IPriceItemsRepository PriceItemsRepository { get; }
         IPolicyRepository PolicyRepository { get; }
-        ICategory_GroupRepository CategoryGroupRepository { get; }
+        ICategoryGroupRepository CategoryGroupRepository { get; }
         IPriceItemsPhotoRepository PriceItemsPhotoRepository { get; }
+        ICategoryGroupPhotoRepository CategoryGroupPhotoRepository{ get; }
         IPurchaseOrderRepository PurchaseOrderRepository { get; }
         ICartRepository CartRepository { get; }
         IStockRepository StockRepository { get; }

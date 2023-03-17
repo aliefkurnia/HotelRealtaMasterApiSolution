@@ -9,6 +9,8 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -205,6 +207,37 @@ namespace Realta.Persistence.Repositories
             };
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+        public async Task<PagedList<Address>> GetAddressPageList(AddressParameter addressParameter)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT " +
+                              "addr_id as AddrId, " +
+                              "addr_line1 as AddrLine1, " +
+                              "addr_line2 as AddrLine2, " +
+                              "addr_city as AddrCity, " +
+                              "addr_postal_code as AddrPostalCode, " +
+                              "addr_spatial_location as AddrSpatialLocation, " +
+                              "addr_prov_id as AddrProvId from master.address ORDER BY addr_id;",
+
+                // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            var address = await GetAllAsync<Address>(model);
+
+            //var addressSearch = address.Where(p => p.AddrCity
+            //    .ToLower()
+            //    .Contains(addressParameter.SearchTerm == null ? "" : addressParameter.SearchTerm.Trim().ToLower()));
+
+            address = address.AsQueryable()
+                .SearchAddress(addressParameter.SearchTerm)
+                .Sort(addressParameter.OrderBy);
+
+            return PagedList<Address>.ToPagedList(address.ToList(), addressParameter.PageNumber,
+                addressParameter.PageSize);
         }
     }
 }

@@ -9,5 +9,8 @@ namespace Realta.Services.Abstraction
     public interface IServiceManager
     {
         IPriceItemsPhotoService PriceItemsPhotoService { get; }
+        ICategoryGroupPhotoService CategoryGroupPhotoService { get; }
+
+        
     }
 }

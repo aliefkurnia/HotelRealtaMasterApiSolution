@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -133,6 +135,32 @@ namespace Realta.Persistence.Repositories
             };
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+        public async Task<PagedList<ServiceTask>> GetServiceTaskPageList(ServiceTaskParameter serviceTaskParameter)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT seta_id as SetaId," +
+                "                     seta_name as SetaName," +
+                "                     seta_seq as SetaSeq " +
+                "              FROM master.service_task ORDER BY seta_id;",
+
+                // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            var seta = await GetAllAsync<ServiceTask>(model);
+            //var setaSearch = seta.Where(p => p.SetaName
+            //    .ToLower()
+            //    .Contains(serviceTaskParameter.SearchTerm == null ? "" : serviceTaskParameter.SearchTerm.Trim().ToLower()));
+
+            seta = seta.AsQueryable()
+                .SearchServiceTasks(serviceTaskParameter.SearchTerm)
+                .Sort(serviceTaskParameter.OrderBy);
+
+            return PagedList<ServiceTask>.ToPagedList(seta.ToList(), serviceTaskParameter.PageNumber,
+                serviceTaskParameter.PageSize);
         }
     }
 }

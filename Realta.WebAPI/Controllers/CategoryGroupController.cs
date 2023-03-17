@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
+using Realta.Services;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,11 +18,12 @@ namespace Realta.WebAPI.Controllers
 
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerManager _logger;
-
-        public CategoryGroupController(IRepositoryManager repositoryManager, ILoggerManager logger)
+        private readonly  IServiceManager _serviceManager;
+        public CategoryGroupController(IRepositoryManager repositoryManager, ILoggerManager logger, IServiceManager serviceManager)
         {
             _repositoryManager = repositoryManager;
             _logger = logger;
+            _serviceManager = serviceManager;
         }
 
 
@@ -92,8 +96,8 @@ namespace Realta.WebAPI.Controllers
         {
             if (categoryGroupDto == null)
             {
-                _logger.LogError("CountryDto object sent from client is null");
-                return BadRequest("Country object is null");
+                _logger.LogError("categoryGroupDto object sent from client is null");
+                return BadRequest("categoryGroup object is null");
             }
 
             var categoryGroup = new CategoryGroup()
@@ -127,6 +131,67 @@ namespace Realta.WebAPI.Controllers
             }
             _repositoryManager.CategoryGroupRepository.Remove(categoryGroup);
             return Ok("Data has been removed");
+        }
+
+
+        //POST api/<Price_ItemsController>
+        [HttpPost("UploadCagro"), DisableRequestSizeLimit]
+        public async Task<IActionResult> CreateCategoryGroupPhoto()
+        {
+            //1. declare formCollection to hold form-data
+            var formColletion = await Request.ReadFormAsync();
+
+            //2. extract files to variable files
+            var files = formColletion.Files;
+
+            //3. hold each ouput formCollection to each variable
+            formColletion.TryGetValue("CagroName", out var cagroName);
+            formColletion.TryGetValue("CagroDescription", out var cagroDescription);
+            formColletion.TryGetValue("CagroType", out var cagroType);
+            formColletion.TryGetValue("CagroIcon", out var cagroIcon);
+            formColletion.TryGetValue("CagroIconUrl", out var cagroIconUrl);
+
+            //4. declare variable and store in object 
+            var categoryGroupCreateDto = new CategoryGroupCreateDto
+            {
+                CagroName = cagroName.ToString(),
+                CagroDescription = cagroDescription.ToString(),
+                CagroType = cagroType.ToString(),
+                CagroIcon = cagroIcon.ToString(),
+                CagroIconUrl = cagroIconUrl.ToString(),
+            };
+
+            //5. store to list
+            var allPhotos = new List<IFormFile>();
+            foreach (var item in files)
+            {
+                allPhotos.Add(item);
+            }
+
+            //6. declare variable productphotogroup
+            var categoryGroupPhotoGroup = new CategoryGroupPhotoGroupDto
+            {
+                CategoryGroupCreateDto = categoryGroupCreateDto,
+                AllPhotos = allPhotos
+            };
+
+            if (categoryGroupPhotoGroup != null)
+            {
+                _serviceManager.CategoryGroupPhotoService.InsertCategoryGroupAndCategoryGroupPhoto(categoryGroupPhotoGroup, out var cagroId);
+                var categroyGroupResult = _repositoryManager.CategoryGroupRepository.FindCategoryGroupById(cagroId);
+                return Ok(categroyGroupResult);
+            }
+            _logger.LogError("CategoryGroupDto object sent from client is null");
+            return BadRequest("Object Is Null");
+        }
+
+
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetCategoryGroupPageList([FromQuery] CategoryGroupParameter categoryGroupParameter)
+        {
+            var cagro = await _repositoryManager.CategoryGroupRepository.GetCategoryGroupPageList(categoryGroupParameter);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(cagro.MetaData));
+            return Ok(cagro);
         }
     }
 }

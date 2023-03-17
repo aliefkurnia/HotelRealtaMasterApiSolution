@@ -55,7 +55,7 @@ namespace Realta.Services
                     PhotoFileSize = (short?)itemPhoto.Length,
                     PhotoFileType = itemPhoto.ContentType,
                     PhotoOriginalFilename = itemPhoto.FileName,
-                    PhotoPrimary = 0,
+                    PhotoPrimary = 1,
                     PhotoPriceItemsId = pritId
                 };
                 _repositoryManager.PriceItemsPhotoRepository.Insert(priceItemsPhoto);

@@ -12,6 +12,7 @@ namespace Realta.Contract.Models
     {
         public int PoheId { get; set; }
         public string VendorName { get; set; }
+        public string LineItem { get; set; }
         public string PoheNumber { get; set; }
         public byte PoheStatus { get; set; } = 1;
         public DateTime PoheOrderDate { get; set; } = DateTime.Now;

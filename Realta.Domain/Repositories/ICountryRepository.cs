@@ -1,4 +1,5 @@
 ﻿using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Realta.Domain.Repositories
         void Insert(Country Country);
         void Edit(Country Country);
         void Remove(Country Country);
+        Task<PagedList<Country>> GetCountryPageList(CountryParameters countryParameters);
     }
 }

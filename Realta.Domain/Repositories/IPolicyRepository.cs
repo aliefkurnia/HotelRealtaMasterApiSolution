@@ -1,4 +1,5 @@
 ﻿using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Realta.Domain.Repositories
         void Insert(Policy policy);
         void Edit(Policy policy);
         void Remove(Policy policy);
+        Task<PagedList<Policy>> GetPolicyPageList(PolicyParameter policyParameter);
     }
 }

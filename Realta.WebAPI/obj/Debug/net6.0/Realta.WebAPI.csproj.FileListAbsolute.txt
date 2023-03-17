@@ -198,3 +198,5 @@ C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.WebAPI\obj\Debug
 C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.WebAPI\obj\Debug\net6.0\Realta.WebAPI.pdb
 C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.WebAPI\obj\Debug\net6.0\Realta.WebAPI.genruntimeconfig.cache
 C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.WebAPI\obj\Debug\net6.0\ref\Realta.WebAPI.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.WebAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.WebAPI\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll

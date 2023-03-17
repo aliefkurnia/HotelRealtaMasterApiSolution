@@ -10,10 +10,12 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
-    internal class CategoryGroupRepository : RepositoryBase<CategoryGroup>, ICategory_GroupRepository
+    internal class CategoryGroupRepository : RepositoryBase<CategoryGroup>, ICategoryGroupRepository
     {
         public CategoryGroupRepository(AdoDbContext adoContext) : base(adoContext)
         {
@@ -176,6 +178,49 @@ namespace Realta.Persistence.Repositories
             };
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+        public int GetIdSequence()
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT IDENT_CURRENT('Master.Category_Group');",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            decimal id = _adoContext.ExecuteScalar<decimal>(model);
+            _adoContext.Dispose();
+            return (int)id;
+        }
+
+        public async Task<PagedList<CategoryGroup>> GetCategoryGroupPageList(CategoryGroupParameter categoryGroupParameter)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT cagro_id as CagroId," +
+                              "       cagro_name as CagroName," +
+                              "       cagro_description as CagroDescription," +
+                              "       cagro_type as CagroType," +
+                              "       cagro_icon as CagroIcon, " +
+                              "       cagro_icon_url as CagroIconUrl " +
+                              "FROM master.category_group ORDER BY cagro_id;",
+
+                // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            var cagro = await GetAllAsync<CategoryGroup>(model);
+
+            //var categroyGroupSearch = cagro.Where(p => p.CagroName
+            //    .ToLower()
+            //    .Contains(categoryGroupParameter.SearchTerm == null ? "" : categoryGroupParameter.SearchTerm.Trim().ToLower()));
+
+            cagro = cagro.AsQueryable()
+                .SearchCategoryGroup(categoryGroupParameter.SearchTerm)
+                .Sort(categoryGroupParameter.OrderBy);
+
+            return PagedList<CategoryGroup>.ToPagedList(cagro.ToList(), categoryGroupParameter.PageNumber,
+                categoryGroupParameter.PageSize);
         }
     }
 }

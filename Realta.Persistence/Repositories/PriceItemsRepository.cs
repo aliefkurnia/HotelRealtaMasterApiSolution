@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Realta.Domain.RequestFeatures;
+using Realta.Persistence.Repositories.RepositoryExtensions;
+
 //using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
@@ -190,7 +192,7 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO master.price_items (prit_name,prit_price,prit_description,prit_type,prit_icon_url) values (@prit_name,@prit_price,@prit_description,@prit_type,@prit_icon_url);" 
+                CommandText = "INSERT INTO master.price_items (prit_name,prit_price,prit_description,prit_type) values (@prit_name,@prit_price,@prit_description,@prit_type);" 
                 + " SELECT cast(scope_identity() as int)"
                 ,
                 CommandType = CommandType.Text,
@@ -214,12 +216,8 @@ namespace Realta.Persistence.Repositories
                         ParameterName = "@prit_type",
                         DataType = DbType.String,
                         Value = priceItems.PritType
-                    },
-                    new SqlCommandParameterModel() {
-                        ParameterName = "@prit_icon_url",
-                        DataType = DbType.String,
-                        Value = priceItems.PritIconUrl
                     }
+
                 }
             };
             //_adoContext.ExecuteNonQuery(model);
@@ -316,36 +314,20 @@ namespace Realta.Persistence.Repositories
                               
                               // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
                 CommandType = CommandType.Text,
-                CommandParameters = new SqlCommandParameterModel[]
-                {
-                    // new SqlCommandParameterModel()
-                    // {
-                    //     ParameterName = "@pageNo",
-                    //     DataType = DbType.Int32,
-                    //     Value = priceItemsParameters.PageNumber
-                    // },
-                    // new SqlCommandParameterModel()
-                    // {
-                    //     ParameterName = "@pageSize",
-                    //     DataType = DbType.Int32,
-                    //     Value = priceItemsParameters.PageSize
-                    // }
-                }
+                CommandParameters = new SqlCommandParameterModel[]{ }
             };
             var priceItems = await GetAllAsync<PriceItems>(model);
             // var totalRow = FindAllPriceItems().Count();
 
-            var priceItemsSearch = priceItems.Where(p => p.PritName
-            .ToLower()
-            .Contains(priceItemsParameters.SearchTerm == null ? "" : priceItemsParameters.SearchTerm.Trim().ToLower()));
+            //var priceItemsSearch = priceItems.Where(p => p.PritName
+            //.ToLower()
+            //.Contains(priceItemsParameters.SearchTerm == null ? "" : priceItemsParameters.SearchTerm.Trim().ToLower()));
 
-            //var priceItemsSearch = priceItems.AsQueryable()
-            //    .SearchProduct(priceItems.SearchTerm)
-            //    .Sort(priceItems.OrderBy);
+            priceItems = priceItems.AsQueryable()
+                .SearchPriceItems(priceItemsParameters.SearchTerm)
+                .Sort(priceItemsParameters.OrderBy);
 
-            // return new PagedList<PriceItems>(priceItems.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
-            // return new PagedList<PriceItems>(priceItemsSearch.ToList(), totalRow, priceItemsParameters.PageNumber, priceItemsParameters.PageSize);
-            return PagedList<PriceItems>.ToPagedList(priceItemsSearch.ToList(), priceItemsParameters.PageNumber,
+            return PagedList<PriceItems>.ToPagedList(priceItems.ToList(), priceItemsParameters.PageNumber,
                 priceItemsParameters.PageSize);
         }
     }

@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Realta.Domain.RequestFeatures;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 
 namespace Realta.Persistence.Repositories
 {
@@ -136,6 +138,29 @@ namespace Realta.Persistence.Repositories
             };
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+        public async Task<PagedList<Country>> GetCountryPageList(CountryParameters countryParameters)
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "SELECT country_id as CountryId, " +
+                "                     country_name as CountryName, " +
+                "                     country_region_id as CountryRegionId " +
+                "              FROM master.country ORDER BY country_id; " ,
+
+                // "OFFSET @pageNo ROWS FETCH NEXT  @pageSize ROWS ONLY;",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+            var country= await GetAllAsync<Country>(model);
+
+            country = country.AsQueryable()
+                .SearchCountry(countryParameters.SearchTerm)
+                .Sort(countryParameters.OrderBy);
+
+            return PagedList<Country>.ToPagedList(country.ToList(), countryParameters.PageNumber,
+                countryParameters.PageSize);
         }
     }
 }
