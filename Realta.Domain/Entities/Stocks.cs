@@ -17,8 +17,8 @@ namespace Realta.Domain.Entities
         public string? StockDesc { get; set; }
         public Int16 StockQty { get; set; }
         public Int16 StockReorderPoint { get; set; }
-        public Int16? StockUsed { get; set; }
-        public Int16? StockScrap { get; set; }
+        public Int16 StockUsed { get; set; }
+        public Int16 StockScrap { get; set; }
         public string? StockSize { get; set; }
         public string? StockColor { get; set; }
         public DateTime? StockModifiedDate { get; set; }

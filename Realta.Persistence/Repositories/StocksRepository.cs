@@ -20,7 +20,8 @@ namespace Realta.Persistence.Repositories
             {
                 CommandText = "UPDATE purchasing.stocks SET " +
                 "stock_name=@stockName, stock_description=@stockDesc, " +
-                "stock_reorder_point=@stockRP, " +
+                "stock_reorder_point=@stockRP, stock_quantity=@stockQty, " +
+                "stock_used=@stockUsed, stock_scrap=@stockScrap" +
                 "stock_size=@stockSize, stock_color=@stockColor, " +
                 "stock_modified_date=@stockModifiedDate " +
                 "WHERE stock_id=@stockId;",
@@ -45,6 +46,21 @@ namespace Realta.Persistence.Repositories
                         ParameterName = "@stockRP",
                         DataType = DbType.Int16,
                         Value = stocks.StockReorderPoint
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stockQty",
+                        DataType = DbType.Int16,
+                        Value = stocks.StockQty
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stockUsed",
+                        DataType = DbType.Int16,
+                        Value = stocks.StockUsed
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stockScrap",
+                        DataType = DbType.Int16,
+                        Value = stocks.StockScrap
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockSize",
@@ -163,9 +179,9 @@ namespace Realta.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "INSERT INTO purchasing.stocks (stock_name, stock_description, " +
-                "stock_reorder_point, stock_size, stock_color, " +
-                "stock_modified_date) values (@stockName,@stockDesc, @stockRP, " +
+                CommandText = "INSERT INTO purchasing.stocks (stock_name, stock_reorder_point, stock_quantity, " +
+                "stock_used, stock_scrap, stock_size, stock_color, stock_modified_date) " +
+                "values (@stockName, @stockRP, @stockQty, @stockUsed, @stockScrap, " +
                 "@stockSize, @stockColor, @stockModifiedDate);" +
                 "SELECT CAST (scope_identity() as int);",
                 CommandType = CommandType.Text,
@@ -176,14 +192,24 @@ namespace Realta.Persistence.Repositories
                         Value = stocks.StockName
                     },
                     new SqlCommandParameterModel() {
-                        ParameterName = "@stockDesc",
-                        DataType = DbType.String,
-                        Value = stocks.StockDesc
-                    },
-                    new SqlCommandParameterModel() {
                         ParameterName = "@stockRP",
                         DataType = DbType.Int16,
                         Value = stocks.StockReorderPoint
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stockQty",
+                        DataType = DbType.Int16,
+                        Value = stocks.StockQty
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stockUsed",
+                        DataType = DbType.Int16,
+                        Value = stocks.StockUsed
+                    },
+                    new SqlCommandParameterModel() {
+                        ParameterName = "@stockScrap",
+                        DataType = DbType.Int16,
+                        Value = stocks.StockScrap
                     },
                     new SqlCommandParameterModel() {
                         ParameterName = "@stockSize",

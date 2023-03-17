@@ -122,19 +122,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+      "projectUniqueName": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
       "projectName": "Realta.Services.Abstraction",
-      "projectPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Batch20\\FinalProject\\HotelRealtaAPI\\Realta.Services.Abstraction\\obj\\",
+      "projectPath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+      "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
+      "outputPath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

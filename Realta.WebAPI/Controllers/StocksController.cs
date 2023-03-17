@@ -85,6 +85,9 @@ namespace Realta.WebAPI.Controllers
                 StockName = stocksDto.StockName,
                 StockDesc = stocksDto.StockDescription,
                 StockReorderPoint = stocksDto.StockReorderPoint,
+                StockQty = stocksDto.StockQuantity,
+                StockUsed = stocksDto.StockUsed,
+                StockScrap = stocksDto.StockScrap,
                 StockSize = stocksDto.StockSize,
                 StockColor = stocksDto.StockColor,
                 StockModifiedDate = DateTime.Now
@@ -116,10 +119,13 @@ namespace Realta.WebAPI.Controllers
             var stock = new Stocks {
                 StockId = id,
                 StockName = stocksDto.StockName,
-                StockDesc= stocksDto.StockDescription,
-                StockReorderPoint= stocksDto.StockReorderPoint,
-                StockSize= stocksDto.StockSize,
-                StockColor= stocksDto.StockColor,  
+                StockDesc = stocksDto.StockDescription,
+                StockReorderPoint = stocksDto.StockReorderPoint,
+                StockQty = stocksDto.StockQuantity,
+                StockUsed = stocksDto.StockUsed,
+                StockScrap = stocksDto.StockScrap,
+                StockSize = stocksDto.StockSize,
+                StockColor = stocksDto.StockColor,
                 StockModifiedDate = DateTime.Now
             };
 
