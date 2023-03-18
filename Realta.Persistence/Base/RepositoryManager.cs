@@ -19,7 +19,7 @@ namespace Realta.Persistence.Base
         private Lazy<ICartRepository> _cartRepository;
         private IStockRepository _stockRepository;
         private IStockDetailRepository _stockDetailRepository;
-        private IStockPhotoRepository _stockPhotoRepository;
+        private Lazy<IStockPhotoRepository> _stockPhotoRepository;
         private IVendorProductRepository _vendorProductRepository;
         private IRegionsRepository _regionsRepository;
         private ICountryRepository _countryRepository;
@@ -38,6 +38,7 @@ namespace Realta.Persistence.Base
             _adoContext = adoContext;
             _purchaseOrderRepository = new Lazy<IPurchaseOrderRepository>(() => new PurchaseOrderRepository(adoContext));
             _cartRepository = new Lazy<ICartRepository>(() => new CartRepository(adoContext));
+<<<<<<< HEAD
             _priceItemsPhotoRepository = new Lazy<IPriceItemsPhotoRepository>(() => new PriceItemsPhotoRepository (adoContext));
             _categoryGroupPhotoRepository = new Lazy<ICategoryGroupPhotoRepository>(() => new CategoryGroupPhotoRepository(adoContext));
         }
@@ -90,6 +91,9 @@ namespace Realta.Persistence.Base
                 }
                 return _addressRepository;
             }
+=======
+            _stockPhotoRepository = new Lazy<IStockPhotoRepository>(() => new StockPhotoRepository(adoContext));
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
         }
 
         public IVendorRepository VendorRepository
@@ -118,6 +122,7 @@ namespace Realta.Persistence.Base
 
         public IPurchaseOrderRepository PurchaseOrderRepository => _purchaseOrderRepository.Value;
         public ICartRepository CartRepository => _cartRepository.Value;
+        public IStockPhotoRepository StockPhotoRepository => _stockPhotoRepository.Value;
 
         public IStockRepository StockRepository
         {
@@ -140,17 +145,6 @@ namespace Realta.Persistence.Base
                     _stockDetailRepository = new StockDetailRepository(_adoContext);
                 }
                 return _stockDetailRepository;
-            }
-        }
-        public IStockPhotoRepository StockPhotoRepository
-        {
-            get
-            {
-                if (_stockPhotoRepository == null)
-                {
-                    _stockPhotoRepository = new StockPhotoRepository(_adoContext);
-                }
-                return _stockPhotoRepository;
             }
         }
 

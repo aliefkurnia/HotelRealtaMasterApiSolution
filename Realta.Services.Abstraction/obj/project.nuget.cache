@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "UYCjz6nDdbitWtad1nFW5ykjIMX0soJvyKCZPiewCt0Wc2hGn5v3m9v56Gt7QulEfqdOIRNrU1YTdhkdW8ee4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
@@ -9,6 +10,15 @@
     "C:\\Users\\alief\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\alief\\.nuget\\packages\\microsoft.sqlserver.types\\160.1000.6\\microsoft.sqlserver.types.160.1000.6.nupkg.sha512",
     "C:\\Users\\alief\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+=======
+  "dgSpecHash": "7SvERTjB2HT+W/RbjRv0nRjLRHU8R0mIO/dbf5ELp/ZoLecxK9I7NygF1xO8dZwWj7GhYxxynDzfOVfXPKL1gA==",
+  "success": true,
+  "projectFilePath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
   ],
   "logs": []
 }

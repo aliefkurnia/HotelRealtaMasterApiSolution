@@ -20,8 +20,8 @@ namespace Realta.Contract.Models
 
         [Required]
         public short StockReorderPoint { get; set; }
-        public short? StockUsed { get; set; }
-        public short? StockScrap { get; set; }
+        public short StockUsed { get; set; }
+        public short StockScrap { get; set; }
 
         [MaxLength(25, ErrorMessage = "StockSize cannot be longer than 25")]
         public string? StockSize { get; set; }

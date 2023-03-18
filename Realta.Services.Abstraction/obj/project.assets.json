@@ -32,6 +32,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Microsoft.SqlServer.Server/1.0.0": {
         "type": "package",
         "compile": {
@@ -99,6 +100,8 @@
           }
         }
       },
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
       "System.IO.Pipelines/5.0.2": {
         "type": "package",
         "compile": {
@@ -111,6 +114,7 @@
             "related": ".xml"
           }
         }
+<<<<<<< HEAD
       },
       "Realta.Contract/1.0.0": {
         "type": "project",
@@ -125,6 +129,8 @@
         "runtime": {
           "bin/placeholder/Realta.Contract.dll": {}
         }
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
       }
     }
   },
@@ -170,6 +176,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.SqlServer.Server/1.0.0": {
       "sha512": "N4KeF3cpcm1PUHym1RmakkzfkEv3GRMyofVv40uXsQhCQeglr2OHNcUk2WOG51AKpGO8ynGpo9M/kFXSzghwug==",
       "type": "package",
@@ -225,6 +232,8 @@
         "runtimes/win-x86/native/SqlServerSpatial160.dll"
       ]
     },
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
     "System.IO.Pipelines/5.0.2": {
       "sha512": "Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
       "type": "package",
@@ -250,25 +259,37 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+<<<<<<< HEAD
     },
     "Realta.Contract/1.0.0": {
       "type": "project",
       "path": "../Realta.Contract/Realta.Contract.csproj",
       "msbuildProject": "../Realta.Contract/Realta.Contract.csproj"
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+<<<<<<< HEAD
       "Microsoft.AspNetCore.Http.Features >= 5.0.17",
       "Realta.Contract >= 1.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\alief\\.nuget\\packages\\": {}
+=======
+      "Microsoft.AspNetCore.Http.Features >= 5.0.17"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\CODE.ID\\.nuget\\packages\\": {}
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
       "projectName": "Realta.Services.Abstraction",
       "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
@@ -277,6 +298,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+      "projectName": "Realta.Services.Abstraction",
+      "projectPath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+      "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
+      "outputPath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -289,11 +320,15 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+<<<<<<< HEAD
           "projectReferences": {
             "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj": {
               "projectPath": "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Contract\\Realta.Contract.csproj"
             }
           }
+=======
+          "projectReferences": {}
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
         }
       },
       "warningProperties": {
@@ -327,7 +362,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
       }
     }
   }

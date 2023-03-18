@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Realta.Services.Abstraction
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\alief\source\repos\Final Project\HotelRealtaAPI\Realta.Services.Abstraction\
+=======
+build_property.ProjectDir = D:\RealtaHotel\RealtaHotelAPI\Realta.Services.Abstraction\
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac

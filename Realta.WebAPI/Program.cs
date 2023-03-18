@@ -47,9 +47,12 @@ internal class Program
             FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
             RequestPath = new PathString("/Resources")
         });
+<<<<<<< HEAD
 
         //add custom
         app.UseStaticFiles();
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
         app.UseCors("CorsPolicy");
 
         app.UseAuthorization();

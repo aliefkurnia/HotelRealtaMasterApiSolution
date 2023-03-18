@@ -4,6 +4,7 @@ using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
 using Realta.Persistence.Interface;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
@@ -151,7 +152,7 @@ namespace Realta.Persistence.Repositories
         
     }
 
-        public async Task<IEnumerable<Vendor>> GetVendorPaging(VendorParameters vendorParameters)
+        public async Task<PagedList<Vendor>> GetVendorPaging(VendorParameters vendorParameters)
         {
 
             SqlCommandModel model = new SqlCommandModel()
@@ -169,29 +170,18 @@ namespace Realta.Persistence.Repositories
                         ,
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[] {
-                    new SqlCommandParameterModel() {
-                            ParameterName = "@pageNo",
-                            DataType = DbType.Int32,
-                            Value = vendorParameters.PageNumber
-                        },
-                     new SqlCommandParameterModel() {
-                            ParameterName = "@pageSize",
-                            DataType = DbType.Int32,
-                            Value = vendorParameters.PageSize
-                        }
                 }
             };
             var  dataSet = await GetAllAsync<Vendor>(model);
+            //var aa = dataSet.FirstOrDefault().VendorName;
+            //var ab = dataSet.FirstOrDefault().VendorEntityId;
 
-            if (vendorParameters.Keyword != null)
-            {
-                string decodedKeyword = Uri.UnescapeDataString(vendorParameters.Keyword);
-                dataSet = dataSet.Where(p =>
-                    p.VendorName.ToLower().Contains(decodedKeyword.ToLower())  );
-            }
-            var totalRows = dataSet.Count();
+            var vendorSearch = dataSet.AsQueryable()
+                .Search(vendorParameters.Keyword)
+                .Sort(vendorParameters.OrderBy);
 
-            return PagedList<Vendor>.ToPagedList(dataSet.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
+            return PagedList<Vendor>.ToPagedList(vendorSearch.ToList(), vendorParameters.PageNumber, vendorParameters.PageSize);
+            //return new PagedList<Vendor>(vendorSearch.ToList(),totalRows, vendorParameters.PageNumber, vendorParameters.PageSize);
         }
 
         public void Insert(Vendor vendor)

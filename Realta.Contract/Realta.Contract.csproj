@@ -7,10 +7,19 @@
     <AssemblyName>Realta.Contract</AssemblyName>
     <RootNamespace>Realta.Contract</RootNamespace>
   </PropertyGroup>
+<<<<<<< HEAD
 	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
 		<PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
 	</ItemGroup>
 	
+=======
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+  </ItemGroup>
+
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
 </Project>

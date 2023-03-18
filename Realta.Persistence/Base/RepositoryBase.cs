@@ -73,17 +73,50 @@ namespace Realta.Persistence.Base
             _adoContext.DisposeAsync();
             return dataT;
         }
-
+        
         public IEnumerator<T> FindByCondition<T>(SqlCommandModel model)
         {
             var listOfData = _adoContext.ExecuteReader<T>(model);
             _adoContext.Dispose();
             return listOfData;
         }
+        
         public void Update(SqlCommandModel model)
         {
             _adoContext.ExecuteNonQuery(model);
             _adoContext.Dispose();
+        }
+
+<<<<<<< HEAD
+        public IEnumerator<T> FindByCondition<T>(SqlCommandModel model)
+        {
+            var listOfData = _adoContext.ExecuteReader<T>(model);
+            _adoContext.Dispose();
+            return listOfData;
+=======
+        public async Task<IEnumerable<T>> GetAllAsync<T>(SqlCommandModel model)
+        {
+            var dataT = _adoContext.ExecuteReaderAsync<T>(model);
+            var listData = new List<T>();
+            while (await dataT.MoveNextAsync())
+            {
+                listData.Add(dataT.Current);
+            }
+            _adoContext.DisposeAsync();
+            return listData;
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
+        }
+
+        public async Task<IEnumerable<T>> GetByCondition<T>(SqlCommandModel model)
+        {
+            var dataT = _adoContext.ExecuteReaderAsync<T>(model);
+            var listData = new List<T>();
+            while (await dataT.MoveNextAsync())
+            {
+                listData.Add(dataT.Current);
+            }
+            _adoContext.DisposeAsync();
+            return listData;
         }
 
 

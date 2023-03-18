@@ -3,12 +3,14 @@ using Realta.Domain.Entities;
 using Realta.Domain.Repositories;
 using Realta.Domain.RequestFeatures;
 using Realta.Persistence.Base;
+using Realta.Persistence.Repositories.RepositoryExtensions;
 using Realta.Persistence.RepositoryContext;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -318,6 +320,52 @@ namespace Realta.Persistence.Repositories
                 VendorProducts = product.ToList()
             };
             return nestedJson;
+        }
+
+        public async Task<PagedList<VendorProduct>> GetVenpro(VenproParameters vendorProParameters, int id)
+        {
+            string sqlStatement =
+                             @"SELECT venpro.vepro_id as VeproId, 
+                              ven.vendor_name as VendorName, 
+                              s.stock_name as StockName, 
+                              venpro.vepro_qty_stocked as VeproQtyStocked, 
+                              venpro.vepro_qty_remaining as VeproQtyRemaining, 
+                              venpro.vepro_price as VeproPrice, 
+                              venpro.venpro_stock_id as VenproStockId, 
+                              venpro.vepro_vendor_id as VeproVendorId 
+                              FROM Purchasing.vendor_product as venpro 
+                              JOIN Purchasing.stocks as s 
+                              ON s.stock_id = venpro.venpro_stock_id 
+                              JOIN Purchasing.vendor as ven 
+                              ON venpro.vepro_vendor_id = ven.vendor_entity_id 
+                              WHERE ven.vendor_entity_id = @Id
+                              Order by venpro.venpro_stock_id; ";
+
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {
+                        new SqlCommandParameterModel() {
+                        ParameterName = "@Id",
+                        DataType = DbType.Int32,
+                        Value = id
+                    }
+                }
+            };
+
+            //  var dataset = FindAllAsync<VendorProduct>(model);
+            var dataSet = FindByCondition<VendorProduct>(model);
+           // dataSet.
+            var item = new List<VendorProduct>();
+            while (dataSet.MoveNext())
+            {
+                item.Add(dataSet.Current);
+            }
+            return PagedList<VendorProduct>.ToPagedList(item.ToList(),
+                                                        vendorProParameters.PageNumber,
+                                                        vendorProParameters.PageSize);
+
         }
     }
 }

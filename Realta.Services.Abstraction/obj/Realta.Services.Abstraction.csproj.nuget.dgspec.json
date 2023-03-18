@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\alief\\source\\repos\\Final Project\\HotelRealtaAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alief\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {}
+  },
+  "projects": {
+    "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "projectName": "Realta.Services.Abstraction",
+        "projectPath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\Realta.Services.Abstraction.csproj",
+        "packagesPath": "C:\\Users\\CODE.ID\\.nuget\\packages\\",
+        "outputPath": "D:\\RealtaHotel\\RealtaHotelAPI\\Realta.Services.Abstraction\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CODE.ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,10 +60,13 @@
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"
+<<<<<<< HEAD
             },
             "Microsoft.SqlServer.Types": {
               "target": "Package",
               "version": "[160.1000.6, )"
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
             }
           },
           "imports": [
@@ -65,6 +85,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
@@ -131,6 +152,9 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
         }
       }
     }

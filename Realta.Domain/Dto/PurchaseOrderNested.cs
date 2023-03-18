@@ -8,6 +8,6 @@
         public DateTime PoheOrderDate { get; set; }
         public decimal PoheSubtotal { get; set; }
         public decimal PoheTotalAmount { get; set; }
-        public IEnumerable<PurchaseOrderDetail>? Details { get; set; }
+        public IEnumerable<PurchaseOrderDetail> Details { get; set; }
     }
 }

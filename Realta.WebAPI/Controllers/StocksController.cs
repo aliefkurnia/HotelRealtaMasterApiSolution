@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Realta.Contract.Models;
 using Realta.Domain.Base;
 using Realta.Domain.Entities;
+using Realta.Domain.RequestFeatures;
 using Realta.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -29,6 +31,16 @@ namespace Realta.WebAPI.Controllers
             return Ok(stocks.ToList());
         }
 
+        [HttpGet("pageList")]
+        public async Task<IActionResult> GetStockPaging([FromQuery] StocksParameters stocksParameters)
+        {
+
+            var stocks = await _repositoryManager.StockRepository.GetAllStockPaging(stocksParameters);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(stocks.MetaData));
+
+            return Ok(stocks.ToList());
+        }
+
         // GET api/<StocksController>/5
         [HttpGet("{id}", Name = "GetStock")]
         public IActionResult FindStocksById(int id)
@@ -36,7 +48,7 @@ namespace Realta.WebAPI.Controllers
             var stock = _repositoryManager.StockRepository.FindStocksById(id);
             if (stock == null)
             {
-                _logger.LogError("Stocl object sent from client is null");
+                _logger.LogError("Stock object sent from client is null");
                 return BadRequest("Stock object is null");
             }
 
@@ -73,6 +85,9 @@ namespace Realta.WebAPI.Controllers
                 StockName = stocksDto.StockName,
                 StockDesc = stocksDto.StockDescription,
                 StockReorderPoint = stocksDto.StockReorderPoint,
+                StockQty = stocksDto.StockQuantity,
+                StockUsed = stocksDto.StockUsed,
+                StockScrap = stocksDto.StockScrap,
                 StockSize = stocksDto.StockSize,
                 StockColor = stocksDto.StockColor,
                 StockModifiedDate = DateTime.Now
@@ -104,10 +119,13 @@ namespace Realta.WebAPI.Controllers
             var stock = new Stocks {
                 StockId = id,
                 StockName = stocksDto.StockName,
-                StockDesc= stocksDto.StockDescription,
-                StockReorderPoint= stocksDto.StockReorderPoint,
-                StockSize= stocksDto.StockSize,
-                StockColor= stocksDto.StockColor,  
+                StockDesc = stocksDto.StockDescription,
+                StockReorderPoint = stocksDto.StockReorderPoint,
+                StockQty = stocksDto.StockQuantity,
+                StockUsed = stocksDto.StockUsed,
+                StockScrap = stocksDto.StockScrap,
+                StockSize = stocksDto.StockSize,
+                StockColor = stocksDto.StockColor,
                 StockModifiedDate = DateTime.Now
             };
 

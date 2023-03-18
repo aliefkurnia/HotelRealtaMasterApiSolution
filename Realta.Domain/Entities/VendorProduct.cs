@@ -13,16 +13,15 @@ namespace Realta.Domain.Entities
     {
         [Key]
         public int VeproId { get; set; }
-        public string StockName { get; set; }
-        public int VeproQtyStocked { get; set; }
-        public int VeproQtyRemaining { get; set; }
-        public decimal VeproPrice { get; set; }
+        public string? StockName { get; set; }
+        public int? VeproQtyStocked { get; set; }
+        public int? VeproQtyRemaining { get; set; }
+        public decimal? VeproPrice { get; set; }
 
         [ForeignKey("stock_id")]
         public int VenproStockId { get; set; }
 
         [ForeignKey("vendor_entity_id")]
         public int VeproVendorId { get; set; }
-
     }
 }

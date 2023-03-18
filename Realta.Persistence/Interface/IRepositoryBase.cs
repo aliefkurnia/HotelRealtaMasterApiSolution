@@ -10,8 +10,13 @@ namespace Realta.Persistence.Interface
     public interface IRepositoryBase <T>
     {
         IEnumerator<T> FindAll<T>(string sql);
-        IEnumerator<T> FindByCondition<T>(SqlCommandModel model);
         Task<IEnumerable<T>> GetAllAsync<T>(SqlCommandModel model);
+        Task<IEnumerable<T>> GetByCondition<T>(SqlCommandModel model);
+        IEnumerator<T> FindByCondition<T>(SqlCommandModel model);
+<<<<<<< HEAD
+        Task<IEnumerable<T>> GetAllAsync<T>(SqlCommandModel model);
+=======
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
         IAsyncEnumerator<T> FindAllAsync<T>(SqlCommandModel model);
         void Create(SqlCommandModel model);
         void Update(SqlCommandModel model);

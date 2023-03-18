@@ -14,7 +14,7 @@ namespace Realta.Domain.Repositories
     {
         IEnumerable<Vendor> FindAllVendor();
         Task<IEnumerable<Vendor>> FindAllVendorAsync();
-        Task<IEnumerable<Vendor>> GetVendorPaging (VendorParameters vendorParameters);
+        Task<PagedList<Vendor>> GetVendorPaging (VendorParameters vendorParameters);
         Task<PagedList<Vendor>> GetVendorPage (VendorParameters vendorParameters);
         Vendor FindVendorById(int id);
         void Insert(Vendor vendor);

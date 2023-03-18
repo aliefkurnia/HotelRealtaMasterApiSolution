@@ -11,4 +11,14 @@ namespace Realta.Contract.Models
     {
         public List<IFormFile>? AllFoto { get; set; }
     }
+
+    public class StockPhotoDto
+    {
+        public int? SphoId { get; set; }
+        public string? SphoThumbnailFilename { get; set; }
+        public string? SphoPhotoFileName { get; set; }
+        public bool? SphoPrimary { get; set; }
+        public string? SphoUrl { get; set; }
+        public string? StockName { get; set; }
+    }
 }

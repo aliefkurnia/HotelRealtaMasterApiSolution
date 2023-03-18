@@ -9,7 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
+=======
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.11" />
+>>>>>>> 2bcfc209a1187bc4a3c11681c798f81f3d140aac
   </ItemGroup>
 
 </Project>

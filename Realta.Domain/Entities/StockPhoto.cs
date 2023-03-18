@@ -15,10 +15,11 @@ namespace Realta.Domain.Entities
         public int? SphoId { get; set; }
         public string? SphoThumbnailFilename { get; set; }
         public string? SphoPhotoFileName { get; set; }
-        public Int16? SphoPrimary { get; set; }
+        public bool? SphoPrimary { get; set; }
         public string? SphoUrl { get; set; }
         [ForeignKey("stocks")]
         public int? SphoStockId { get; set; }
+        public string? StockName { get; set; }
 
     }
 }
